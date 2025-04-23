@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #4f46e5, #10b981);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .profile-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .profile-icon img {
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Optional</h1>
+    <div class="profile-icon" id="profileIcon">
+        <img src="https://via.placeholder.com/50" alt="Profile">
+    </div>
+
+    <script>
+        // Example: Fetch user data from Firebase and display the profile icon
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                const profileIcon = document.getElementById('profileIcon');
+                // If the user has a photo URL, display it
+                if (user.photoURL) {
+                    profileIcon.querySelector('img').src = user.photoURL;
+                } else {
+                    // Default placeholder image
+                    profileIcon.querySelector('img').src = "https://via.placeholder.com/50";
+                }
+            } else {
+                // Redirect to login page if no user is logged in
+                window.location.href = "login.html";
+            }
+        });
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script>
+        // Firebase configuration (reuse the same config from login.html)
+        const firebaseConfig = {
+            apiKey: "AIzaSyD8r6mmkOSAtUUvTFib_0sw2u3FRcdwAsA",
+            authDomain: "optional-25cd8.firebaseapp.com",
+            projectId: "optional-25cd8",
+            storageBucket: "optional-25cd8.firebasestorage.app",
+            messagingSenderId: "232340431847",
+            appId: "1:232340431847:web:191ada6ed1d393d66f5342",
+            measurementId: "G-HQVLL3SN9H"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+</body>
+
+</html>

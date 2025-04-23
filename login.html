@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | Optional Labs</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, rgb(13, 13, 13), #a31ade, black);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: black;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
+
+    .form-group input {
+      width: 90%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .login-btn {
+      width: 80%;
+      background-color: #4f46e5;
+      color: white;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-btn:hover {
+      background-color: #4338ca;
+    }
+
+    .extra-links {
+      margin-top: 1rem;
+    }
+
+    .extra-links a {
+      color: #4f46e5;
+      text-decoration: none;
+    }
+
+    .extra-links a:hover {
+      text-decoration: underline;
+    }
+
+    .home-btn {
+      margin-top: 1rem;
+      width: 80%;
+      background-color: #10b981;
+      color: white;
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #059669;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>Login to Optional Labs</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" required>
+      </div>
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" required>
+      </div>
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    <div class="extra-links">
+      <p>Don't have an account? <a href="register.html">Register</a></p>
+      <button onclick="location.href='index.html'" class="home-btn">Go to Home</button>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+  <!-- Firebase Configuration -->
+  <script>
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD8r6mmkOSAtUUvTFib_0sw2u3FRcdwAsA",
+      authDomain: "optional-25cd8.firebaseapp.com",
+      projectId: "optional-25cd8",
+      storageBucket: "optional-25cd8.firebasestorage.app",
+      messagingSenderId: "232340431847",
+      appId: "1:232340431847:web:191ada6ed1d393d66f5342",
+      measurementId: "G-HQVLL3SN9H"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    // Handle Login
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      const passwordField = document.getElementById('login-password');
+
+      // Reset any previous error styles
+      passwordField.style.borderColor = ""; // Reset border color
+      const errorMessage = document.getElementById('login-error');
+      if (errorMessage) errorMessage.textContent = ""; // Clear previous error message
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // Redirect to another page on successful login
+          window.location.href = "welcome.html";
+        })
+        .catch((error) => {
+          // Handle errors
+          if (error.code === "auth/wrong-password") {
+            passwordField.style.borderColor = "red"; // Highlight password field in red
+            showError("Incorrect password. Please try again.");
+          } else if (error.code === "auth/user-not-found") {
+            showError("No user found with this email.");
+          } else {
+            showError("Inavalid Email & Password");
+          }
+        });
+    });
+
+    // Function to display error messages
+    function showError(message) {
+      let errorMessage = document.getElementById('login-error');
+      if (!errorMessage) {
+        errorMessage = document.createElement('p');
+        errorMessage.id = 'login-error';
+        errorMessage.style.color = 'red';
+        errorMessage.style.marginTop = '1rem';
+        errorMessage.style.fontSize = '0.9rem';
+        loginForm.appendChild(errorMessage);
+      }
+      errorMessage.textContent = message;
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>

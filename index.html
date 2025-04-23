@@ -1,0 +1,154 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Optional Labs Landing Page</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">Optional Labs</div>
+                <div class="navbar-center">Made with ❤️ in Bengaluru, India</div>
+                <div class="navbar-right">
+                    <a href="login.html" target="_self"
+                    <button class="login-btn" title="Login to your account" >Login</button></a></button>
+                    <button class="register-btn" title="Create a new account">Register</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="user-info" style="text-align: right; margin: 10px;"></div>
+
+        <!-- Hero Section -->
+        <section class="logo-screen">
+            <video autoplay loop muted playsinline>
+                <source src="Assets/logo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <section class="mobile-screen">
+            <video autoplay loop muted playsinline>
+                <source src="Assets/Scene.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- QR Code Section -->
+        <section class="qr-section">
+            <h2>Scan to Download</h2>
+            <img src="Assets/qr.png" alt="QR Code" class="qr-code hidden" />
+        </section>
+
+        <!-- Email Link Section -->
+        <section class="email-section">
+            <h2>Send App Link</h2>
+            <input type="email" id="emailInput" placeholder="Enter your email" />
+            <button id="sendLinkBtn">Send Link</button>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonial-section scroll-section hidden">
+            <h2>User Reviews</h2>
+            <div class="container">
+                <div class="card">
+                    <div class="card-text">
+                        Really Loved Working With Hank! Awesome Developer!
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, qui!
+                    </div>
+                    <div class="details">
+                        <img src="img2.jpg" alt="">
+                        <div class="designation">
+                            <div class="name">Sarah Doe</div>
+                            <div class="job">Strategic Consultant</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-text">
+                        Really Loved Working With Hank! Awesome Developer!
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, qui!
+                    </div>
+                    <div class="details">
+                        <img src="img1.jpg" alt="">
+                        <div class="designation">
+                            <div class="name">John Doe</div>
+                            <div class="job">Web Developer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-text">
+                        Really Loved Working With Hank! Awesome Developer!
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, qui!
+                    </div>
+                    <div class="details">
+                        <img src="img3.jpg" alt="">
+                        <div class="designation">
+                            <div class="name">Daniel Doe</div>
+                            <div class="job">UI/UX Designer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us -->
+        <section class="contact-section">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required />
+                <input type="email" placeholder="Your Email" required />
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© Optional Labs. All rights reserved. 2025-present.</p>
+        </footer>
+
+            <!-- Firebase SDK -->
+
+            <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+            <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+        
+            <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+        
+            
+
+        <script src="script.js"></script>
+        <script>
+        let lastScrollTop = 0;
+        const qrCodeImg = document.querySelector('.qr-code');
+
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+            // Scroll down - show QR code
+            qrCodeImg.classList.add('visible');
+            qrCodeImg.classList.remove('hidden');
+            } else {
+            // Scroll up - hide QR code
+            qrCodeImg.classList.add('hidden');
+            qrCodeImg.classList.remove('visible');
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+        </script>
+
+        <div class="modal-container" style="display: none;"></div>
+        <div id="loader" class="loader" style="display: none;">Loading...</div>
+    </body>
+
+    </html>
