@@ -88,20 +88,64 @@ body {
     background-color: #e6e6e6;
 }
 
+@media (max-width: 1024px) {
+    section {
+        padding: 2rem 1.5rem;
+    }
+
+    .container {
+        padding-inline: 40px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        max-width: 90%;
+    }
+}
+
+
 /* Responsive adjustments for navbar */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .navbar-center {
         order: 3;
         margin-top: 10px;
     }
-    
+
     .navbar-right {
         order: 2;
+    }
+
+    .container {
+        padding-inline: 20px;
+    }
+
+    .card {
+        max-width: 95%;
+    }
+
+    .mobile-screen video {
+        max-width: 100%;
+        max-height: 300px;
+    }
+
+    .logo-screen video {
+        max-width: 100%;
+        max-height: 200px;
+    }
+
+    .qr-code {
+        width: 90%;
+    }
+
+    .testimonial-section h2 {
+        margin-left: 0;
+        text-align: center;
     }
 }
 
@@ -503,12 +547,26 @@ section {
         width: 95%;
         padding: 15px;
     }
-    
+
     .form-group input {
         padding: 8px;
     }
-    
+
     .submit-btn {
         padding: 10px;
     }
+
+    .image-slider img {
+        width: 70px;
+    }
+
+    .contact-section input,
+    .contact-section textarea,
+    .contact-section button {
+        max-width: 100%;
+    }
+}
+
+html, body {
+    overflow-x: hidden;
 }

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Registration</title>
+    <link rel="stylesheet" href="./registration-css.css">
+    <link rel="icon" sizes="32x32"  href="./Assets/light_mode(2).png">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <!-- <div class="secure-tag">SECURE</div> -->
+            <div class="video-container">
+                <!-- Video element replacing the SVG illustration -->
+                <video width="300" autoplay loop muted playsinline>
+                    <source src="./Assets/logo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <!-- Gear icon -->
+            <svg class="gear" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            </svg>
+        </div>
+
+        <div class="right-panel">
+            <h1 class="welcome">Welcome!</h1>
+            <form id="registration-form">
+                <input type="text" id="name" class="input-field" placeholder="Your name" required>
+                <input type="email" id="email" class="input-field" placeholder="Your e-mail" required>
+
+                <div class="password-container">
+                    <input type="password" id="password" class="input-field" placeholder="Create password" required>
+                    <div class="password-toggle" id="password-toggle">
+                        <!-- Eye icon for password visibility toggle -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="password-strength">
+                    <span>Strength:</span>
+                    <div class="strength-meter-container">
+                        <div class="strength-meter" id="strength-meter"></div>
+                    </div>
+                </div>
+
+                <div class="password-rules" id="password-rules">
+                    <div class="password-rule">
+                        <div class="rule-icon" id="rule-length">✓</div>
+                        <span>Minimum 8 characters</span>
+                    </div>
+                    <div class="password-rule">
+                        <div class="rule-icon" id="rule-uppercase">✓</div>
+                        <span>At least one uppercase letter</span>
+                    </div>
+                    <div class="password-rule">
+                        <div class="rule-icon" id="rule-lowercase">✓</div>
+                        <span>At least one lowercase letter</span>
+                    </div>
+                    <div class="password-rule">
+                        <div class="rule-icon" id="rule-number">✓</div>
+                        <span>At least one number</span>
+                    </div>
+                    <div class="password-rule">
+                        <div class="rule-icon" id="rule-special">✓</div>
+                        <span>At least one special character</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="create-btn" id="create-btn" disabled>
+                    <span class="button-text">Create account</span>
+                    <div class="loader"></div>
+                </button>
+                <button type="button" class="signin-btn" id="signin-btn">
+                    <span class="button-text">Sign in</span>
+                    <div class="loader"></div>
+                </button>
+                <div id="error-message"></div>
+                <div id="success-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="./registration-js.js"></script>
+</body>
+
+</html>
