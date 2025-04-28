@@ -1,0 +1,286 @@
+// Your Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyD8r6mmkOSAtUUvTFib_0sw2u3FRcdwAsA",
+    authDomain: "optional-25cd8.firebaseapp.com",
+    projectId: "optional-25cd8",
+    storageBucket: "optional-25cd8.firebasestorage.app",
+    messagingSenderId: "232340431847",
+    appId: "1:232340431847:web:191ada6ed1d393d66f5342",
+    measurementId: "G-HQVLL3SN9H"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// DOM elements
+const registrationForm = document.getElementById('registration-form');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const passwordToggle = document.getElementById('password-toggle');
+const strengthMeter = document.getElementById('strength-meter');
+const createBtn = document.getElementById('create-btn');
+const signinBtn = document.getElementById('signin-btn');
+const errorMessage = document.getElementById('error-message');
+const successMessage = document.getElementById('success-message');
+
+// Password rule elements
+const ruleLength = document.getElementById('rule-length');
+const ruleUppercase = document.getElementById('rule-uppercase');
+const ruleLowercase = document.getElementById('rule-lowercase');
+const ruleNumber = document.getElementById('rule-number');
+const ruleSpecial = document.getElementById('rule-special');
+
+// Helper function to start loading animation
+function startLoading(button) {
+    button.classList.add('loading');
+    button.disabled = true;
+}
+
+// Helper function to stop loading animation
+function stopLoading(button) {
+    button.classList.remove('loading');
+    button.disabled = false;
+}
+
+// Set initial icon when page loads
+window.addEventListener('DOMContentLoaded', () => {
+    passwordToggle.innerHTML = `
+        <!-- Eye with slash icon (password hidden) -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+        </svg>
+    `;
+});
+
+// Toggle password visibility
+passwordToggle.addEventListener('click', function () {
+    if (passwordInput.type === 'password') {
+        // Show password
+        passwordInput.type = 'text';
+        passwordToggle.innerHTML = `
+            <!-- Eye icon (password visible) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+        `;
+    } else {
+        // Hide password
+        passwordInput.type = 'password';
+        passwordToggle.innerHTML = `
+            <!-- Eye with slash icon (password hidden) -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+        `;
+    }
+});
+
+// Password strength checker
+passwordInput.addEventListener('input', function () {
+    const password = passwordInput.value;
+
+    // Check each rule
+    const hasLength = password.length >= 8;
+    const hasUppercase = /[A-Z]/.test(password);
+    const hasLowercase = /[a-z]/.test(password);
+    const hasNumber = /[0-9]/.test(password);
+    const hasSpecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+
+    // Update rule indicators
+    updateRuleIndicator(ruleLength, hasLength);
+    updateRuleIndicator(ruleUppercase, hasUppercase);
+    updateRuleIndicator(ruleLowercase, hasLowercase);
+    updateRuleIndicator(ruleNumber, hasNumber);
+    updateRuleIndicator(ruleSpecial, hasSpecial);
+
+    // Calculate password strength (0-100)
+    let strength = 0;
+    if (hasLength) strength += 20;
+    if (hasUppercase) strength += 20;
+    if (hasLowercase) strength += 20;
+    if (hasNumber) strength += 20;
+    if (hasSpecial) strength += 20;
+
+    // Update strength meter
+    strengthMeter.style.width = strength + '%';
+
+    // Color the strength meter based on strength
+    if (strength < 40) {
+        strengthMeter.style.backgroundColor = '#FF5252'; // Red
+    } else if (strength < 80) {
+        strengthMeter.style.backgroundColor = '#FFC107'; // Yellow/Amber
+    } else {
+        strengthMeter.style.backgroundColor = '#4CAF50'; // Green
+    }
+
+    // Enable/disable create button based on all rules being met
+    if (document.querySelector('.welcome').textContent === 'Welcome!') {
+        createBtn.disabled = !(hasLength && hasUppercase && hasLowercase && hasNumber && hasSpecial);
+    } else {
+        // For sign in mode, we don't need to enforce the password rules
+        createBtn.disabled = password.length === 0;
+    }
+});
+
+// Helper function to update rule indicators
+function updateRuleIndicator(element, isValid) {
+    if (isValid) {
+        element.classList.add('valid');
+        element.innerHTML = '✓';
+    } else {
+        element.classList.remove('valid');
+        element.innerHTML = '';
+    }
+}
+
+// Form submission
+registrationForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = nameInput.value;
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    errorMessage.textContent = '';
+    successMessage.textContent = '';
+
+    // Show loading state
+    startLoading(createBtn);
+
+    // Check if we're in sign-in or register mode
+    const isSignInMode = document.querySelector('.welcome').textContent === 'Sign In';
+
+    if (isSignInMode) {
+        // Sign in with email and password
+        auth.signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+        successMessage.textContent = 'Signed in successfully!';
+        registrationForm.reset();
+        // Wait a moment before redirecting
+        setTimeout(() => {
+            successMessage.textContent = 'Redirecting to dashboard...';
+            // Redirect to dashboard page
+            window.location.href = 'dashboard.html';
+        }, 1500);
+    })
+            .catch((error) => {
+                errorMessage.textContent = error.message;
+            })
+            .finally(() => {
+                stopLoading(createBtn);
+            });
+    } else {
+        // Create user with email and password
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Get user ID
+                const userId = userCredential.user.uid;
+
+                // Store additional user info in Firestore
+                return db.collection('users').doc(userId).set({
+                    fullName: name,
+                    email: email,
+                    uid: userId,
+                    createdAt: new Date()
+                });
+            })
+            .then(() => {
+                successMessage.textContent = 'Account created successfully!';
+                registrationForm.reset();
+
+                // Reset password rules and strength meter
+                strengthMeter.style.width = '0%';
+                document.querySelectorAll('.rule-icon').forEach(icon => {
+                    icon.classList.remove('valid');
+                    icon.innerHTML = '';
+                });
+                createBtn.disabled = true;
+                 // Wait a moment before redirecting
+    setTimeout(() => {
+        successMessage.textContent = 'Redirecting to dashboard...';
+        // Redirect to dashboard page
+        window.location.href = 'dashboard.html';
+    }, 1500);
+            })
+            .catch((error) => {
+                // Custom error messages based on Firebase error codes
+                const errorMap = {
+                    'auth/email-already-in-use': 'This email is already registered. Please use a different email or sign in instead.',
+                    'auth/invalid-email': 'Please enter a valid email address.',
+                    'auth/weak-password': 'Please choose a stronger password.',
+                    'auth/user-not-found': 'No account found with this email. Please register first.',
+                    'auth/wrong-password': 'Incorrect password. Please try again or reset your password.',
+                    'auth/too-many-requests': 'Too many unsuccessful login attempts. Please try again later.',
+                    'auth/network-request-failed': 'Network error. Please check your connection and try again.'
+                };
+
+                // Use custom message if available, otherwise use the original message
+                errorMessage.textContent = errorMap[error.code] || error.message;
+            })
+            .finally(() => {
+                stopLoading(createBtn);
+            });
+    }
+});
+
+// Sign in redirect
+signinBtn.addEventListener('click', function () {
+    // Start loading
+    startLoading(signinBtn);
+
+    // Simulate a small delay to show the loader
+    setTimeout(() => {
+        // Toggle between registration and sign in
+        const welcomeText = document.querySelector('.welcome');
+        const createBtnText = createBtn.querySelector('.button-text');
+
+        if (welcomeText.textContent === 'Welcome!') {
+            welcomeText.textContent = 'Sign In';
+            createBtnText.textContent = 'Sign in';
+            signinBtn.querySelector('.button-text').textContent = 'Create account';
+
+             // Hide name input
+             nameInput.style.display = 'none';
+             nameInput.removeAttribute('required');
+             // Change password field placeholder
+            passwordInput.placeholder = 'Enter your password';
+
+            // Hide password rules for sign in
+            document.getElementById('password-rules').style.display = 'none';
+            document.querySelector('.password-strength').style.display = 'none';
+
+            // Enable button if password is not empty
+            createBtn.disabled = passwordInput.value.length === 0;
+        } else {
+            welcomeText.textContent = 'Welcome!';
+            createBtnText.textContent = 'Create account';
+            signinBtn.querySelector('.button-text').textContent = 'Sign in';
+
+            // Show name input and make it required for account creation
+            nameInput.style.display = 'block';
+            nameInput.setAttribute('required', '');
+
+            // Show password rules for registration
+            document.getElementById('password-rules').style.display = 'block';
+            document.querySelector('.password-strength').style.display = 'flex';
+
+            // Check password to determine if create button should be enabled
+            const password = passwordInput.value;
+            const hasLength = password.length >= 8;
+            const hasUppercase = /[A-Z]/.test(password);
+            const hasLowercase = /[a-z]/.test(password);
+            const hasNumber = /[0-9]/.test(password);
+            const hasSpecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+            createBtn.disabled = !(hasLength && hasUppercase && hasLowercase && hasNumber && hasSpecial);
+        }
+
+        // Stop loading
+        stopLoading(signinBtn);
+    }, 500); // 500ms delay to show loader
+});
