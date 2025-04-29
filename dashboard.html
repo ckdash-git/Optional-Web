@@ -6,7 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optional Dashboard</title>
     <link rel="stylesheet" href="./dashboard.css">
-    <link rel="icon" sizes="32x32"  href="./Assets/light_mode(2).png">
+    <link rel="icon" sizes="32x32" href="./Assets/light_mode(2).png">
+    <style>
+        /* Additional styles for delete button and confirmation modal */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .delete-btn {
+            background-color: #ff3b30;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .delete-btn:hover {
+            background-color: #d9342b;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .modal-content p {
+            margin-bottom: 25px;
+            color: #666;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .btn-yes {
+            background-color: #ff3b30;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-no {
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,16 +95,93 @@
         <div class="welcome-box">
             <h1>Welcome to Optional</h1>
             <p>You have successfully logged in!</p>
-            <a href="./index.html">
-                <button class="logout-btn">Logout</button>
-            </a>
+            <div class="action-buttons">
+                <a href="./index.html">
+                    <button class="logout-btn">Logout</button>
+                </a>
+                <button class="delete-btn" id="deleteAccountBtn">Delete Account</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="deleteConfirmModal">
+        <div class="modal-content">
+            <h3>Delete Account</h3>
+            <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+            <div class="modal-buttons">
+                <button class="btn-yes" id="confirmDeleteBtn">Yes, Delete</button>
+                <button class="btn-no" id="cancelDeleteBtn">No, Cancel</button>
+            </div>
         </div>
     </div>
 
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
     <script src="./dashboard.js"></script>
+
+    <script>
+        // Get modal elements
+        const deleteAccountBtn = document.getElementById('deleteAccountBtn');
+        const deleteConfirmModal = document.getElementById('deleteConfirmModal');
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+        const cancelDeleteBtn = document.getElementById('cancelDeleteBtn');
+
+        // Show modal when Delete Account button is clicked
+        deleteAccountBtn.addEventListener('click', function () {
+            deleteConfirmModal.style.display = 'flex';
+        });
+
+        // Hide modal when Cancel button is clicked
+        cancelDeleteBtn.addEventListener('click', function () {
+            deleteConfirmModal.style.display = 'none';
+        });
+
+        // Handle account deletion when Yes button is clicked
+        confirmDeleteBtn.addEventListener('click', function () {
+            const user = firebase.auth().currentUser;
+
+            if (user) {
+                // Initialize Firestore
+                const db = firebase.firestore();
+                const userId = user.uid;
+
+                // First, delete user data from Firestore
+                db.collection('users').doc(userId).delete()
+                    .then(() => {
+                        console.log('User data deleted from Firestore');
+
+                        // Now delete the user account
+                        return user.delete();
+                    })
+                    .then(() => {
+                        // Account deleted successfully
+                        alert('Your account has been deleted successfully.');
+                        window.location.href = './index.html';
+                    })
+                    .catch(function (error) {
+                        // An error occurred
+                        console.error("Error during deletion:", error);
+                        if (error.code === 'auth/requires-recent-login') {
+                            alert('For security reasons, please log out and log in again before deleting your account.');
+
+                            // Sign out to force re-authentication
+                            firebase.auth().signOut().then(() => {
+                                window.location.href = './index.html';
+                            });
+                        } else {
+                            alert('Error deleting account: ' + error.message);
+                        }
+                        deleteConfirmModal.style.display = 'none';
+                    });
+            } else {
+                alert('You must be logged in to delete your account.');
+                deleteConfirmModal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 
 </html>
