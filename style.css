@@ -529,6 +529,18 @@ section {
     text-decoration: underline;
 }
 
+.account-link {
+    color: #4285f4;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.manage-account-link:hover {
+    color: #3367d6;
+    text-decoration: underline;
+}
+
 /* Loader */
 .loader {
     position: fixed;
