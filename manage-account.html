@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage Account - Optional Labs</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" sizes="32x32" href="./Assets/light_mode(2).png">
+    <style>
+        .account-container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .account-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .manage-account-link {
+            color: #4285f4;
+            text-decoration: none;
+            margin-left: 10px;
+            transition: color 0.3s;
+        }
+
+        .manage-account-link:hover {
+            color: #3367d6;
+            text-decoration: underline;
+        }
+
+        .account-header h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .account-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .user-details {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+        }
+
+        .user-details p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .user-email {
+            font-weight: bold;
+        }
+
+        .action-section {
+            margin-top: 30px;
+        }
+
+        .action-section h2 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .danger-zone {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #fff8f8;
+            border: 1px solid #ffdddd;
+            border-radius: 6px;
+        }
+
+        .danger-zone h3 {
+            color: #d33;
+            margin-bottom: 15px;
+        }
+
+        .danger-zone p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .delete-account-btn {
+            background-color: #d33;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .delete-account-btn:hover {
+            background-color: #b22;
+        }
+
+        .delete-confirmation {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff0f0;
+            border-radius: 6px;
+        }
+
+        .delete-confirmation p {
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: #d33;
+        }
+
+        .delete-confirmation input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .confirm-delete-btn {
+            background-color: #d33;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .cancel-delete-btn {
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .not-logged-in {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .login-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        .message {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            border: 1px solid #d6e9c6;
+        }
+
+        .error {
+            background-color: #f2dede;
+            color: #a94442;
+            border: 1px solid #ebccd1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Optional Labs</div>
+            <div class="navbar-center">Made with ❤️ in Bengaluru, India</div>
+            <div class="navbar-right">
+                <a href="./index.html" target="_self">
+                    <button class="register-btn" title="Go back to home">Home</button>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="account-container">
+        <div class="account-header">
+            <h1>Manage Your Account</h1>
+            <p>View and manage your account settings</p>
+        </div>
+
+        <div id="accountContent">
+            <!-- This section will be populated by JavaScript based on login status -->
+            <div class="not-logged-in">
+                <p>Please log in to manage your account.</p>
+                <a href="registration-html.html" class="login-link">Login now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© Optional Labs. All rights reserved. 2025-present.
+            <a href="privacy-policy.html" class="privacy-link">Privacy Policy</a> |
+            <a href="manage-account.html" class="manage-account-link">Manage Account</a>
+        </p>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // This should be the same as in your script.js file
+        // Since the Firebase config is already in script.js, we don't need to repeat it here
+        // but we need to make sure script.js is loaded
+    </script>
+    <script src="script.js"></script>
+
+    <script>
+        // Wait for Firebase to initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if the user is logged in
+            firebase.auth().onAuthStateChanged(function (user) {
+                const accountContent = document.getElementById('accountContent');
+
+                if (user) {
+                    // User is signed in
+                    accountContent.innerHTML = `
+                        <div class="user-details">
+                            <p>Logged in as: <span class="user-email">${user.email}</span></p>
+                            <p>Account created: ${new Date(user.metadata.creationTime).toLocaleDateString()}</p>
+                            <p>Last login: ${new Date(user.metadata.lastSignInTime).toLocaleDateString()}</p>
+                        </div>
+                        
+                        <div class="action-section">
+                            <h2>Account Settings</h2>
+                            <button id="logoutBtn" class="register-btn">Log Out</button>
+                        </div>
+                        
+                        <div class="danger-zone">
+                            <h3>Danger Zone</h3>
+                            <p>Once you delete your account, there is no going back. Please be certain.</p>
+                            <button id="deleteAccountBtn" class="delete-account-btn">Delete Account</button>
+                            
+                            <div id="deleteConfirmation" class="delete-confirmation">
+                                <p>Please type your email address to confirm deletion:</p>
+                                <input type="email" id="confirmEmail" placeholder="Enter your email">
+                                <button id="confirmDeleteBtn" class="confirm-delete-btn">Permanently Delete</button>
+                                <button id="cancelDeleteBtn" class="cancel-delete-btn">Cancel</button>
+                            </div>
+                        </div>
+                    `;
+
+                    // Add event listeners
+                    setupEventListeners();
+                } else {
+                    // No user is signed in
+                    accountContent.innerHTML = `
+                        <div class="not-logged-in">
+                            <p>Please log in to manage your account.</p>
+                            <a href="registration-html.html" class="login-link">Login now</a>
+                        </div>
+                    `;
+                }
+            });
+        });
+
+        function setupEventListeners() {
+            // Logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function () {
+                firebase.auth().signOut().then(function () {
+                    // Sign-out successful
+                    window.location.href = 'index.html';
+                }).catch(function (error) {
+                    // An error happened
+                    showMessage('Error logging out. Please try again.', 'error');
+                });
+            });
+
+            // Delete account button
+            document.getElementById('deleteAccountBtn').addEventListener('click', function () {
+                document.getElementById('deleteConfirmation').style.display = 'block';
+            });
+
+            // Cancel delete
+            document.getElementById('cancelDeleteBtn').addEventListener('click', function () {
+                document.getElementById('deleteConfirmation').style.display = 'none';
+            });
+
+            // Confirm delete
+            document.getElementById('confirmDeleteBtn').addEventListener('click', function () {
+                const user = firebase.auth().currentUser;
+                const confirmEmail = document.getElementById('confirmEmail').value;
+
+                if (user && user.email === confirmEmail) {
+                    // First delete user data from Firestore if needed
+                    deleteUserData(user.uid).then(() => {
+                        // Then delete the user account
+                        user.delete().then(function () {
+                            // User deleted successfully
+                            showMessage('Your account has been deleted successfully', 'success');
+                            setTimeout(function () {
+                                window.location.href = 'index.html';
+                            }, 2000);
+                        }).catch(function (error) {
+                            // Handle errors
+                            if (error.code === 'auth/requires-recent-login') {
+                                showMessage('For security reasons, please log out and log in again before deleting your account.', 'error');
+                            } else {
+                                showMessage('Error deleting account: ' + error.message, 'error');
+                            }
+                        });
+                    }).catch(error => {
+                        showMessage('Error deleting user data: ' + error.message, 'error');
+                    });
+                } else {
+                    showMessage('Email address does not match. Please try again.', 'error');
+                }
+            });
+        }
+
+        function deleteUserData(userId) {
+            // Delete user data from Firestore
+            // This is where you would delete any collections or documents associated with the user
+            return new Promise((resolve, reject) => {
+                // Check if you have collections with user data
+                // For example:
+                // const userRef = firebase.firestore().collection('users').doc(userId);
+                // userRef.delete().then(resolve).catch(reject);
+
+                // If there's no user-specific data to delete, just resolve
+                resolve();
+            });
+        }
+
+        function showMessage(message, type) {
+            // Create message element
+            const messageElement = document.createElement('div');
+            messageElement.className = `message ${type}`;
+            messageElement.textContent = message;
+
+            // Find container and add message
+            const container = document.querySelector('.account-container');
+            container.insertBefore(messageElement, container.firstChild);
+
+            // Remove after 5 seconds
+            setTimeout(function () {
+                messageElement.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+
+</html>
