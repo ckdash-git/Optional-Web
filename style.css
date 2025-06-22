@@ -581,6 +581,32 @@ section {
     color: #7c49eb;
 }
 
+.downoad_img {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+    padding: 0 20px;
+}
+
+.downoad_img a img {
+    width: 160px;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.downoad_img a img:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .downoad_img a img {
+        width: 120px;
+    }
+}
+
 /* Responsive adjustments for modals */
 @media (max-width: 480px) {
     .auth-modal {
