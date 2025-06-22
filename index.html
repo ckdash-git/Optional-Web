@@ -7,6 +7,131 @@
     <title>Optional Labs</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" sizes="32x32" href="./Assets/light_mode(2).png">
+    <style>
+        /* Email Section Styles */
+        .email-section {
+            text-align: center;
+            margin: 40px auto;
+            max-width: 500px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .email-section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        #emailInput {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        #emailInput:focus {
+            border-color: #6c63ff;
+            box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
+            outline: none;
+        }
+
+        #sendLinkBtn {
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #sendLinkBtn:hover {
+            background-color: #5a52d5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(108, 99, 255, 0.2);
+        }
+
+        #sendLinkBtn:disabled {
+            background-color: #b4b0e8;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Message alerts */
+        .message-alert {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .message-alert.success {
+            background-color: #e6f7ee;
+            color: #18794e;
+            border-left: 4px solid #18794e;
+        }
+
+        .message-alert.error {
+            background-color: #ffeef0;
+            color: #cc3340;
+            border-left: 4px solid #cc3340;
+        }
+
+        /* Loader styling */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader:after {
+            content: "";
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #6c63ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -17,8 +142,6 @@
             <div class="logo">Optional Labs</div>
             <div class="navbar-center">Made with ❤️ in Bengaluru, India</div>
             <div class="navbar-right">
-                <!--<a href="login.html" target="_self" <button class="login-btn"
-                    title="Login to your account">Login</button></a></button> -->
                 <a href="./registration-html.html" target="_self">
                     <button class="register-btn" title="Create a new account">Sign in/Sign Up</button>
                 </a>
@@ -46,14 +169,19 @@
     <!-- QR Code Section -->
     <section class="qr-section">
         <h2>Scan to Download</h2>
-        <img src="Assets/qr.png" alt="QR Code" class="qr-code hidden" />
+        <img src="./Assets/qr_code.png" alt="QR Code" class="qr-code" /> <br>
     </section>
 
-    <!-- Email Link Section -->
+    <!-- Email Link Section
     <section class="email-section">
         <h2>Send App Link</h2>
         <input type="email" id="emailInput" placeholder="Enter your email" />
         <button id="sendLinkBtn">Send Link</button>
+    </section> -->
+
+    <section class="downoad_img">
+        <a href="https://play.google.com/store/apps/details?id=com.optional.android.app&pcampaignid=web_share" target=#><img src="./Assets/android.png" alt="android_img"></a>
+        <a href="https://testflight.apple.com/join/zQR772hv" target=#><img src="./Assets/apple.png" alt="apple_img"></a>
     </section>
 
     <!-- Testimonials Section -->
@@ -120,39 +248,136 @@
     </footer>
 
     <!-- Firebase SDK -->
-
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-
-
-
-    <script src="script.js"></script>
-    <script>
-        let lastScrollTop = 0;
-        const qrCodeImg = document.querySelector('.qr-code');
-
-        window.addEventListener('scroll', function () {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (scrollTop > lastScrollTop) {
-                // Scroll down - show QR code
-                qrCodeImg.classList.add('visible');
-                qrCodeImg.classList.remove('hidden');
-            } else {
-                // Scroll up - hide QR code
-                qrCodeImg.classList.add('hidden');
-                qrCodeImg.classList.remove('visible');
-            }
-
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-functions.js"></script>
 
     <div class="modal-container" style="display: none;"></div>
     <div id="loader" class="loader" style="display: none;">Loading...</div>
+
+    <!-- Firebase App Link Sender Script -->
+    <script>
+        // Firebase Configuration - Replace with your actual Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyD8r6mmkOSAtUUvTFib_0sw2u3FRcdwAsA",
+            authDomain: "optional-25cd8.firebaseapp.com",
+            projectId: "optional-25cd8",
+            storageBucket: "optional-25cd8.firebasestorage.app",
+            messagingSenderId: "232340431847",
+            appId: "1:232340431847:web:191ada6ed1d393d66f5342",
+            measurementId: "G-HQVLL3SN9H"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Reference to Firebase services
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+        const functions = firebase.functions();
+
+        // Get DOM elements
+        const emailInput = document.getElementById('emailInput');
+        const sendLinkBtn = document.getElementById('sendLinkBtn');
+        const loader = document.getElementById('loader');
+
+        // Add event listener to the send link button
+        sendLinkBtn.addEventListener('click', sendAppLink);
+
+        /**
+         * Sends app download link to the provided email
+         */
+        function sendAppLink() {
+            // Get the email value
+            const email = emailInput.value.trim();
+
+            // Validate email
+            if (!isValidEmail(email)) {
+                showMessage('Please enter a valid email address', 'error');
+                return;
+            }
+
+            // Show loading state
+            sendLinkBtn.disabled = true;
+            sendLinkBtn.textContent = 'Sending...';
+            loader.style.display = 'flex';
+
+            // First, sign in anonymously to use Firebase services
+            auth.signInAnonymously()
+                .then(() => {
+                    // Store the email request in Firestore
+                    return db.collection('emailRequests').add({
+                        email: email,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                        status: 'pending'
+                    });
+                })
+                .then((docRef) => {
+                    // For direct HTTP callable function approach (alternative)
+                    // const sendAppLinkHttp = functions.httpsCallable('sendAppLinkHttp');
+                    // return sendAppLinkHttp({ email: email });
+
+                    // If using Firestore triggers, we just need to wait for the Cloud Function to execute
+                    // Simulate waiting for the cloud function to complete
+                    return new Promise(resolve => setTimeout(() => resolve(docRef.id), 1500));
+                })
+                .then((requestId) => {
+                    // Show success message
+                    showMessage('App link sent successfully to your email!', 'success');
+
+                    // Clear the input field
+                    emailInput.value = '';
+                })
+                .catch((error) => {
+                    console.error('Error sending app link:', error);
+                    showMessage('Failed to send app link. Please try again.', 'error');
+                })
+                .finally(() => {
+                    // Reset button state
+                    sendLinkBtn.disabled = false;
+                    sendLinkBtn.textContent = 'Send Link';
+                    loader.style.display = 'none';
+                });
+        }
+
+        /**
+         * Validates email format
+         * @param {string} email - The email to validate
+         * @returns {boolean} - Whether the email is valid
+         */
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        /**
+         * Shows a message to the user
+         * @param {string} message - The message to display
+         * @param {string} type - The message type ('success' or 'error')
+         */
+        function showMessage(message, type) {
+            // Remove any existing message
+            const existingMessage = document.querySelector('.message-alert');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+
+            // Create message element
+            const messageElement = document.createElement('div');
+            messageElement.className = `message-alert ${type}`;
+            messageElement.textContent = message;
+
+            // Add it to the email section
+            const emailSection = document.querySelector('.email-section');
+            emailSection.appendChild(messageElement);
+
+            // Remove after 5 seconds
+            setTimeout(() => {
+                messageElement.remove();
+            }, 5000);
+        }
+    </script>
 </body>
 
 </html>

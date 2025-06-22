@@ -218,15 +218,31 @@ section {
 
 /* QR Code */
 .qr-code {
-    width: 500px;
+    width: 300px;
     margin: 1rem auto;
-    transition: all 0.6s ease-out;
-    opacity: 0;
-    transform: scale(0.8);
-    pointer-events: none;
+    /* transition: all 0.6s ease-out; */
+    /* opacity: 0; */
+    /* transform: scale(0.8); */
+    /* pointer-events: none; */
+    border-radius: 20px 20px;
+}
+/* download_img */
+.downoad_img {
+  display: flex;
+  justify-content: center; /* centers images horizontally */
+  align-items: center;     /* vertically center if needed */
+  gap: 20px;               /* space between images */
+  margin-top: 5px;        /* optional spacing from top */
 }
 
-/* Email Form */
+.downoad_img img {
+  width: 300px;     /* adjust image width */
+  height: auto;     /* maintain aspect ratio */
+  cursor: pointer;  /* optional: makes images clickable */
+}
+
+
+/* Email Form
 .email-section input[type="email"],
 .email-section button {
     padding: 0.6rem;
@@ -245,7 +261,7 @@ section {
 
 .email-section button:hover {
     background-color: #0056b3;
-}
+} */
 
 /* Stars */
 .stars span {
