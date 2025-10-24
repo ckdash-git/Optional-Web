@@ -272,6 +272,105 @@ body {
     }
 }
 
+/* OAuth Buttons Styling for Registration */
+.oauth-container {
+    margin: 1.5rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid #374151;
+    border-bottom: 1px solid #374151;
+}
+
+.oauth-divider {
+    text-align: center;
+    margin: 1rem 0;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+.oauth-btn {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 8px 0;
+    border: 1px solid #4b5563;
+    border-radius: 8px;
+    background-color: #1f2937;
+    color: #f9fafb;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+}
+
+.oauth-btn:hover {
+    background-color: #374151;
+    border-color: #6b7280;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+.oauth-btn:active {
+    transform: translateY(0);
+}
+
+.oauth-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.oauth-btn:disabled:hover {
+    background-color: #1f2937;
+    border-color: #4b5563;
+    transform: none;
+    box-shadow: none;
+}
+
+.google-btn {
+    border-color: #ea4335;
+    background-color: #1f2937;
+}
+
+.google-btn:hover:not(:disabled) {
+    background-color: #2d1b1b;
+    border-color: #dc2626;
+}
+
+.apple-btn {
+    background-color: #000;
+    color: white;
+    border-color: #374151;
+}
+
+.apple-btn:hover:not(:disabled) {
+    background-color: #1f2937;
+    border-color: #6b7280;
+}
+
+.oauth-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.auth-loader {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #4b5563;
+    border-top: 2px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.auth-btn-text {
+    flex: 1;
+}
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;

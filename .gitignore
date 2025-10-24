@@ -87,3 +87,12 @@ build/
 
 # Cache directories
 .cache/
+
+# Development files
+text.txt
+firebase_cloude.js
+
+# Optional-Web specific ignores (if needed, add specific patterns like):
+# Optional-Web/dist/
+# Optional-Web/*.log
+# Optional-Web/node_modules/
