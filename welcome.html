@@ -49,32 +49,22 @@
         <img src="https://via.placeholder.com/50" alt="Profile">
     </div>
 
-    <script>
-        // Wait for Firebase to load and initialize before using auth
-        (function waitForFirebase() {
-            if (typeof firebase === 'undefined' || !firebase.apps || !firebase.apps.length) {
-                setTimeout(waitForFirebase, 50);
-                return;
-            }
-            firebase.auth().onAuthStateChanged((user) => {
-                if (user) {
-                    const profileIcon = document.getElementById('profileIcon');
-                    if (user.photoURL) {
-                        profileIcon.querySelector('img').src = user.photoURL;
-                    } else {
-                        profileIcon.querySelector('img').src = "https://via.placeholder.com/50";
-                    }
-                } else {
-                    window.location.href = "login.html";
-                }
-            });
-        })();
-    </script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
     <script src="./script.js"></script>
     <script>
-        // Firebase initialized via script.js
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                const profileIcon = document.getElementById('profileIcon');
+                if (user.photoURL) {
+                    profileIcon.querySelector('img').src = user.photoURL;
+                } else {
+                    profileIcon.querySelector('img').src = "https://via.placeholder.com/50";
+                }
+            } else {
+                window.location.href = "login.html";
+            }
+        });
     </script>
 </body>
 
