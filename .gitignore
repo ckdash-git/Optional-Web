@@ -67,3 +67,23 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# macOS
+.DS_Store
+
+# IDE settings
+.vscode/
+.idea/
+
+# Local environment variants
+.env.local
+
+# Firebase Functions local runtime config
+functions/.runtimeconfig.json
+
+# Static build outputs (if any)
+dist/
+build/
+
+# Cache directories
+.cache/
