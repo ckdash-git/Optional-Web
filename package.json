@@ -1,0 +1,21 @@
+{
+  "name": "optional-labs-tests",
+  "version": "1.0.0",
+  "description": "Unit tests for Optional Labs authentication application",
+  "scripts": {
+    "test": "mocha 'test/**/*.test.js' --timeout 10000",
+    "test:watch": "mocha 'test/**/*.test.js' --watch --timeout 10000",
+    "test:coverage": "nyc mocha 'test/**/*.test.js' --timeout 10000"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "chai": "^4.3.10",
+    "sinon": "^17.0.1",
+    "jsdom": "^23.0.1",
+    "nyc": "^15.1.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
