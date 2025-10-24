@@ -53,7 +53,7 @@ class AuthProviders {
             console.log('Google Sign-In successful:', user.email);
             
             // Handle new user registration
-            if (user.additionalUserInfo?.isNewUser) {
+            if (result?.additionalUserInfo?.isNewUser) {
                 await this.handleNewUser(user, 'google');
             }
             
@@ -120,7 +120,7 @@ class AuthProviders {
             console.log('Apple Sign-In successful:', user.email);
             
             // Handle new user registration
-            if (user.additionalUserInfo?.isNewUser) {
+            if (result?.additionalUserInfo?.isNewUser) {
                 await this.handleNewUser(user, 'apple');
             }
             
@@ -173,17 +173,17 @@ class AuthProviders {
     // Handle new user registration
     async handleNewUser(user, provider) {
         try {
-            const userData = {
-                uid: user.uid,
-                email: user.email,
-                displayName: user.displayName,
-                photoURL: user.photoURL,
-                provider: provider,
-                createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-                isNewUser: true
-            };
-
             if (typeof firebase.firestore !== 'undefined') {
+                const userData = {
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName,
+                    photoURL: user.photoURL,
+                    provider: provider,
+                    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                    isNewUser: true
+                };
+                
                 await firebase.firestore().collection('users').doc(user.uid).set(userData);
             }
         } catch (error) {
@@ -199,21 +199,35 @@ class AuthProviders {
             // Show success message briefly before redirect
             this.showError(`Welcome ${user.displayName || user.email}! Redirecting...`, 'success');
             
-            // Store user data in Firestore if needed
-            const userData = {
-                uid: user.uid,
-                email: user.email,
-                displayName: user.displayName,
-                photoURL: user.photoURL,
-                provider: provider,
-                lastLogin: firebase.firestore.FieldValue.serverTimestamp(),
-                createdAt: user.metadata.creationTime
-            };
-
             // Check if Firestore is available
-            if (typeof firebase.firestore !== 'undefined') {
-                await firebase.firestore().collection('users').doc(user.uid).set(userData, { merge: true });
-                console.log('User data stored successfully');
+            if (typeof firebase.firestore !== 'undefined' && typeof firebase.firestore.FieldValue !== 'undefined') {
+                const userDocRef = firebase.firestore().collection('users').doc(user.uid);
+                const userDoc = await userDocRef.get();
+                
+                if (userDoc.exists) {
+                    // User document exists, only update lastLogin and other updatable fields
+                    const updateData = {
+                        displayName: user.displayName,
+                        photoURL: user.photoURL,
+                        provider: provider,
+                        lastLogin: firebase.firestore.FieldValue.serverTimestamp()
+                    };
+                    await userDocRef.update(updateData);
+                    console.log('User data updated successfully');
+                } else {
+                    // User document doesn't exist, create it with createdAt
+                    const userData = {
+                        uid: user.uid,
+                        email: user.email,
+                        displayName: user.displayName,
+                        photoURL: user.photoURL,
+                        provider: provider,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        lastLogin: firebase.firestore.FieldValue.serverTimestamp()
+                    };
+                    await userDocRef.set(userData, { merge: false });
+                    console.log('User data created successfully');
+                }
             }
 
             // Add a small delay to show success message, then redirect
