@@ -1,16 +1,4 @@
-// Your Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyD8r6mmkOSAtUUvTFib_0sw2u3FRcdwAsA",
-    authDomain: "optional-25cd8.firebaseapp.com",
-    projectId: "optional-25cd8",
-    storageBucket: "optional-25cd8.firebasestorage.app",
-    messagingSenderId: "232340431847",
-    appId: "1:232340431847:web:191ada6ed1d393d66f5342",
-    measurementId: "G-HQVLL3SN9H"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// Firebase initialized via script.js
 const auth = firebase.auth();
 
 // DOM Elements
