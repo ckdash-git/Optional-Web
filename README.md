@@ -13,7 +13,7 @@ A modern web application with Firebase authentication supporting Google and Appl
 
 ## Project Structure
 
-```
+```text
 Optional-Web/
 ├── index.html              # Landing page
 ├── login.html              # Login page

@@ -179,19 +179,19 @@ https://optionallabs.com/registration-html.html
 ## Troubleshooting Common Issues
 
 ### OAuth Errors
-```
+```text
 Error: unauthorized-domain
 Solution: Add production domain to Firebase authorized domains
 ```
 
 ### Database Permission Errors
-```
+```text
 Error: Missing or insufficient permissions
 Solution: Review and update Firestore security rules
 ```
 
 ### Deployment Errors
-```
+```text
 Error: Firebase project not found
 Solution: Verify .firebaserc configuration and project access
 ```
