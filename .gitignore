@@ -87,3 +87,12 @@ build/
 
 # Cache directories
 .cache/
+
+# Duplicate/Development files
+Optional-Web/
+text.txt
+firebase_cloude.js
+
+# Auto-generated files
+functions/package-lock.json
+functions/.gitignore
