@@ -226,6 +226,16 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
   .close-apps { grid-template-columns: 1fr; }
 }
 
+/* Legal pages */
+.legal { padding-top: clamp(32px, 5vw, 64px); padding-bottom: clamp(64px, 8vw, 112px); }
+.legal-in { max-width: 72ch; }
+.legal h1 { font-weight: 900; font-size: clamp(44px, 6vw, 80px); line-height: 0.95; letter-spacing: -0.04em; color: var(--forest); margin-bottom: 20px; }
+.legal h2 { font-weight: 900; font-size: clamp(24px, 2.4vw, 30px); letter-spacing: -0.02em; color: var(--forest); margin: 44px 0 12px; }
+.legal p, .legal li { color: var(--body); }
+.legal p { margin-bottom: 14px; }
+.legal ul { list-style: disc; padding-left: 1.3em; margin-bottom: 14px; }
+.legal li + li { margin-top: 6px; }
+
 @media (max-width: 860px) {
   .nav a:not(.btn) { display: none; }
   .top-in { height: 64px; }
