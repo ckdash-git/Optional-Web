@@ -110,7 +110,7 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 /* Receipt */
 .receipt { background: var(--canvas); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: clamp(20px, 2.4vw, 32px); }
 .receipt-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; min-height: 36px; }
-.receipt-head h2 { font-size: 15px; font-weight: 600; color: var(--mute); }
+.receipt-head h2 { font-size: 15px; font-weight: 600; color: var(--mute); text-wrap: balance; }
 .replay { flex: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; border: 0; background: var(--sage); color: var(--ink); font: 600 13px/1 "Inter", sans-serif; padding: 9px 12px; border-radius: 999px; cursor: pointer; transition: background-color 0.2s ease; }
 .replay:hover { background: var(--sage-deep); }
 .replay svg { width: 14px; height: 14px; }
@@ -128,7 +128,7 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 
 /* Receipt check sequence (only when JS runs; the receipt is complete without it) */
 .js .receipt .row::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgb(159 232 112 / 0.55), transparent); transform: translateX(-100%); }
-.js .receipt.is-checking .row { opacity: 0.35; }
+.js .receipt.is-checking .row { opacity: 0.55; }
 .js .receipt.is-checking .row .row-val { opacity: 0; transform: translateY(6px); }
 .js .receipt.is-checking .receipt-total strong { opacity: 0; transform: scale(1.35); filter: blur(6px); }
 .js .receipt .row, .js .receipt .row-val { transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out); }

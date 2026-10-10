@@ -29,12 +29,13 @@
       replay.hidden = false;
       replay.addEventListener('click', run);
     }
-    // Play when the receipt is first on screen (below the fold on phones).
-    if ('IntersectionObserver' in window) {
+    // Play once the total is on screen, so the stamp is seen (below the fold on phones).
+    if ('IntersectionObserver' in window && !reduce.matches) {
+      receipt.classList.add('is-checking'); // rows wait, unchecked, until the total is seen
       const seen = new IntersectionObserver((entries) => {
         if (entries.some((e) => e.isIntersecting)) { run(); seen.disconnect(); }
-      }, { threshold: 0.35 });
-      seen.observe(receipt);
+      }, { threshold: 1 });
+      seen.observe(receipt.querySelector('.receipt-total') || receipt);
     } else {
       run();
     }
