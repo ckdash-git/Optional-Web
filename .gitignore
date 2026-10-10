@@ -96,3 +96,4 @@ firebase_cloude.js
 # Optional-Web/dist/
 # Optional-Web/*.log
 # Optional-Web/node_modules/
+.DS_Store
