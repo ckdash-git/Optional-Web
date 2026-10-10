@@ -188,7 +188,7 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
   .section-head { grid-template-columns: 1fr; gap: 16px; }
   .section-head .lede { justify-self: start; }
   .app { grid-template-columns: 1fr; border-radius: var(--radius); }
-  .app-main { flex-direction: row; align-items: center; gap: 18px; }
+  .app-main { flex-direction: row; align-items: center; justify-content: flex-start; gap: 18px; }
   .app-name { font-size: clamp(44px, 12vw, 64px); }
   .app-job { margin-top: 6px; font-size: 15px; }
 }
