@@ -29,7 +29,15 @@
       replay.hidden = false;
       replay.addEventListener('click', run);
     }
-    run();
+    // Play when the receipt is first on screen (below the fold on phones).
+    if ('IntersectionObserver' in window) {
+      const seen = new IntersectionObserver((entries) => {
+        if (entries.some((e) => e.isIntersecting)) { run(); seen.disconnect(); }
+      }, { threshold: 0.35 });
+      seen.observe(receipt);
+    } else {
+      run();
+    }
   }
 
   // Reveal app rows as they enter the viewport.

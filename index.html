@@ -51,7 +51,7 @@
           <h2 id="receipt-title">Personal data sent to Optional Labs</h2>
           <button class="replay" type="button" data-replay hidden>
             <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10a6 6 0 1 0 1.76-4.24M4 4v3.5h3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Check again
+            Replay
           </button>
         </div>
         <ul class="receipt-rows">
@@ -92,7 +92,7 @@
         </div>
 
         <ol class="app-list">
-          <li class="app app-forest" data-reveal>
+          <li class="app app-forest" id="zeroauth" data-reveal>
             <div class="app-main">
               <img class="app-icon" src="assets/img/zeroauth.png" alt="" width="96" height="96" loading="lazy">
               <div>
@@ -115,7 +115,7 @@
             </div>
           </li>
 
-          <li class="app app-lime" data-reveal>
+          <li class="app app-lime" id="saifu" data-reveal>
             <div class="app-main">
               <img class="app-icon" src="assets/img/saifu.svg" alt="" width="96" height="96" loading="lazy">
               <div>
@@ -133,11 +133,12 @@
               <div class="app-actions">
                 <a class="btn btn-ink" href="https://saifu.in">Visit saifu.in<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
                 <a class="btn btn-ghost" href="https://saifu.in/card-finder/">Find my best card</a>
+                <span class="status">Web tools live now. App coming soon.</span>
               </div>
             </div>
           </li>
 
-          <li class="app app-sage" data-reveal>
+          <li class="app app-sage" id="parchi" data-reveal>
             <div class="app-main">
               <img class="app-icon" src="assets/img/parchi.png" alt="" width="96" height="96" loading="lazy">
               <div>
@@ -159,7 +160,7 @@
             </div>
           </li>
 
-          <li class="app app-pale" data-reveal>
+          <li class="app app-pale" id="tegami" data-reveal>
             <div class="app-main">
               <img class="app-icon" src="assets/img/tegami.png" alt="" width="96" height="96" loading="lazy">
               <div>
@@ -195,7 +196,7 @@
             <h3>Your data stays on the phone.</h3>
             <ul class="proof">
               <li><img src="assets/img/zeroauth.png" alt="" width="28" height="28" loading="lazy"><b>ZeroAuth</b><span>Vault encrypted with AES-256-GCM, with keys held in the phone's secure hardware.</span></li>
-              <li><img src="assets/img/saifu.svg" alt="" width="28" height="28" loading="lazy"><b>Saifu</b><span>Your spends and bank messages stay on your phone.</span></li>
+              <li><img src="assets/img/saifu.svg" alt="" width="28" height="28" loading="lazy"><b>Saifu</b><span>Your cards and spends stay on your phone.</span></li>
               <li><img src="assets/img/parchi.png" alt="" width="28" height="28" loading="lazy"><b>Parchi</b><span>Papers are read by the phone itself, not by a server.</span></li>
               <li><img src="assets/img/tegami.png" alt="" width="28" height="28" loading="lazy"><b>Tegami</b><span>Letters are encrypted on the device and never leave it.</span></li>
             </ul>
@@ -203,7 +204,7 @@
           <article class="rule">
             <h3>Nothing to sign up for.</h3>
             <ul class="proof">
-              <li><img src="assets/img/saifu.svg" alt="" width="28" height="28" loading="lazy"><b>Saifu</b><span>No sign-up and no account. No card numbers, bank login or SMS access.</span></li>
+              <li><img src="assets/img/saifu.svg" alt="" width="28" height="28" loading="lazy"><b>Saifu</b><span>No sign-up and no account. No card numbers and no bank login.</span></li>
               <li><img src="assets/img/parchi.png" alt="" width="28" height="28" loading="lazy"><b>Parchi</b><span>No account to make and no server to sign in to.</span></li>
               <li><img src="assets/img/tegami.png" alt="" width="28" height="28" loading="lazy"><b>Tegami</b><span>No account, no server, no analytics.</span></li>
               <li><img src="assets/img/zeroauth.png" alt="" width="28" height="28" loading="lazy"><b>ZeroAuth</b><span>Codes are made on the phone, even with no internet connection.</span></li>
