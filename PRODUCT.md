@@ -43,7 +43,7 @@ Store links known: ZeroAuth iOS `https://apps.apple.com/in/app/zeroauth/id676404
 ## Brand Commitments
 
 - Name: Optional Labs. Based in Bengaluru, India (stated on Tegami's site).
-- Existing assets: `Assets/logo.mp4`, `Assets/light_mode(2).png`, `Assets/dark_mode.PNG`, font `Assets/open-sauce.sans-black.ttf`.
+- Logo: `assets/img/ol-mark.png` (from the original `Assets/light_mode(2).png`; the old `Assets/` folder with the logo video, dark-mode logo and Open Sauce font was removed from the site in Oct 2026 and remains in git history).
 - Voice across products: plain, factual, short sentences, no hype ("No account to make.").
 
 ## Evidence on Hand
