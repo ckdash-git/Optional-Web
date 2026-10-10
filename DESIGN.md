@@ -177,10 +177,8 @@ Components read role tokens rather than raw colours, so a theme only overrides t
 - `--bezel`: the phone frame around screenshots (near-black in both modes).
 - `--chip-soft`, `--card-soft`, `--ghost-soft`, `--ghost-soft-hover`: translucent fills for chips, cards and ghost buttons on neutral bands.
 
-### Dark mode
-Follows `prefers-color-scheme`. Canvas `#0e110c`, sage `#1a1f17`, deep sage `#262c22`, pale `#18240f`, ink `#edf1ea`, body `#b7bdb2`, mute `#959b91`, heading lime `#9fe870`. Forest surfaces deepen to `#112600`.
-
-**The Lime Stays Light Rule.** Lime surfaces (the Saifu band and page hero, the closing band, "What we fixed" panels) keep dark text in both modes: they scope `--ink`, `--heading` and `--body` back to their light values. Hover fills on lime are white, never the canvas.
+### Light only
+The site is always light, whatever the visitor's system setting (owner decision, Oct 2026). The role tokens above stay, so a future theme toggle only needs to override them.
 
 ## Typography
 
