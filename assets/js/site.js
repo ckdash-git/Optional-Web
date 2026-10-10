@@ -32,5 +32,18 @@
     run();
   }
 
+  // Reveal app rows as they enter the viewport.
+  const reveals = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window && !reduce.matches) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    reveals.forEach((el) => io.observe(el));
+  } else {
+    reveals.forEach((el) => el.classList.add('is-in'));
+  }
+
   document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 })();
