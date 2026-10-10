@@ -180,7 +180,8 @@ def hero_art(p):
     if h['kind'] == 'phone':
         return f'<div class="pd-art"><figure class="phone phone-lg"><img src="../assets/screens/{h["src"]}" alt="{e(h["alt"])}" width="560" height="1212"></figure></div>'
     if h['kind'] == 'wide':
-        return f'<div class="pd-art"><img class="pd-wide" src="../assets/screens/{h["src"]}" alt="{e(h["alt"])}" width="{h["w"]}" height="{h["h"]}"></div>'
+        small = h['src'].replace('.webp', '-640.webp')
+        return f'<div class="pd-art"><img class="pd-wide" src="../assets/screens/{h["src"]}" srcset="../assets/screens/{small} 640w, ../assets/screens/{h["src"]} {h["w"]}w" sizes="(max-width: 960px) 92vw, 520px" alt="{e(h["alt"])}" width="{h["w"]}" height="{h["h"]}"></div>'
     return f'<div class="pd-art pd-art-icon"><img src="../assets/img/{p["icon"]}" alt="" width="192" height="192"></div>'
 
 def screens(p):
@@ -203,7 +204,8 @@ def screens(p):
         </div>'''
     if p.get('wide'):
         w = p['wide']
-        return f'        <img class="pd-wide pd-wide-lg" src="../assets/screens/{w["src"]}" alt="{e(w["alt"])}" width="{w["w"]}" height="{w["h"]}" loading="lazy">'
+        small = w['src'].replace('.webp', '-760.webp')
+        return f'        <img class="pd-wide pd-wide-lg" src="../assets/screens/{w["src"]}" srcset="../assets/screens/{small} 760w, ../assets/screens/{w["src"]} {w["w"]}w" sizes="(max-width: 960px) 92vw, 880px" alt="{e(w["alt"])}" width="{w["w"]}" height="{w["h"]}" loading="lazy">'
     chips = ''.join(f'<li>{e(k)}</li>' for k in p['kinds'])
     return f'        <ul class="kinds">{chips}</ul>\n        <p class="pd-note">Screens will appear here when Tegami reaches the App Store.</p>'
 
@@ -235,6 +237,8 @@ def page(p):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>{e(p["title"])} | Optional Labs</title>
   <meta name="description" content="{e(p["desc"])}">
   <link rel="canonical" href="https://optionallabs.com/{p["slug"]}/">

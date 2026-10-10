@@ -250,7 +250,7 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 .close h2 { font-size: clamp(44px, 6.4vw, 96px); max-width: 11ch; }
 .close-apps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .close-apps a { display: flex; align-items: center; gap: 14px; padding: 14px; border-radius: 22px; background: rgb(255 255 255 / 0.55); color: var(--forest); font-weight: 900; font-size: clamp(20px, 1.8vw, 26px); letter-spacing: -0.02em; text-decoration: none; transition: background-color 0.25s ease, transform 0.35s var(--ease-out); }
-.close-apps a:hover { background: var(--canvas); transform: translateY(-3px); }
+.close-apps a:hover { background: #ffffff; transform: translateY(-3px); }
 .close-apps img { width: 56px; height: 56px; border-radius: 15px; flex: none; }
 
 @media (max-width: 960px) {
@@ -459,6 +459,7 @@ a.row:active { transform: scale(0.99); }
     --ink: #0e0f0c; --heading: #163300; --body: #24400f;
   }
   .close-sage .close-apps a { color: var(--heading); }
+  .close-sage .close-apps a:hover { background: var(--sage-deep); }
   .foot { background: #112600; }
   .app-forest, .pd-forest, .pd-privacy.pd-forest { --bg: #112600; }
   .pd-wide { filter: brightness(0.94); }
