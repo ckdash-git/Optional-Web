@@ -1,380 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Optional Labs</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" sizes="32x32" href="./Assets/light_mode(2).png">
-    <style>
-        /* Email Section Styles */
-        .email-section {
-            text-align: center;
-            margin: 40px auto;
-            max-width: 500px;
-            padding: 20px;
-            position: relative;
-        }
-
-        .email-section h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            font-weight: 600;
-        }
-
-        #emailInput {
-            width: 100%;
-            padding: 12px 15px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        #emailInput:focus {
-            border-color: #6c63ff;
-            box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.2);
-            outline: none;
-        }
-
-        #sendLinkBtn {
-            background-color: #6c63ff;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        #sendLinkBtn:hover {
-            background-color: #5a52d5;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(108, 99, 255, 0.2);
-        }
-
-        #sendLinkBtn:disabled {
-            background-color: #b4b0e8;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        /* Message alerts */
-        .message-alert {
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 14px;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .message-alert.success {
-            background-color: #e6f7ee;
-            color: #18794e;
-            border-left: 4px solid #18794e;
-        }
-
-        .message-alert.error {
-            background-color: #ffeef0;
-            color: #cc3340;
-            border-left: 4px solid #cc3340;
-        }
-
-        /* Loader styling */
-        .loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        .loader:after {
-            content: "";
-            width: 40px;
-            height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #6c63ff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Optional Labs: everyday apps that keep your data on your phone</title>
+  <meta name="description" content="Optional Labs makes ZeroAuth, Saifu, Parchi and Tegami: everyday apps that run on your phone, with no account and no personal data sent to us.">
+  <link rel="canonical" href="https://optionallabs.com/">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://optionallabs.com/">
+  <meta property="og:title" content="Optional Labs">
+  <meta property="og:description" content="Everyday apps that keep your data on your phone: ZeroAuth, Saifu, Parchi and Tegami.">
+  <meta property="og:image" content="https://optionallabs.com/assets/img/icon-512.png">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Optional Labs","url":"https://optionallabs.com/","logo":"https://optionallabs.com/assets/img/icon-512.png","email":"contact@optionallabs.com","address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressCountry":"IN"},"brand":[{"@type":"Brand","name":"ZeroAuth","url":"https://zeroauth.in"},{"@type":"Brand","name":"Saifu","url":"https://saifu.in"},{"@type":"Brand","name":"Parchi","url":"https://getparchi.com"},{"@type":"Brand","name":"Tegami","url":"https://tegami.optionallabs.com"}]}</script>
+  <link rel="preload" href="assets/fonts/inter-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
-
 <body>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">Optional Labs</div>
-            <div class="navbar-center">Made with ❤️ in Bengaluru, India</div>
-            <div class="navbar-right">
-                <a href="./registration-html.html" target="_self">
-                    <button class="register-btn" title="Create a new account">Sign in/Sign Up</button>
-                </a>
-            </div>
+  <header class="top" id="top">
+    <div class="wrap top-in">
+      <a class="brand" href="./" aria-label="Optional Labs home"><img src="assets/img/ol-mark.png" alt="" width="36" height="36">Optional Labs</a>
+      <nav class="nav" aria-label="Main">
+        <a href="#apps">Apps</a>
+        <a href="#how">How we build</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-lime" href="#apps">See the apps</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 class="display hero-title" id="hero-title"><span>Your data.</span> <span>Your phone.</span> <span>Nobody else's.</span></h1>
+        <p class="lede">Optional Labs makes four everyday apps. None of them need an account, and none of them send your personal data to us.</p>
+        <div class="hero-cta">
+          <a class="btn btn-lime btn-lg" href="#apps">Explore the apps</a>
+          <a class="btn btn-sage btn-lg" href="#how">How we build</a>
         </div>
-    </header>
+      </div>
 
-    <div class="user-info" style="text-align: right; margin: 10px;"></div>
-
-    <!-- Hero Section -->
-    <section class="logo-screen">
-        <video autoplay loop muted playsinline>
-            <source src="Assets/logo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
-    </section>
-
-    <section class="mobile-screen">
-        <video autoplay loop muted playsinline>
-            <source src="Assets/Scene.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
-    </section>
-
-    <!-- QR Code Section -->
-    <section class="qr-section">
-        <h2>Scan to Download</h2>
-        <img src="./Assets/qr_code.png" alt="QR Code" class="qr-code" /> <br>
-    </section>
-
-    <!-- Email Link Section
-    <section class="email-section">
-        <h2>Send App Link</h2>
-        <input type="email" id="emailInput" placeholder="Enter your email" />
-        <button id="sendLinkBtn">Send Link</button>
-    </section> -->
-
-    <section class="downoad_img">
-        <a href="https://play.google.com/store/apps/details?id=com.optional.android.app&pcampaignid=web_share" target=#><img src="./Assets/android.png" alt="android_img"></a>
-        <a href="https://testflight.apple.com/join/zQR772hv" target=#><img src="./Assets/apple.png" alt="apple_img"></a>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonial-section scroll-section hidden">
-        <h2>User Reviews</h2>
-        <div class="container">
-            <div class="card">
-                <div class="card-text">
-                    Really Loved Working With Hank! Awesome Developer!
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, qui!
-                </div>
-                <div class="details">
-                    <img src="Optional-Web/Assets/user.png" alt="User avatar">
-                    <div class="designation">
-                        <div class="name">Sarah Doe</div>
-                        <div class="job">Strategic Consultant</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-text">
-                    Really Loved Working With Hank! Awesome Developer!
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, qui!
-                </div>
-                <div class="details">
-                    <img src="Optional-Web/Assets/user.png" alt="User avatar">
-                    <div class="designation">
-                        <div class="name">John Doe</div>
-                        <div class="job">Web Developer</div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-text">
-                    Really Loved Working With Hank! Awesome Developer!
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, qui!
-                </div>
-                <div class="details">
-                    <img src="Optional-Web/Assets/user.png" alt="User avatar">
-                    <div class="designation">
-                        <div class="name">Daniel Doe</div>
-                        <div class="job">UI/UX Designer</div>
-                    </div>
-                </div>
-            </div>
+      <figure class="receipt" data-receipt aria-labelledby="receipt-title">
+        <div class="receipt-head">
+          <h2 id="receipt-title">Personal data sent to Optional Labs</h2>
+          <button class="replay" type="button" data-replay hidden>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10a6 6 0 1 0 1.76-4.24M4 4v3.5h3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Replay
+          </button>
         </div>
+        <ul class="receipt-rows">
+          <li class="row">
+            <img src="assets/img/zeroauth.png" alt="" width="48" height="48">
+            <span class="row-name">ZeroAuth<small>2FA codes and password vault</small></span>
+            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+          </li>
+          <li class="row">
+            <img src="assets/img/saifu.svg" alt="" width="48" height="48">
+            <span class="row-name">Saifu<small>Your cards and spends</small></span>
+            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+          </li>
+          <li class="row">
+            <img src="assets/img/parchi.png" alt="" width="48" height="48">
+            <span class="row-name">Parchi<small>Your family's medical papers</small></span>
+            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+          </li>
+          <li class="row">
+            <img src="assets/img/tegami.png" alt="" width="48" height="48">
+            <span class="row-name">Tegami<small>Letters from city hall</small></span>
+            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+          </li>
+        </ul>
+        <div class="receipt-total">
+          <span>Total</span>
+          <strong>0 KB</strong>
+        </div>
+        <figcaption>Each app keeps what you put into it on your phone. No sign-up, no Optional Labs account.</figcaption>
+      </figure>
     </section>
 
-    <!-- Contact Us -->
-    <section class="contact-section">
-        <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
+    <section class="apps" id="apps" aria-labelledby="apps-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="display h2" id="apps-title">Four apps. One rule.</h2>
+          <p class="lede">Each app does one everyday job, and keeps what you give it on your phone.</p>
+        </div>
+
+        <ol class="app-list">
+          <li class="app app-forest" id="zeroauth" data-reveal>
+            <div class="app-main">
+              <img class="app-icon" src="assets/img/zeroauth.png" alt="" width="96" height="96" loading="lazy">
+              <div>
+                <h3 class="app-name">ZeroAuth</h3>
+                <p class="app-job">Authenticator for iPhone and Android</p>
+              </div>
+            </div>
+            <div class="app-body">
+              <p class="app-line">A privacy-first authenticator. Your two-factor codes are made on the phone, with no internet needed, and kept in an encrypted vault.</p>
+              <ul class="app-facts" aria-label="What stays on your phone">
+                <li>Codes work offline</li>
+                <li>AES-256-GCM vault</li>
+                <li>Face ID and fingerprint lock</li>
+              </ul>
+              <div class="app-actions">
+                <a class="btn btn-lime" href="https://zeroauth.in">Visit zeroauth.in<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <a class="btn btn-ghost" href="https://apps.apple.com/in/app/zeroauth/id6764048764">App Store</a>
+                <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.OptionalLabs.zeroauth">Google Play</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="app app-lime" id="saifu" data-reveal>
+            <div class="app-main">
+              <img class="app-icon" src="assets/img/saifu.svg" alt="" width="96" height="96" loading="lazy">
+              <div>
+                <h3 class="app-name">Saifu</h3>
+                <p class="app-job">Credit card advisor for India</p>
+              </div>
+            </div>
+            <div class="app-body">
+              <p class="app-line">Which card at checkout, and what you are about to lose. Saifu ranks your cards for each spend and shows fee waivers, monthly caps and points about to expire.</p>
+              <ul class="app-facts" aria-label="What stays on your phone">
+                <li>336 Indian cards listed</li>
+                <li>Spends stay on your phone</li>
+                <li>No card numbers or bank login</li>
+              </ul>
+              <div class="app-actions">
+                <a class="btn btn-ink" href="https://saifu.in">Visit saifu.in<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <a class="btn btn-ghost" href="https://saifu.in/card-finder/">Find my best card</a>
+                <span class="status">Web tools live now. App coming soon.</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="app app-sage" id="parchi" data-reveal>
+            <div class="app-main">
+              <img class="app-icon" src="assets/img/parchi.png" alt="" width="96" height="96" loading="lazy">
+              <div>
+                <h3 class="app-name">Parchi</h3>
+                <p class="app-job">Family medical papers</p>
+              </div>
+            </div>
+            <div class="app-body">
+              <p class="app-line">Photograph a prescription, a lab report or a hospital bill. Parchi reads it on your phone, files it under the right family member and makes a one-page summary for the next doctor visit.</p>
+              <ul class="app-facts" aria-label="What stays on your phone">
+                <li>Read on the phone</li>
+                <li>Medicine reminders</li>
+                <li>Health card per person</li>
+              </ul>
+              <div class="app-actions">
+                <a class="btn btn-ink" href="https://getparchi.com">Visit getparchi.com<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <span class="status">Coming soon to App Store and Google Play</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="app app-pale" id="tegami" data-reveal>
+            <div class="app-main">
+              <img class="app-icon" src="assets/img/tegami.png" alt="" width="96" height="96" loading="lazy">
+              <div>
+                <h3 class="app-name">Tegami</h3>
+                <p class="app-job">City-hall letters, for residents of Japan</p>
+              </div>
+            </div>
+            <div class="app-body">
+              <p class="app-line">Every letter from city hall, explained in plain English. Photograph a notice from the ward office, pension service, tax office or immigration, and Tegami tells you what it is, what to do and by when.</p>
+              <ul class="app-facts" aria-label="What stays on your phone">
+                <li>Deadlines pulled out</li>
+                <li>Era dates converted</li>
+                <li>Letters encrypted on the phone</li>
+              </ul>
+              <div class="app-actions">
+                <a class="btn btn-ink" href="https://tegami.optionallabs.com">Visit Tegami<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+                <span class="status">Coming soon to the App Store</span>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
     </section>
 
-    <footer class="footer">
-        <p>© Optional Labs. All rights reserved. 2025-present. <a href="privacy-policy.html"
-                class="privacy-link">Privacy Policy</a> | <a href="manage-account.html" class="account-link">Manage
-                Account</a></p>
-    </footer>
+    <section class="how" id="how" aria-labelledby="how-title">
+      <div class="wrap how-in">
+        <div class="how-head">
+          <h2 class="display h2" id="how-title">How we build</h2>
+          <p class="lede">Three rules every Optional Labs app follows, with what each app does to keep them.</p>
+        </div>
+        <div class="rules">
+          <article class="rule">
+            <h3>Your data stays on the phone.</h3>
+            <ul class="proof">
+              <li><img src="assets/img/zeroauth.png" alt="" width="28" height="28" loading="lazy"><b>ZeroAuth</b><span>Vault encrypted with AES-256-GCM, with keys held in the phone's secure hardware.</span></li>
+              <li><img src="assets/img/saifu.svg" alt="" width="28" height="28" loading="lazy"><b>Saifu</b><span>Your cards and spends stay on your phone.</span></li>
+              <li><img src="assets/img/parchi.png" alt="" width="28" height="28" loading="lazy"><b>Parchi</b><span>Papers are read by the phone itself, not by a server.</span></li>
+              <li><img src="assets/img/tegami.png" alt="" width="28" height="28" loading="lazy"><b>Tegami</b><span>Letters are encrypted on the device and never leave it.</span></li>
+            </ul>
+          </article>
+          <article class="rule">
+            <h3>Nothing to sign up for.</h3>
+            <ul class="proof">
+              <li><img src="assets/img/saifu.svg" alt="" width="28" height="28" loading="lazy"><b>Saifu</b><span>No sign-up and no account. No card numbers and no bank login.</span></li>
+              <li><img src="assets/img/parchi.png" alt="" width="28" height="28" loading="lazy"><b>Parchi</b><span>No account to make and no server to sign in to.</span></li>
+              <li><img src="assets/img/tegami.png" alt="" width="28" height="28" loading="lazy"><b>Tegami</b><span>No account, no server, no analytics.</span></li>
+              <li><img src="assets/img/zeroauth.png" alt="" width="28" height="28" loading="lazy"><b>ZeroAuth</b><span>Codes are made on the phone, even with no internet connection.</span></li>
+            </ul>
+          </article>
+          <article class="rule">
+            <h3>Show our work.</h3>
+            <ul class="proof">
+              <li><img src="assets/img/parchi.png" alt="" width="28" height="28" loading="lazy"><b>Parchi</b><span>Every detail it reads sits next to the original photo, for you to check and correct.</span></li>
+              <li><img src="assets/img/tegami.png" alt="" width="28" height="28" loading="lazy"><b>Tegami</b><span>See the original letter and the exact text that was read, beside the explanation.</span></li>
+              <li><img src="assets/img/saifu.svg" alt="" width="28" height="28" loading="lazy"><b>Saifu</b><span>Card rules not yet checked against the bank's terms carry a warning, and affiliate links are labelled.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-functions.js"></script>
-    <script src="./script.js"></script>
+    <section class="close wrap" aria-labelledby="close-title">
+      <div class="close-in">
+        <h2 class="display" id="close-title">Pick an app. Keep your data.</h2>
+        <ul class="close-apps">
+          <li><a href="https://zeroauth.in"><img src="assets/img/zeroauth.png" alt="" width="56" height="56" loading="lazy">ZeroAuth</a></li>
+          <li><a href="https://saifu.in"><img src="assets/img/saifu.svg" alt="" width="56" height="56" loading="lazy">Saifu</a></li>
+          <li><a href="https://getparchi.com"><img src="assets/img/parchi.png" alt="" width="56" height="56" loading="lazy">Parchi</a></li>
+          <li><a href="https://tegami.optionallabs.com"><img src="assets/img/tegami.png" alt="" width="56" height="56" loading="lazy">Tegami</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-    <div class="modal-container" style="display: none;"></div>
-    <div id="loader" class="loader" style="display: none;">Loading...</div>
+  <footer class="foot" id="contact">
+    <div class="wrap foot-in">
+      <div>
+        <a class="brand" href="./"><img src="assets/img/ol-mark.png" alt="" width="36" height="36">Optional Labs</a>
+        <p>Everyday apps that keep your data on your phone. Made in Bengaluru, India.</p>
+      </div>
+      <div>
+        <h2>Apps</h2>
+        <ul>
+          <li><a href="https://zeroauth.in">ZeroAuth</a></li>
+          <li><a href="https://saifu.in">Saifu</a></li>
+          <li><a href="https://getparchi.com">Parchi</a></li>
+          <li><a href="https://tegami.optionallabs.com">Tegami</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:contact@optionallabs.com">contact@optionallabs.com</a></li>
+          <li><a href="mailto:support@zeroauth.in">ZeroAuth support</a></li>
+          <li><a href="mailto:support@getparchi.com">Parchi support</a></li>
+          <li><a href="https://tegami.optionallabs.com/support/">Tegami support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="#how">How we build</a></li>
+          <li><a href="privacy-policy.html">Privacy policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-base">
+      <span>&copy; <span data-year>2026</span> Optional Labs</span>
+      <span>Bengaluru, India</span>
+    </div>
+  </footer>
 
-    <!-- Firebase App Link Sender Script -->
-    <script>
-        // Firebase initialized via script.js
-
-        // Reference to Firebase services
-        const auth = firebase.auth();
-        const db = firebase.firestore();
-        const functions = firebase.functions();
-
-        // Get DOM elements
-        const emailInput = document.getElementById('emailInput');
-        const sendLinkBtn = document.getElementById('sendLinkBtn');
-        const loader = document.getElementById('loader');
-
-        // Add event listener to the send link button
-        if (sendLinkBtn && emailInput) {
-    sendLinkBtn.addEventListener('click', sendAppLink);
-}
-
-        /**
-         * Sends app download link to the provided email
-         */
-        function sendAppLink() {
-            // Get the email value
-            const email = emailInput.value.trim();
-
-            // Validate email
-            if (!isValidEmail(email)) {
-                showMessage('Please enter a valid email address', 'error');
-                return;
-            }
-
-            // Show loading state
-            sendLinkBtn.disabled = true;
-            sendLinkBtn.textContent = 'Sending...';
-            loader.style.display = 'flex';
-
-            // First, sign in anonymously to use Firebase services
-            auth.signInAnonymously()
-                .then(() => {
-                    // Store the email request in Firestore
-                    return db.collection('emailRequests').add({
-                        email: email,
-                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                        status: 'pending'
-                    });
-                })
-                .then((docRef) => {
-                    // For direct HTTP callable function approach (alternative)
-                    // const sendAppLinkHttp = functions.httpsCallable('sendAppLinkHttp');
-                    // return sendAppLinkHttp({ email: email });
-
-                    // If using Firestore triggers, we just need to wait for the Cloud Function to execute
-                    // Simulate waiting for the cloud function to complete
-                    return new Promise(resolve => setTimeout(() => resolve(docRef.id), 1500));
-                })
-                .then((requestId) => {
-                    // Show success message
-                    showMessage('App link sent successfully to your email!', 'success');
-
-                    // Clear the input field
-                    emailInput.value = '';
-                })
-                .catch((error) => {
-                    console.error('Error sending app link:', error);
-                    showMessage('Failed to send app link. Please try again.', 'error');
-                })
-                .finally(() => {
-                    // Reset button state
-                    if (sendLinkBtn) {
-                        sendLinkBtn.disabled = false;
-                        sendLinkBtn.textContent = 'Send Link';
-                    }
-                    loader.style.display = 'none';
-                });
-        }
-
-        /**
-         * Validates email format
-         * @param {string} email - The email to validate
-         * @returns {boolean} - Whether the email is valid
-         */
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        /**
-         * Shows a message to the user
-         * @param {string} message - The message to display
-         * @param {string} type - The message type ('success' or 'error')
-         */
-        function showMessage(message, type) {
-            // Remove any existing message
-            const existingMessage = document.querySelector('.message-alert');
-            if (existingMessage) {
-                existingMessage.remove();
-            }
-
-            // Create message element
-            const messageElement = document.createElement('div');
-            messageElement.className = `message-alert ${type}`;
-            messageElement.textContent = message;
-
-            // Add it to the email section
-            const emailSection = document.querySelector('.email-section');
-            if (emailSection) {
-                emailSection.appendChild(messageElement);
-            } else {
-                document.body.appendChild(messageElement);
-            }
-
-            // Remove after 5 seconds
-            setTimeout(() => {
-                messageElement.remove();
-            }, 5000);
-        }
-    </script>
+  <script src="assets/js/site.js" defer></script>
 </body>
-
 </html>
