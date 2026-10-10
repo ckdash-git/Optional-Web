@@ -21,7 +21,7 @@ optionallabs.com is the hub for Optional Labs, the registered company behind fou
 
 ## Positioning
 
-A privacy-first studio. Every product runs on the phone, needs no account, and sends nothing to Optional Labs servers. All four products prove this independently, so the claim is evidence-backed, not a slogan.
+A privacy-first studio. Every product keeps what you put into it on the phone and sends none of it to Optional Labs servers. Saifu, Parchi and Tegami need no account. ZeroAuth has a sign-up, but codes, passwords and 2FA seeds never leave the phone (owner correction, Oct 2026). Never claim "no account" for all four apps.
 
 ## Products (only these four are listed)
 

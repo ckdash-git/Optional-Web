@@ -54,5 +54,25 @@
     reveals.forEach((el) => el.classList.add('is-in'));
   }
 
+  // Screen galleries: previous/next buttons scroll one screen at a time.
+  document.querySelectorAll('[data-gallery]').forEach((g) => {
+    const list = g.querySelector('.shots');
+    const nav = g.querySelector('[data-gallery-nav]');
+    if (!list || !nav) return;
+    const [prev, next] = nav.querySelectorAll('button');
+    const step = () => (list.querySelector('.shot')?.getBoundingClientRect().width || 240) + parseFloat(getComputedStyle(list).columnGap || 24);
+    const update = () => {
+      prev.disabled = list.scrollLeft < 4;
+      next.disabled = list.scrollLeft + list.clientWidth > list.scrollWidth - 4;
+      nav.hidden = list.scrollWidth <= list.clientWidth + 4;
+    };
+    nav.querySelectorAll('button').forEach((b) => b.addEventListener('click', () => {
+      list.scrollBy({ left: Number(b.dataset.dir) * step(), behavior: reduce.matches ? 'auto' : 'smooth' });
+    }));
+    list.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+
   document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 })();
