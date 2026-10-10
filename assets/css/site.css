@@ -193,6 +193,39 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
   .app-job { margin-top: 6px; font-size: 15px; }
 }
 
+/* How we build */
+.how { background: var(--sage); padding: clamp(64px, 9vw, 128px) 0; }
+.how-in { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.how-head { position: sticky; top: 112px; }
+.how-head .lede { margin-top: 24px; }
+.rules { display: grid; gap: 16px; }
+.rule { background: var(--canvas); border-radius: var(--radius-lg); padding: clamp(24px, 3.4vw, 44px); }
+.rule h3 { font-weight: 900; font-size: clamp(30px, 3.4vw, 46px); line-height: 0.98; letter-spacing: -0.035em; color: var(--forest); margin-bottom: 24px; text-wrap: balance; }
+.proof li { display: grid; grid-template-columns: 28px 96px minmax(0, 1fr); gap: 14px; align-items: baseline; padding: 14px 0; border-top: 1px solid var(--line); }
+.proof img { width: 28px; height: 28px; border-radius: 8px; align-self: center; }
+.proof b { font-weight: 600; }
+.proof span { color: var(--body); }
+
+/* Close */
+.close { padding-top: clamp(64px, 9vw, 120px); padding-bottom: clamp(48px, 6vw, 88px); }
+.close-in { background: var(--lime); border-radius: var(--radius-lg); padding: clamp(32px, 6vw, 80px); display: grid; gap: clamp(28px, 4vw, 48px); }
+.close h2 { font-size: clamp(44px, 6.4vw, 96px); max-width: 11ch; }
+.close-apps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.close-apps a { display: flex; align-items: center; gap: 14px; padding: 14px; border-radius: 22px; background: rgb(255 255 255 / 0.55); color: var(--forest); font-weight: 900; font-size: clamp(20px, 1.8vw, 26px); letter-spacing: -0.02em; text-decoration: none; transition: background-color 0.25s ease, transform 0.35s var(--ease-out); }
+.close-apps a:hover { background: var(--canvas); transform: translateY(-3px); }
+.close-apps img { width: 56px; height: 56px; border-radius: 15px; flex: none; }
+
+@media (max-width: 960px) {
+  .how-in { grid-template-columns: 1fr; }
+  .how-head { position: static; }
+  .close-apps { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 520px) {
+  .proof li { grid-template-columns: 28px minmax(0, 1fr); row-gap: 2px; }
+  .proof li span { grid-column: 2; }
+  .close-apps { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 860px) {
   .nav a:not(.btn) { display: none; }
   .top-in { height: 64px; }
