@@ -317,8 +317,9 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 
 /* Privacy band */
 .pd-privacy { --bg: var(--sage); --fg: var(--ink); --name: var(--forest); --soft: var(--body); background: var(--bg); color: var(--fg); border-radius: var(--radius-lg); padding: clamp(28px, 5vw, 72px); }
-.pd-privacy.pd-forest { --fg: var(--pale); --name: var(--lime); --soft: rgb(226 246 213 / 0.82); }
-.pd-privacy.pd-lime { --soft: #24400f; }
+.pd-privacy.pd-forest { --bg: var(--forest); --fg: var(--pale); --name: var(--lime); --soft: rgb(226 246 213 / 0.82); }
+.pd-privacy.pd-lime { --bg: var(--lime); --soft: #24400f; }
+.pd-privacy.pd-pale { --bg: var(--pale); }
 .pd-privacy h2 { font-size: clamp(36px, 4.6vw, 64px); color: var(--name); max-width: 16ch; }
 .pcols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: clamp(28px, 4vw, 44px); }
 .pcol { background: rgb(255 255 255 / 0.6); color: var(--ink); border-radius: var(--radius); padding: clamp(20px, 2.6vw, 32px); }
