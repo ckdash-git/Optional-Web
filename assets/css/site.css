@@ -99,6 +99,57 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 .foot a:hover { color: var(--lime); text-decoration: underline; }
 .foot-base { border-top: 1px solid rgb(226 246 213 / 0.16); padding-top: 20px; padding-bottom: 28px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 14px; color: rgb(226 246 213 / 0.7); }
 
+/* Hero */
+.hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; padding-top: clamp(32px, 5vw, 64px); padding-bottom: clamp(56px, 8vw, 112px); }
+.hero-title { font-size: clamp(48px, 6vw, 96px); line-height: 0.94; }
+.hero-title span { display: block; }
+.hero .lede { margin-top: 28px; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+
+/* Receipt */
+.receipt { background: var(--canvas); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: clamp(20px, 2.4vw, 32px); }
+.receipt-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; min-height: 36px; }
+.receipt-head h2 { font-size: 15px; font-weight: 600; color: var(--mute); }
+.replay { flex: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; border: 0; background: var(--sage); color: var(--ink); font: 600 13px/1 "Inter", sans-serif; padding: 9px 12px; border-radius: 999px; cursor: pointer; transition: background-color 0.2s ease; }
+.replay:hover { background: var(--sage-deep); }
+.replay svg { width: 14px; height: 14px; }
+.receipt-rows { display: grid; gap: 10px; }
+.row { position: relative; display: flex; align-items: center; gap: 14px; padding: 14px 18px 14px 14px; border-radius: 20px; background: var(--sage); overflow: hidden; }
+.row img { width: 48px; height: 48px; border-radius: 13px; flex: none; }
+.row-name { flex: 1; min-width: 0; font-weight: 600; line-height: 1.25; }
+.row-name small { display: block; font-weight: 400; color: var(--body); font-size: 14px; margin-top: 2px; }
+.row-val { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; font-size: 22px; letter-spacing: -0.02em; color: var(--forest); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.row-check { width: 22px; height: 22px; border-radius: 50%; background: var(--lime); position: relative; flex: none; }
+.row-check::after { content: ""; position: absolute; left: 7px; top: 4px; width: 6px; height: 11px; border: solid var(--forest); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+.receipt-total { display: flex; align-items: baseline; justify-content: space-between; border-top: 2px solid var(--ink); margin-top: 20px; padding-top: 16px; font-weight: 600; font-size: 18px; }
+.receipt-total strong { font-weight: 900; font-size: clamp(40px, 4.4vw, 56px); letter-spacing: -0.04em; line-height: 1; color: var(--forest); }
+.receipt figcaption { margin-top: 14px; font-size: 14px; color: var(--mute); max-width: 44ch; }
+
+/* Receipt check sequence (only when JS runs; the receipt is complete without it) */
+.js .receipt .row::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgb(159 232 112 / 0.55), transparent); transform: translateX(-100%); }
+.js .receipt.is-checking .row { opacity: 0.35; }
+.js .receipt.is-checking .row .row-val { opacity: 0; transform: translateY(6px); }
+.js .receipt.is-checking .receipt-total strong { opacity: 0; transform: scale(1.35); filter: blur(6px); }
+.js .receipt .row, .js .receipt .row-val { transition: opacity 0.45s var(--ease-out), transform 0.45s var(--ease-out); }
+.js .receipt .receipt-total strong { transition: opacity 0.5s var(--ease-out), transform 0.6s var(--ease-out), filter 0.5s var(--ease-out); }
+.js .receipt .row.is-scan::before { animation: scan 0.7s var(--ease-out) forwards; }
+.js .receipt .row.is-done { opacity: 1; }
+.js .receipt .row.is-done .row-val { opacity: 1; transform: none; }
+@keyframes scan { to { transform: translateX(100%); } }
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero .lede { max-width: 40ch; }
+}
+@media (max-width: 420px) {
+  .row { padding: 12px 14px 12px 12px; gap: 12px; }
+  .row img { width: 40px; height: 40px; border-radius: 11px; }
+  .row-val { font-size: 19px; gap: 8px; }
+  .row-check { width: 18px; height: 18px; }
+  .row-check::after { left: 6px; top: 3px; width: 5px; height: 9px; }
+  .hero-cta .btn { flex: 1 1 auto; }
+}
+
 @media (max-width: 860px) {
   .nav a:not(.btn) { display: none; }
   .top-in { height: 64px; }

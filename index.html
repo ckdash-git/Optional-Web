@@ -17,6 +17,7 @@
   <meta name="twitter:card" content="summary">
   <link rel="preload" href="assets/fonts/inter-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/site.css">
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -34,6 +35,53 @@
   </header>
 
   <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 class="display hero-title" id="hero-title"><span>Your data.</span> <span>Your phone.</span> <span>Nobody else's.</span></h1>
+        <p class="lede">Optional Labs makes four everyday apps. None of them need an account, and none of them send your personal data to us.</p>
+        <div class="hero-cta">
+          <a class="btn btn-lime btn-lg" href="#apps">Explore the apps</a>
+          <a class="btn btn-sage btn-lg" href="#how">How we build</a>
+        </div>
+      </div>
+
+      <figure class="receipt" data-receipt aria-labelledby="receipt-title">
+        <div class="receipt-head">
+          <h2 id="receipt-title">Personal data sent to Optional Labs</h2>
+          <button class="replay" type="button" data-replay hidden>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10a6 6 0 1 0 1.76-4.24M4 4v3.5h3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Check again
+          </button>
+        </div>
+        <ul class="receipt-rows">
+          <li class="row">
+            <img src="assets/img/zeroauth.png" alt="" width="48" height="48">
+            <span class="row-name">ZeroAuth<small>2FA codes and password vault</small></span>
+            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+          </li>
+          <li class="row">
+            <img src="assets/img/saifu.svg" alt="" width="48" height="48">
+            <span class="row-name">Saifu<small>Your cards and spends</small></span>
+            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+          </li>
+          <li class="row">
+            <img src="assets/img/parchi.png" alt="" width="48" height="48">
+            <span class="row-name">Parchi<small>Your family's medical papers</small></span>
+            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+          </li>
+          <li class="row">
+            <img src="assets/img/tegami.png" alt="" width="48" height="48">
+            <span class="row-name">Tegami<small>Letters from city hall</small></span>
+            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+          </li>
+        </ul>
+        <div class="receipt-total">
+          <span>Total</span>
+          <strong>0 KB</strong>
+        </div>
+        <figcaption>Each app keeps what you put into it on your phone. No sign-up, no Optional Labs account.</figcaption>
+      </figure>
+    </section>
   </main>
 
   <footer class="foot" id="contact">
