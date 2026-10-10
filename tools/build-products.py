@@ -26,7 +26,8 @@ PRODUCTS = [
     desc='ZeroAuth makes two-factor codes on your phone, with no internet needed, and keeps them in an AES-256-GCM encrypted vault.',
     headline='Secure your digital life with ZeroAuth.',
     lede='A privacy-first authenticator. Your two-factor codes are made on the phone, with no internet needed, and kept in an encrypted vault that never leaves it.',
-    actions=[('btn-lime', 'Visit zeroauth.in', 'https://zeroauth.in', True), ('btn-ghost', 'App Store', 'https://apps.apple.com/in/app/zeroauth/id6764048764', False), ('btn-ghost', 'Google Play', 'https://play.google.com/store/apps/details?id=com.OptionalLabs.zeroauth', False)],
+    actions=[('btn-lime', 'Visit zeroauth.in', 'https://zeroauth.in', True)],
+    badges=[('app-store', 'https://apps.apple.com/in/app/zeroauth/id6764048764'), ('google-play', 'https://play.google.com/store/apps/details?id=com.OptionalLabs.zeroauth')],
     status='On the App Store and Google Play',
     hero=dict(kind='wide', src='zeroauth-hero.webp', w=1200, h=900, alt='Two iPhones showing the ZeroAuth code list with live six-digit codes'),
     screens_title='Inside ZeroAuth',
@@ -164,6 +165,14 @@ def actions(p):
     out = []
     for cls, label, href, arrow in p['actions']:
         out.append(f'<a class="btn {cls} btn-lg" href="{href}">{e(label)}{ARROW if arrow else ""}</a>')
+    if p.get('badges'):
+        imgs = {'app-store': ('', 'badge-app-store.svg', 135, 45, 'App Store'), 'google-play': (' gp', 'badge-google-play.png', 168, 65, 'Google Play')}
+        bs = []
+        for kind, href in p['badges']:
+            cls, src, w, h, store = imgs[kind]
+            verb = 'Download' if kind == 'app-store' else 'Get'
+            bs.append(f'<a class="store-badge{cls}" href="{href}"><img src="../assets/img/{src}" alt="{verb} {e(p["name"])} on {store}" width="{w}" height="{h}"></a>')
+        out.append('<span class="badges">' + ''.join(bs) + '</span>')
     return '\n            '.join(out)
 
 def hero_art(p):
