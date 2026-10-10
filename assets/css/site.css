@@ -6,7 +6,7 @@
 @font-face { font-family: "Inter"; font-style: normal; font-weight: 900; font-display: swap; src: url(../fonts/inter-latin-900-normal.woff2) format("woff2"); }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --canvas: #ffffff;
   --sage: #e8ebe6;
   --sage-deep: #d9ded5;
@@ -436,34 +436,6 @@ a.row:active { transform: scale(0.99); }
   .foot-in > :first-child { grid-column: 1 / -1; }
 }
 
-/* Dark mode: follows the phone or computer setting */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --canvas: #0e110c;
-    --sage: #1a1f17;
-    --sage-deep: #262c22;
-    --pale: #18240f;
-    --ink: #edf1ea;
-    --body: #b7bdb2;
-    --mute: #959b91;
-    --line: rgb(255 255 255 / 0.1);
-    --heading: #9fe870;
-    --chip-soft: rgb(255 255 255 / 0.08);
-    --card-soft: rgb(255 255 255 / 0.05);
-    --ghost-soft: rgb(255 255 255 / 0.08);
-    --ghost-soft-hover: rgb(255 255 255 / 0.14);
-    --shadow: 0 2px 6px rgb(0 0 0 / 0.3), 0 28px 56px -24px rgb(0 0 0 / 0.7);
-  }
-  /* Lime surfaces keep dark text in both modes */
-  .app-lime, .pd-lime, .close-in:not(.close-sage), .pf-big .pf-fix {
-    --ink: #0e0f0c; --heading: #163300; --body: #24400f;
-  }
-  .close-sage .close-apps a { color: var(--heading); }
-  .close-sage .close-apps a:hover { background: var(--sage-deep); }
-  .foot { background: #112600; }
-  .app-forest, .pd-forest, .pd-privacy.pd-forest { --bg: #112600; }
-  .pd-wide { filter: brightness(0.94); }
-}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

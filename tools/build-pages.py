@@ -36,8 +36,7 @@ def page(title, desc, canon, og, prefix, main, wrap):
   <title>{title}</title>
   <meta name="description" content="{desc}">
   <link rel="canonical" href="https://optionallabs.com/{canon}">
-  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0e110c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" sizes="32x32" href="{prefix}assets/img/icon-32.png">
   <link rel="apple-touch-icon" href="{prefix}assets/img/icon-180.png">
   <meta property="og:type" content="website">
