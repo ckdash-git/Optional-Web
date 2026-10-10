@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Optional Labs: everyday apps that keep your data on your phone</title>
   <meta name="description" content="Optional Labs makes ZeroAuth, Saifu, Parchi and Tegami: everyday apps that keep what you put into them on your phone, not on our servers.">
   <link rel="canonical" href="https://optionallabs.com/">
@@ -38,7 +40,7 @@
       <details class="menu">
         <summary class="menu-btn"><span class="menu-icon" aria-hidden="true"></span>Menu</summary>
         <div class="menu-panel">
-          <ul class="menu-apps" aria-label="Apps">
+          <ul class="menu-apps">
             <li><a href="zeroauth/"><img src="assets/img/zeroauth.png" alt="" width="40" height="40">ZeroAuth<small>Authenticator</small></a></li>
             <li><a href="saifu/"><img src="assets/img/saifu.svg" alt="" width="40" height="40">Saifu<small>Credit card advisor</small></a></li>
             <li><a href="parchi/"><img src="assets/img/parchi.png" alt="" width="40" height="40">Parchi<small>Medical papers</small></a></li>
@@ -124,7 +126,7 @@
                 <div class="pf-row pf-problem"><dt>The problem</dt><dd>Many authenticator apps sync your secret keys to the cloud, where one breach can expose every code.</dd></div>
                 <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>ZeroAuth makes your codes on the phone, with no internet needed, and keeps the keys in an encrypted vault that never leaves it.</dd></div>
               </dl>
-              <ul class="app-facts" aria-label="What stays on your phone">
+              <ul class="app-facts">
                 <li>Codes work offline</li>
                 <li>AES-256-GCM vault</li>
                 <li>Face ID and fingerprint lock</li>
@@ -153,7 +155,7 @@
                 <div class="pf-row pf-problem"><dt>The problem</dt><dd>With a few credit cards, it is hard to know which one pays most at checkout, and fee waivers, monthly caps and expiring points slip by.</dd></div>
                 <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Saifu ranks your cards for each spend and warns you before a fee waiver, a cap or your points run out.</dd></div>
               </dl>
-              <ul class="app-facts" aria-label="What stays on your phone">
+              <ul class="app-facts">
                 <li>336 Indian cards listed</li>
                 <li>Spends stay on your phone</li>
                 <li>No card numbers or bank login</li>
@@ -180,7 +182,7 @@
                 <div class="pf-row pf-problem"><dt>The problem</dt><dd>Prescriptions, lab reports and hospital bills pile up in drawers and photo galleries, and the one you need is never at hand at the doctor's.</dd></div>
                 <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Parchi reads each paper on your phone, files it under the right family member and makes a one-page summary for the next visit.</dd></div>
               </dl>
-              <ul class="app-facts" aria-label="What stays on your phone">
+              <ul class="app-facts">
                 <li>Read on the phone</li>
                 <li>Medicine reminders</li>
                 <li>Health card per person</li>
@@ -206,7 +208,7 @@
                 <div class="pf-row pf-problem"><dt>The problem</dt><dd>Letters from Japanese government offices come in formal Japanese, with deadlines, amounts and era dates that are easy to miss.</dd></div>
                 <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Tegami tells you what the letter is, what to do and by when, in plain English, without the letter leaving your phone.</dd></div>
               </dl>
-              <ul class="app-facts" aria-label="What stays on your phone">
+              <ul class="app-facts">
                 <li>Deadlines pulled out</li>
                 <li>Era dates converted</li>
                 <li>Letters encrypted on the phone</li>
