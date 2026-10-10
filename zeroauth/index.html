@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>ZeroAuth: offline authenticator for iPhone and Android | Optional Labs</title>
   <meta name="description" content="ZeroAuth makes two-factor codes on your phone, with no internet needed, and keeps them in an AES-256-GCM encrypted vault.">
   <link rel="canonical" href="https://optionallabs.com/zeroauth/">
@@ -38,7 +40,7 @@
       <details class="menu">
         <summary class="menu-btn"><span class="menu-icon" aria-hidden="true"></span>Menu</summary>
         <div class="menu-panel">
-          <ul class="menu-apps" aria-label="Apps">
+          <ul class="menu-apps">
             <li><a href="../zeroauth/"><img src="../assets/img/zeroauth.png" alt="" width="40" height="40">ZeroAuth<small>Authenticator</small></a></li>
             <li><a href="../saifu/"><img src="../assets/img/saifu.svg" alt="" width="40" height="40">Saifu<small>Credit card advisor</small></a></li>
             <li><a href="../parchi/"><img src="../assets/img/parchi.png" alt="" width="40" height="40">Parchi<small>Medical papers</small></a></li>
@@ -68,7 +70,7 @@
           </div>
           <p class="pd-status">On the App Store and Google Play</p>
         </div>
-        <div class="pd-art"><img class="pd-wide" src="../assets/screens/zeroauth-hero.webp" alt="Two iPhones showing the ZeroAuth code list with live six-digit codes" width="1200" height="900"></div>
+        <div class="pd-art"><img class="pd-wide" src="../assets/screens/zeroauth-hero.webp" srcset="../assets/screens/zeroauth-hero-640.webp 640w, ../assets/screens/zeroauth-hero.webp 1200w" sizes="(max-width: 960px) 92vw, 520px" alt="Two iPhones showing the ZeroAuth code list with live six-digit codes" width="1200" height="900"></div>
       </div>
     </section>
 
@@ -84,7 +86,7 @@
         <h2 class="display h2" id="screens-title">Inside ZeroAuth</h2>
         <p class="lede">The code list, the QR scanner, settings and sharing, from the ZeroAuth app.</p>
       </div>
-        <img class="pd-wide pd-wide-lg" src="../assets/screens/zeroauth-screens.webp" alt="A grid of ZeroAuth screens: the code list, scanner, security settings and empty vault" width="1400" height="1400" loading="lazy">
+        <img class="pd-wide pd-wide-lg" src="../assets/screens/zeroauth-screens.webp" srcset="../assets/screens/zeroauth-screens-760.webp 760w, ../assets/screens/zeroauth-screens.webp 1400w" sizes="(max-width: 960px) 92vw, 880px" alt="A grid of ZeroAuth screens: the code list, scanner, security settings and empty vault" width="1400" height="1400" loading="lazy">
     </section>
 
     <section class="pd-section pd-steps-wrap" aria-labelledby="how-title">
