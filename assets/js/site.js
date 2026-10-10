@@ -74,5 +74,15 @@
     update();
   });
 
+  // Mobile menu: close on a link tap, Escape or a tap outside.
+  const menu = document.querySelector('.menu');
+  if (menu) {
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => { menu.open = false; }));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
+    });
+    document.addEventListener('click', (e) => { if (menu.open && !menu.contains(e.target)) menu.open = false; });
+  }
+
   document.querySelectorAll('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 })();

@@ -34,6 +34,21 @@
         <a href="#contact">Contact</a>
         <a class="btn btn-lime" href="#apps">See the apps</a>
       </nav>
+      <details class="menu">
+        <summary class="menu-btn"><span class="menu-icon" aria-hidden="true"></span>Menu</summary>
+        <div class="menu-panel">
+          <ul class="menu-apps" aria-label="Apps">
+            <li><a href="zeroauth/"><img src="assets/img/zeroauth.png" alt="" width="40" height="40">ZeroAuth<small>Authenticator</small></a></li>
+            <li><a href="saifu/"><img src="assets/img/saifu.svg" alt="" width="40" height="40">Saifu<small>Credit card advisor</small></a></li>
+            <li><a href="parchi/"><img src="assets/img/parchi.png" alt="" width="40" height="40">Parchi<small>Medical papers</small></a></li>
+            <li><a href="tegami/"><img src="assets/img/tegami.png" alt="" width="40" height="40">Tegami<small>City-hall letters</small></a></li>
+          </ul>
+          <ul class="menu-links">
+            <li><a href="#how">How we build</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </details>
     </div>
   </header>
 
@@ -57,26 +72,26 @@
           </button>
         </div>
         <ul class="receipt-rows">
-          <li class="row">
-            <img src="assets/img/zeroauth.png" alt="" width="48" height="48">
-            <span class="row-name">ZeroAuth<small>2FA codes and password vault</small></span>
-            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
-          </li>
-          <li class="row">
-            <img src="assets/img/saifu.svg" alt="" width="48" height="48">
-            <span class="row-name">Saifu<small>Your cards and spends</small></span>
-            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
-          </li>
-          <li class="row">
-            <img src="assets/img/parchi.png" alt="" width="48" height="48">
-            <span class="row-name">Parchi<small>Your family's medical papers</small></span>
-            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
-          </li>
-          <li class="row">
-            <img src="assets/img/tegami.png" alt="" width="48" height="48">
-            <span class="row-name">Tegami<small>Letters from city hall</small></span>
-            <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
-          </li>
+          <li><a class="row" href="zeroauth/">
+              <img src="assets/img/zeroauth.png" alt="" width="48" height="48">
+              <span class="row-name">ZeroAuth<small>2FA codes and password vault</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+            </a></li>
+          <li><a class="row" href="saifu/">
+              <img src="assets/img/saifu.svg" alt="" width="48" height="48">
+              <span class="row-name">Saifu<small>Your cards and spends</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+            </a></li>
+          <li><a class="row" href="parchi/">
+              <img src="assets/img/parchi.png" alt="" width="48" height="48">
+              <span class="row-name">Parchi<small>Your family's medical papers</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+            </a></li>
+          <li><a class="row" href="tegami/">
+              <img src="assets/img/tegami.png" alt="" width="48" height="48">
+              <span class="row-name">Tegami<small>Letters from city hall</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true"></span>0 KB</span>
+            </a></li>
         </ul>
         <div class="receipt-total">
           <span>Total</span>
@@ -115,8 +130,10 @@
               <div class="app-actions">
                 <a class="btn btn-lime" href="zeroauth/">More about ZeroAuth<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
                 <a class="btn btn-ghost" href="https://zeroauth.in">Visit zeroauth.in</a>
-                <a class="btn btn-ghost" href="https://apps.apple.com/in/app/zeroauth/id6764048764">App Store</a>
-                <a class="btn btn-ghost" href="https://play.google.com/store/apps/details?id=com.OptionalLabs.zeroauth">Google Play</a>
+                <span class="badges">
+                  <a class="store-badge" href="https://apps.apple.com/in/app/zeroauth/id6764048764"><img src="assets/img/badge-app-store.svg" alt="Download ZeroAuth on the App Store" width="135" height="45"></a>
+                  <a class="store-badge gp" href="https://play.google.com/store/apps/details?id=com.OptionalLabs.zeroauth"><img src="assets/img/badge-google-play.png" alt="Get ZeroAuth on Google Play" width="168" height="65"></a>
+                </span>
               </div>
             </div>
           </li>
