@@ -238,7 +238,8 @@ def page(p):
   <title>{e(p["title"])} | Optional Labs</title>
   <meta name="description" content="{e(p["desc"])}">
   <link rel="canonical" href="https://optionallabs.com/{p["slug"]}/">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e110c" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/icon-32.png">
   <link rel="apple-touch-icon" href="../assets/img/icon-180.png">
   <meta property="og:type" content="website">
