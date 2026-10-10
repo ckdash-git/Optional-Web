@@ -183,6 +183,22 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 .btn-ghost:hover { background: var(--ghost-hover); }
 .status { font-weight: 600; font-size: 15px; color: var(--soft); padding-left: 6px; }
 
+/* Problem and fix pairs (app bands, product pages) */
+.pf { margin: 0; display: grid; gap: 18px; }
+.pf-row { display: grid; gap: 8px; justify-items: start; }
+.pf dt { font-weight: 600; font-size: 14px; padding: 5px 12px; border-radius: 999px; background: var(--ghost); color: inherit; }
+.pf-fix dt { background: var(--forest); color: var(--lime); }
+.app-forest .pf-fix dt, .pd-forest .pf-fix dt { background: var(--lime); color: var(--forest); }
+.pf dd { margin: 0; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.45; max-width: 40ch; }
+.pf-problem dd { color: var(--soft); }
+.pf-big { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; --ghost: var(--canvas); --soft: var(--body); }
+.pf-big .pf-row { align-content: start; gap: 18px; padding: clamp(24px, 3.4vw, 44px); border-radius: var(--radius-lg); background: var(--sage); }
+.pf-big .pf-fix { background: var(--lime); }
+.pf-big .pf-fix dt { background: var(--forest); color: var(--lime); }
+.pf-big dd { font-weight: 900; font-size: clamp(24px, 2.6vw, 36px); line-height: 1.1; letter-spacing: -0.03em; color: var(--forest); max-width: 22ch; }
+.pf-big .pf-problem dd { color: var(--ink); }
+@media (max-width: 760px) { .pf-big { grid-template-columns: 1fr; } }
+
 /* Reveal (JS only) */
 .js [data-reveal] { transform: translateY(40px) scale(0.98); transition: transform 0.9s var(--ease-out), box-shadow 0.4s ease; }
 .js [data-reveal].is-in { transform: none; }
