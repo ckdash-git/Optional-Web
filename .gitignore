@@ -97,3 +97,6 @@ firebase_cloude.js
 # Optional-Web/*.log
 # Optional-Web/node_modules/
 .DS_Store
+
+# Local design-tool state (not for publishing)
+.impeccable/
