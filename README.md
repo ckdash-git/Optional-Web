@@ -4,9 +4,19 @@ The website for Optional Labs, the company behind ZeroAuth, Saifu, Parchi and Te
 
 Static HTML, CSS and JavaScript with no build step. GitHub Pages deploys `main` (see `.github/workflows/static.yml`) to the custom domain in `CNAME`. Markdown files, `tools/` and repo metadata are not published.
 
+## Checks
+
+Every pull request runs `.github/workflows/checks.yml`: generated pages must match `tools/`, HTML must pass `html-validate`, and `node tools/check-links.mjs` must find no broken internal links or anchors. Run the same locally:
+
+```sh
+python3 tools/build-products.py && python3 tools/build-pages.py && git diff --exit-code
+npx html-validate '*.html' '*/index.html'
+node tools/check-links.mjs
+```
+
 ## Update a product page
 
-Edit the facts in `tools/build-products.py`, then run `python3 tools/build-products.py`. Share images are rendered by `node tools/make-og.mjs` (needs Playwright).
+Edit the facts in `tools/build-products.py`, then run `python3 tools/build-products.py`. The privacy pages and About page come from `tools/build-pages.py`. Share images are rendered by `node tools/make-og.mjs` (needs Playwright).
 
 ## Run locally
 

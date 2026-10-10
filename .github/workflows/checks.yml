@@ -1,0 +1,29 @@
+# Runs on every pull request and push to main. Merging should wait for green.
+name: Site checks
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generated pages are up to date
+        # Product and company pages are built from tools/; hand edits would be lost.
+        run: |
+          python3 tools/build-products.py
+          python3 tools/build-pages.py
+          git diff --exit-code -- . ':(exclude)sitemap.xml'
+      - name: HTML is valid
+        run: npx --yes html-validate@9 '*.html' '*/index.html'
+      - name: Internal links and anchors resolve
+        run: node tools/check-links.mjs
