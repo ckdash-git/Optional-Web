@@ -16,10 +16,10 @@
   --lime-press: #8ad65a;
   --ink: #0e0f0c;
   --forest: #163300;
+  --forest-hover: #224a04;
   --body: #454745;
   --mute: #6a6c6a;
   --line: rgb(14 15 12 / 0.1);
-  --pink: #e7217a;
   --radius-lg: 32px;
   --radius: 24px;
   --radius-sm: 16px;
@@ -72,7 +72,7 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 .btn-sage { background: var(--sage); color: var(--ink); }
 .btn-sage:hover { background: var(--sage-deep); }
 .btn-ink { background: var(--forest); color: var(--lime); }
-.btn-ink:hover { background: #224a04; }
+.btn-ink:hover { background: var(--forest-hover); }
 .btn-lg { min-height: 60px; padding: 16px 32px; font-size: 18px; }
 .btn svg { width: 18px; height: 18px; flex: none; }
 
@@ -168,6 +168,7 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 }
 .app-forest { --bg: var(--forest); --fg: var(--pale); --name: var(--lime); --soft: rgb(226 246 213 / 0.82); --chip: rgb(159 232 112 / 0.14); --chip-fg: var(--lime); --ghost: rgb(226 246 213 / 0.12); --ghost-hover: rgb(226 246 213 / 0.2); }
 .app-lime { --bg: var(--lime); --soft: #24400f; --chip: rgb(22 51 0 / 0.1); --chip-fg: var(--forest); --ghost: rgb(22 51 0 / 0.1); --ghost-hover: rgb(22 51 0 / 0.18); }
+.app-sage { --bg: var(--sage); }
 .app-pale { --bg: var(--pale); }
 .app-main { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
 .app-icon { width: clamp(72px, 7vw, 96px); height: clamp(72px, 7vw, 96px); border-radius: 24%; box-shadow: 0 12px 24px -12px rgb(14 15 12 / 0.45); }
