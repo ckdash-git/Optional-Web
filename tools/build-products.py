@@ -155,7 +155,7 @@ def chrome(part):
     m = re.search(r'  <%s class="(top|foot)".*?</%s>\n' % (part, part), idx, re.S).group(0)
     m = m.replace('href="./"', 'href="../"').replace('src="assets/', 'src="../assets/')
     m = re.sub(r'href="#(apps|how|contact)"', r'href="../#\1"', m)
-    m = re.sub(r'href="(zeroauth|saifu|parchi|tegami)/"', r'href="../\1/"', m)
+    m = re.sub(r'href="(zeroauth|saifu|parchi|tegami|about)/"', r'href="../\1/"', m)
     m = m.replace('href="privacy-policy.html"', 'href="../privacy-policy.html"')
     return m
 

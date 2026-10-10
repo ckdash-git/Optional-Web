@@ -408,6 +408,18 @@ a.row:active { transform: scale(0.99); }
 .store-badge.gp { margin: -10px -6px; }
 .store-badge.gp img { height: 65px; }
 
+/* About page */
+.about-hero { padding-top: clamp(24px, 4vw, 56px); }
+.about-hero .pd-title { max-width: 15ch; }
+.about-hero .pd-lede { max-width: 52ch; }
+.about-apps { margin-top: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.about-apps a { display: flex; gap: 18px; align-items: center; padding: 20px; border-radius: var(--radius); background: var(--sage); color: var(--body); text-decoration: none; transition: background-color 0.2s ease, transform 0.3s var(--ease-out); }
+.about-apps a:hover { background: var(--sage-deep); transform: translateY(-2px); }
+.about-apps img { width: 64px; height: 64px; border-radius: 17px; flex: none; }
+.about-apps strong { display: block; font-weight: 900; font-size: 24px; letter-spacing: -0.03em; color: var(--forest); margin-bottom: 2px; }
+.legal-note { background: var(--pale); color: var(--forest) !important; padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 24px !important; }
+@media (max-width: 680px) { .about-apps { grid-template-columns: 1fr; } }
+
 @media (max-width: 860px) {
   .nav a:not(.btn) { display: none; }
   .menu { display: block; }
