@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo=' https://www.gstatic.com https://apis.google.com; style-src 'self'; img-src 'self' data: https://*.googleusercontent.com; font-src 'self'; connect-src 'self' https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com https://www.googleapis.com; frame-src https://optional-25cd8.firebaseapp.com https://accounts.google.com https://appleid.apple.com; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="noindex">
+  <title>Manage your Optional account | Optional Labs</title>
+  <meta name="description" content="Sign in to your Optional app account to see it, sign out, or delete your account and its data.">
+  <link rel="canonical" href="https://optionallabs.com/manage-account.html">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icon-32.png">
+  <link rel="apple-touch-icon" href="assets/img/icon-180.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://optionallabs.com/manage-account.html">
+  <meta property="og:title" content="Manage your Optional account | Optional Labs">
+  <meta property="og:description" content="Sign in to your Optional app account to see it, sign out, or delete your account and its data.">
+  <meta property="og:image" content="https://optionallabs.com/assets/og/home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top" id="top">
+    <div class="wrap top-in">
+      <a class="brand" href="./" aria-label="Optional Labs home"><img src="assets/img/ol-mark.png" alt="" width="36" height="36">Optional Labs</a>
+      <nav class="nav" aria-label="Main">
+        <a href="./#apps">Apps</a>
+        <a href="./#how">How we build</a>
+        <a href="./#contact">Contact</a>
+        <a class="btn btn-lime" href="./#apps">See the apps</a>
+      </nav>
+      <details class="menu">
+        <summary class="menu-btn"><span class="menu-icon" aria-hidden="true"></span>Menu</summary>
+        <div class="menu-panel">
+          <ul class="menu-apps">
+            <li><a href="zeroauth/"><img src="assets/img/zeroauth.png" alt="" width="40" height="40">ZeroAuth<small>Authenticator</small></a></li>
+            <li><a href="saifu/"><img src="assets/img/saifu.svg" alt="" width="40" height="40">Saifu<small>Credit card advisor</small></a></li>
+            <li><a href="parchi/"><img src="assets/img/parchi.png" alt="" width="40" height="40">Parchi<small>Medical papers</small></a></li>
+            <li><a href="tegami/"><img src="assets/img/tegami.png" alt="" width="40" height="40">Tegami<small>City-hall letters</small></a></li>
+          </ul>
+          <ul class="menu-links">
+            <li><a href="about/">About</a></li>
+            <li><a href="./#how">How we build</a></li>
+            <li><a href="./#contact">Contact</a></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <main id="main" class="wrap account">
+    <div class="account-in">
+      <h1 class="display account-title">Your Optional account</h1>
+      <p class="lede">Sign in to see your account for the Optional app, sign out, or delete your account and its data.</p>
+
+      <p class="acct-status" role="status" aria-live="polite" data-status hidden></p>
+
+      <section class="acct-card" data-state="loading" aria-label="Checking sign-in">
+        <p class="acct-muted">Checking whether you are signed in…</p>
+        <noscript><p>This page needs JavaScript to sign in. To delete your account without signing in, email <a href="mailto:contact@optionallabs.com?subject=Delete%20my%20Optional%20account">contact@optionallabs.com</a> from the address on your account.</p></noscript>
+      </section>
+
+      <section class="acct-card" data-state="unavailable" hidden aria-label="Sign-in unavailable">
+        <p>Sign-in could not load. Check your connection and reload the page, or email <a href="mailto:contact@optionallabs.com?subject=Delete%20my%20Optional%20account">contact@optionallabs.com</a> from the address on your account and we will delete it for you.</p>
+      </section>
+
+      <section class="acct-card" data-state="signed-out" hidden aria-labelledby="signin-title">
+        <h2 id="signin-title">Sign in</h2>
+        <p class="acct-muted">Use the same method you use in the Optional app.</p>
+        <div class="acct-providers">
+          <button class="btn btn-sage btn-lg" type="button" data-provider="google">Continue with Google</button>
+          <button class="btn btn-sage btn-lg" type="button" data-provider="apple">Continue with Apple</button>
+        </div>
+        <p class="acct-or"><span>or with email</span></p>
+        <form id="signin-form" class="acct-form" novalidate>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+          <div class="acct-actions">
+            <button class="btn btn-lime btn-lg" type="submit">Sign in</button>
+            <button class="acct-link" id="reset" type="button">Reset password</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="acct-card" data-state="signed-in" hidden aria-labelledby="account-title">
+        <h2 id="account-title">Signed in</h2>
+        <dl class="pd-facts acct-facts">
+          <div><dt>Email</dt><dd data-email></dd></div>
+          <div><dt>Signed in with</dt><dd data-method></dd></div>
+          <div><dt>Account created</dt><dd data-created></dd></div>
+          <div><dt>Last sign-in</dt><dd data-last></dd></div>
+        </dl>
+        <button class="btn btn-sage" type="button" id="signout">Sign out</button>
+
+        <div class="acct-danger">
+          <h2>Delete account</h2>
+          <p>This permanently deletes your Optional account and the profile stored with it: your name, email, photo and sign-in details. You will not be able to sign in again with this account. This cannot be undone.</p>
+          <button class="btn btn-danger" type="button" id="delete-start">Delete my account</button>
+          <div id="delete-confirm" hidden>
+            <form id="delete-form" class="acct-form" novalidate>
+              <label for="confirm-email">To confirm, type the email address on this account</label>
+              <input id="confirm-email" name="confirm-email" type="email" autocomplete="off" required>
+              <div class="acct-actions">
+                <button class="btn btn-danger" type="submit">Permanently delete</button>
+                <button class="acct-link" id="delete-cancel" type="button">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="acct-card acct-done" data-state="deleted" hidden aria-labelledby="deleted-title">
+        <h2 id="deleted-title">Your account is deleted</h2>
+        <p>Your Optional account and its profile have been removed. You can close this page.</p>
+        <a class="btn btn-lime" href="./">Back to Optional Labs</a>
+      </section>
+
+      <aside class="acct-help" aria-labelledby="help-title">
+        <h2 id="help-title">Can't sign in?</h2>
+        <p>Email <a href="mailto:contact@optionallabs.com?subject=Delete%20my%20Optional%20account">contact@optionallabs.com</a> from the address on your account and ask us to delete it. We will delete the account and its data and reply to confirm.</p>
+        <p>This page is for the Optional app. ZeroAuth, Saifu, Parchi and Tegami have their own settings and support. See the <a href="privacy-policy-optional-app.html">Optional app privacy policy</a>.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="foot" id="contact">
+    <div class="wrap foot-in">
+      <div>
+        <a class="brand" href="./"><img src="assets/img/ol-mark.png" alt="" width="36" height="36">Optional Labs</a>
+        <p>Everyday apps that keep your data on your phone. Made in Bengaluru, India.</p>
+      </div>
+      <div>
+        <h2>Apps</h2>
+        <ul>
+          <li><a href="zeroauth/">ZeroAuth</a></li>
+          <li><a href="saifu/">Saifu</a></li>
+          <li><a href="parchi/">Parchi</a></li>
+          <li><a href="tegami/">Tegami</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:contact@optionallabs.com">contact@optionallabs.com</a></li>
+          <li><a href="mailto:support@zeroauth.in">ZeroAuth support</a></li>
+          <li><a href="mailto:support@getparchi.com">Parchi support</a></li>
+          <li><a href="https://tegami.optionallabs.com/support/">Tegami support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="about/">About</a></li>
+          <li><a href="./#how">How we build</a></li>
+          <li><a href="privacy-policy.html">Privacy policy</a></li>
+          <li><a href="manage-account.html">Manage account</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-base">
+      <span>&copy; <span data-year>2026</span> Optional Labs</span>
+      <span>Bengaluru, India</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js" defer></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js" defer></script>
+  <script src="assets/js/account.js" defer></script>
+</body>
+</html>
