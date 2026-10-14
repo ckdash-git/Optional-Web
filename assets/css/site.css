@@ -17,6 +17,8 @@
   --ink: #0e0f0c;
   --forest: #163300;
   --forest-hover: #224a04;
+  --danger: #d03238;
+  --danger-hover: #a72027;
   --heading: #163300;        /* display and heading text on canvas, sage, pale */
   --on-deep: #e2f6d5;        /* text on forest surfaces */
   --bezel: #0e0f0c;          /* phone frame */
@@ -426,6 +428,38 @@ a.row:active { transform: scale(0.99); }
 .about-apps strong { display: block; font-weight: 900; font-size: 24px; letter-spacing: -0.03em; color: var(--heading); margin-bottom: 2px; }
 .legal-note { background: var(--pale); color: var(--heading) !important; padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 24px !important; }
 @media (max-width: 680px) { .about-apps { grid-template-columns: 1fr; } }
+
+/* Account page (Optional app sign-in and account deletion) */
+.account { padding-top: clamp(32px, 5vw, 64px); padding-bottom: clamp(64px, 8vw, 112px); }
+.account-in { max-width: 640px; }
+.account-title { font-size: clamp(40px, 6vw, 72px); margin-bottom: 16px; }
+.account .lede { max-width: 48ch; margin-bottom: 28px; }
+.acct-card { background: var(--canvas); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: clamp(22px, 3.4vw, 40px); margin-bottom: 16px; }
+.acct-card h2, .acct-help h2 { font-weight: 900; font-size: clamp(24px, 2.6vw, 30px); letter-spacing: -0.03em; color: var(--heading); margin-bottom: 8px; }
+.acct-muted { color: var(--body); }
+.acct-providers { display: grid; gap: 10px; margin-top: 20px; }
+.acct-providers .btn { width: 100%; }
+.acct-or { display: flex; align-items: center; gap: 12px; color: var(--mute); font-size: 14px; margin: 22px 0 6px; }
+.acct-or::before, .acct-or::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.acct-form { display: grid; gap: 8px; margin-top: 12px; }
+.acct-form label { font-weight: 600; font-size: 15px; margin-top: 8px; }
+.acct-form input { font: inherit; padding: 14px 16px; border-radius: var(--radius-sm); border: 2px solid var(--sage-deep); background: var(--canvas); color: var(--ink); min-height: 52px; transition: border-color 0.2s ease; }
+.acct-form input:focus { outline: none; border-color: var(--forest); }
+.acct-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 14px; }
+.acct-link { border: 0; background: none; font: 600 15px/1 "Inter", sans-serif; color: var(--forest); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; padding: 10px 4px; }
+.acct-facts { margin: 16px 0 20px; }
+.acct-danger { margin-top: 32px; padding-top: 28px; border-top: 2px solid var(--sage); }
+.acct-danger p { color: var(--body); margin-bottom: 16px; max-width: 56ch; }
+.btn-danger { background: var(--danger); color: #ffffff; }
+.btn-danger:hover { background: var(--danger-hover); }
+.btn:disabled { opacity: 0.6; cursor: progress; transform: none; }
+.acct-status { padding: 14px 18px; border-radius: var(--radius-sm); margin-bottom: 16px; font-weight: 600; background: var(--sage); }
+.acct-status[data-kind="error"] { background: #fde8e8; color: #8a1c21; }
+.acct-status[data-kind="success"] { background: var(--pale); color: var(--forest); }
+.acct-done { background: var(--pale); box-shadow: none; }
+.acct-done p { margin-bottom: 20px; }
+.acct-help { margin-top: 32px; color: var(--body); }
+.acct-help p + p { margin-top: 10px; }
 
 @media (max-width: 860px) {
   .nav a:not(.btn) { display: none; }

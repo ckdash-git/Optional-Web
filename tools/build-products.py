@@ -156,7 +156,7 @@ def chrome(part):
     m = m.replace('href="./"', 'href="../"').replace('src="assets/', 'src="../assets/')
     m = re.sub(r'href="#(apps|how|contact)"', r'href="../#\1"', m)
     m = re.sub(r'href="(zeroauth|saifu|parchi|tegami|about)/"', r'href="../\1/"', m)
-    m = m.replace('href="privacy-policy.html"', 'href="../privacy-policy.html"')
+    m = m.replace('href="privacy-policy.html"', 'href="../privacy-policy.html"').replace('href="manage-account.html"', 'href="../manage-account.html"')
     return m
 
 HEADER, FOOTER = chrome('header'), chrome('footer')
