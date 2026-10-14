@@ -38,7 +38,7 @@ Store links known: ZeroAuth iOS `https://apps.apple.com/in/app/zeroauth/id676404
 
 - Product facts come from each product's own site repo (zeroauth-web, kaunsa-card/site, parchi-site, tegami-site). Product code is not modified from here.
 - Keep `privacy-policy.html`, `app-ads.txt` and `CNAME` working at their current URLs.
-- Firebase login/registration/dashboard/manage-account pages are removed (user decision).
+- `manage-account.html` is the account page for the earlier Optional app: Firebase sign-in (email, Google, Apple), sign-out and account deletion. Its URL was given to the App Store and Google Play as the account deletion URL, so it must stay live (restored Oct 2026 after a store notice). Old URLs `login.html`, `registration-html.html`, `welcome.html` and `dashboard.html` redirect to it.
 
 ## Brand Commitments
 
