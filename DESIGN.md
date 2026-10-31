@@ -220,7 +220,7 @@ One pastel per app, used as the tile fill on the home page and as the hero groun
 - **Error note** (#fde8e8 ground, #8a1c21 text): form and account error messages. Success notes use Blush with ink.
 
 ### Named Rules
-**The Coral Means Go Rule.** Coral is the colour of the next action. On white, neutral, tinted and ink grounds the primary pill is coral with ink text; where the ground is itself coral, the primary pill flips to ink with coral text so there is still exactly one obvious action.
+**The Coral Means Go Rule.** Coral is the colour of the next action. On white, neutral, tinted and ink grounds the primary pill is coral with ink text; where the ground is itself coral, the primary pill flips to ink with coral text so there is still exactly one obvious action. On the tinted product heroes the primary is the ink pill with coral text, so the call to action keeps its contrast on every tint (coral on blush is too faint); the coral pill returns in the get-it block below. The About, Careers and Enquire heroes are full-width ink slabs: display type there is coral and white, the same inverse the product privacy band uses.
 
 **The Ink Voice Rule.** Display type is ink on light grounds, white on the proof panel, and coral on the product-page privacy band; never a pastel and never a grey.
 

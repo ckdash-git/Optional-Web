@@ -25,15 +25,20 @@
     return a;
   };
   if (spots.length && !reduce.matches && 'IntersectionObserver' in window) {
-    const load = new IntersectionObserver((entries) => {
-      if (!entries.some((e) => e.isIntersecting)) return;
-      load.disconnect();
-      const tag = document.createElement('script');
-      tag.src = dir('lottie_light.min.js');
-      tag.onload = () => { lottieReady = true; spots.forEach(make); queue.splice(0).forEach((fn) => fn()); };
-      document.head.append(tag);
-    }, { rootMargin: '400px 0px' });
-    spots.forEach((el) => load.observe(el));
+    // The player (160 KB) waits for the page to finish loading and the browser to idle, so it never competes with the first paint.
+    const arm = () => {
+      const load = new IntersectionObserver((entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        load.disconnect();
+        const tag = document.createElement('script');
+        tag.src = dir('lottie_light.min.js');
+        tag.onload = () => { lottieReady = true; spots.forEach(make); queue.splice(0).forEach((fn) => fn()); };
+        document.head.append(tag);
+      }, { rootMargin: '400px 0px' });
+      spots.forEach((el) => load.observe(el));
+    };
+    const idle = () => (window.requestIdleCallback ? requestIdleCallback(arm, { timeout: 2500 }) : setTimeout(arm, 1200));
+    if (document.readyState === 'complete') idle(); else window.addEventListener('load', idle);
     // Ripple loops only while visible; the shield draws once when seen.
     const watch = new IntersectionObserver((entries) => entries.forEach((e) => {
       const name = e.target.dataset.lottie;
