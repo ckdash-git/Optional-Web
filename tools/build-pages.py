@@ -119,6 +119,9 @@ PRIVACY = '''  <main id="main" class="wrap legal">
       <h2>When you email us</h2>
       <p>If you write to us, we use your email address and message only to reply to you, and keep them only as long as needed for that.</p>
 
+      <h2>Job applications</h2>
+      <p>If you write to <a href="mailto:career@optionallabs.com">career@optionallabs.com</a>, we use your message and anything you attach only to consider you for a role and to reply. We keep it for as long as that needs, and delete it when you ask us to. The careers page opens your own email app; it sends nothing itself.</p>
+
       <h2>Children</h2>
       <p>This website is not directed at children under 13 and collects no data from anyone.</p>
 
@@ -292,6 +295,83 @@ def redirect(to, title):
 
 ABOUT = ABOUT.replace('{ABOUT_APPS}', ABOUT_APPS)
 
+# Open roles: add one tuple per real opening, then rebuild. (title, where, what you would do)
+# The page says no roles are listed while this is empty. Do not invent roles.
+ROLES = []
+
+AREAS = ['Engineering (iOS, Android, web or backend)', 'Design', 'Product', 'Writing and support', 'Sales and partnerships', 'Something else']
+
+
+def roles_html():
+    if not ROLES:
+        return '''      <div class="role-empty">
+        <h3>No roles are listed right now.</h3>
+        <p>We still like hearing from people who could help. Tell us what you would work on and send a link to something you built.</p>
+        <a class="btn btn-ink" href="#apply">Write to us</a>
+      </div>'''
+    cards = '\n'.join(
+        f'''        <li class="role"><h3>{t}</h3><p class="role-meta">{w}</p><p>{d}</p><a class="btn btn-ink" href="mailto:career@optionallabs.com?subject=Application%3A%20{t.replace(" ", "%20")}">Apply by email</a></li>'''
+        for t, w, d in ROLES)
+    return f'      <ul class="roles">\n{cards}\n      </ul>'
+
+
+def careers_main():
+    options = ''.join(f'<option>{a}</option>' for a in AREAS)
+    return f'''  <main id="main">
+    <section class="pd-hero pd-forest" aria-labelledby="careers-title">
+      <div class="wrap about-hero">
+        <h1 class="pd-title" id="careers-title">Come build small apps with us.</h1>
+        <p class="pd-lede">Optional Labs LLP is a small company in India that makes eight apps for phones and computers. If you want to help build them, write to <a class="pd-mail" href="mailto:career@optionallabs.com">career@optionallabs.com</a>.</p>
+      </div>
+    </section>
+
+    <section class="pd-section wrap" aria-labelledby="roles-title">
+      <h2 class="display h2" id="roles-title">Open roles</h2>
+{roles_html()}
+    </section>
+
+    <section class="pd-section wrap" aria-labelledby="work-title">
+      <div class="section-head">
+        <h2 class="display h2" id="work-title">What you would work on</h2>
+        <p class="lede">Pick the app that interests you most, and tell us why when you write.</p>
+      </div>
+      <ul class="about-apps">
+{ABOUT_APPS}
+      </ul>
+    </section>
+
+    <section class="pd-section wrap" aria-labelledby="how-title">
+      <h2 class="display h2" id="how-title">How we build</h2>
+      <ul class="pd-features">
+        <li><span class="tick" aria-hidden="true"></span><div><h3>Small and focused</h3><p>Each app does one everyday job, so it can be understood, finished and trusted.</p></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><h3>Honest about data</h3><p>What an app sends off your device is written down, and the websites claim only what the apps do.</p></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><h3>Built to be checked</h3><p>Where an app reads a paper or a letter, it shows the original beside what it read.</p></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><h3>Plain words</h3><p>Short sentences and real numbers, on the screen and in the code comments.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="pd-section wrap" id="apply" aria-labelledby="apply-title">
+      <div class="apply">
+        <div>
+          <h2 class="display" id="apply-title">Write to us</h2>
+          <p class="lede">Tell us who you are, link to something you built, and say what you would like to work on.</p>
+          <p class="apply-note">Prefer your own email app? Write to <a href="mailto:career@optionallabs.com">career@optionallabs.com</a> and attach your CV.</p>
+        </div>
+        <form class="form" id="apply-form" novalidate data-mailto="career@optionallabs.com">
+          <p class="form-status" role="status" aria-live="polite" data-status hidden></p>
+          <div class="field"><label for="a-name">Your name</label><input id="a-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="a-area">Area you could help with</label><select id="a-area" name="area">{options}</select></div>
+          <div class="field"><label for="a-link">Link to your work</label><input id="a-link" name="link" type="url" inputmode="url" autocomplete="url" placeholder="GitHub, portfolio, an app, writing"></div>
+          <div class="field"><label for="a-note">A few lines about you</label><textarea id="a-note" name="message" rows="5" required></textarea></div>
+          <button class="btn btn-lime btn-lg" type="submit">Open email draft</button>
+          <p class="form-hint">This opens your email app with the message filled in, addressed to career@optionallabs.com. Nothing is sent from this page, and a web page cannot attach files, so add your CV in the email.</p>
+        </form>
+      </div>
+      <p class="pd-note">We use what you send only to consider you for a role and to reply. Ask us to delete it and we will. See the <a href="../privacy-policy.html">privacy policy</a>.</p>
+    </section>
+  </main>'''
+
+
 
 def main():
     legacy = (ROOT / 'tools/legacy-optional-app-policy.html').read_text()
@@ -307,6 +387,10 @@ def main():
     <article class="legal-in">
       <p class="legal-note">This is the policy for the earlier Optional app (job referral requests), kept here unchanged for that app. For this website and the current apps, see the <a href="privacy-policy.html">Optional Labs privacy policy</a>.</p>{legacy}    </article>
   </main>''', root_level))
+    (ROOT / 'careers').mkdir(exist_ok=True)
+    (ROOT / 'careers/index.html').write_text(page(
+        'Careers | Optional Labs', 'Work with Optional Labs LLP, a small company in India making eight apps for phones and computers. Write to career@optionallabs.com.',
+        'careers/', 'careers', '../', careers_main(), depth1, scripts='\n  <script src="../assets/js/careers.js" defer></script>'))
     (ROOT / 'about').mkdir(exist_ok=True)
     (ROOT / 'about/index.html').write_text(page(
         'About Optional Labs',
