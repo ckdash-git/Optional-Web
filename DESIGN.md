@@ -221,7 +221,7 @@ Mostly flat, built from tonal layers: white on sage, sage on white, coloured ban
 - **Header scrolled** (`box-shadow: 0 1px 0 rgb(14 15 12 / 0.1), 0 12px 24px -20px rgb(14 15 12 / 0.4)`): appears only after scrolling.
 
 ### Named Rules
-**The Fill Not Line Rule.** Surfaces separate by fill colour and radius, never by 1px outlines or rings. The only rules in the system are native ones: the receipt's 2px ink total line, the faint divider above the footer base, and the scrolled-header edge.
+**The Fill Not Line Rule.** Surfaces separate by fill colour and radius, never by 1px outlines or rings. The only rules in the system are native ones: the receipt's 2px ink total line, the faint divider above the footer base, the scrolled-header edge, the 1px "or" rules and 2px delete-zone rule on the account page, and the 4px ring on an app band opened by a `#app` link (it shows where the visitor landed).
 
 ## Shapes
 

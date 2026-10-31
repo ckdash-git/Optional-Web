@@ -110,7 +110,8 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 .foot-base { border-top: 1px solid rgb(226 246 213 / 0.16); padding-top: 20px; padding-bottom: 28px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 14px; color: rgb(226 246 213 / 0.7); }
 
 /* Hero */
-.hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; padding-top: clamp(32px, 5vw, 64px); padding-bottom: clamp(56px, 8vw, 112px); }
+.hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: start; padding-top: clamp(32px, 5vw, 64px); padding-bottom: clamp(56px, 8vw, 112px); }
+.hero-copy { padding-top: clamp(0px, 4vw, 56px); }
 .hero-title { font-size: clamp(48px, 6.6vw, 96px); line-height: 0.92; }
 .hero-title span { display: block; }
 .hero .lede { margin-top: 28px; }
@@ -401,6 +402,8 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 .menu-panel { position: absolute; right: 0; top: calc(100% + 10px); max-height: calc(100dvh - 96px); overflow-y: auto; overscroll-behavior: contain; width: min(340px, calc(100vw - 2 * var(--gutter))); background: var(--canvas); border-radius: var(--radius); box-shadow: 0 2px 8px rgb(14 15 12 / 0.08), 0 32px 64px -24px rgb(14 15 12 / 0.4); padding: 10px; display: grid; gap: 6px; }
 .menu[open] .menu-panel { animation: menu-in 0.35s var(--ease-out); }
 @keyframes menu-in { from { opacity: 0; transform: translateY(-8px) scale(0.98); } }
+.menu-cta { display: flex; justify-content: center; margin-bottom: 10px; }
+.menu-panel { padding-bottom: 20px; }
 .menu-apps a { display: grid; grid-template-columns: 40px 1fr; column-gap: 12px; align-items: center; padding: 10px; border-radius: var(--radius-sm); text-decoration: none; font-weight: 900; letter-spacing: -0.02em; color: var(--heading); }
 .menu-apps a:hover { background: var(--sage); }
 .menu-apps img { grid-row: span 2; width: 40px; height: 40px; border-radius: 11px; }
@@ -424,6 +427,8 @@ a.row:active { transform: scale(0.99); }
 
 /* About page */
 .about-hero { padding-top: clamp(24px, 4vw, 56px); }
+.about-hero .hero-cta { margin-top: 28px; }
+.pd-hero:has(.about-hero) { padding-bottom: clamp(40px, 5vw, 64px); }
 .about-hero .pd-title { max-width: 15ch; }
 .about-hero .pd-lede { max-width: 52ch; }
 .about-apps { margin-top: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }

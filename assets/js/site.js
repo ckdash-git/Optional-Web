@@ -29,13 +29,13 @@
       replay.hidden = false;
       replay.addEventListener('click', run);
     }
-    // Play once the total is on screen, so the stamp is seen (below the fold on phones).
+    // Play once most of the receipt is on screen, so the proof is never hidden at first view.
     if ('IntersectionObserver' in window && !reduce.matches) {
       receipt.classList.add('is-checking'); // rows wait, unchecked, until the total is seen
       const seen = new IntersectionObserver((entries) => {
         if (entries.some((e) => e.isIntersecting)) { run(); seen.disconnect(); }
-      }, { threshold: 1 });
-      seen.observe(receipt.querySelector('.receipt-foot') || receipt);
+      }, { threshold: 0.35 });
+      seen.observe(receipt);
     } else {
       run();
     }
