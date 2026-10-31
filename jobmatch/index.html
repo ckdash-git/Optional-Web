@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-Du+OJKJSbdUgz5nrHeWWINvez6XKDDU/tyj/5c2uvwo='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>JobMatch: rank Naukri, LinkedIn, Indeed and Glassdoor jobs by your resume | Optional Labs</title>
+  <meta name="description" content="JobMatch reads your resume on your own computer, searches Naukri, LinkedIn, Indeed and Glassdoor together, and scores every job from 0 to 100 by how well it fits you.">
+  <link rel="canonical" href="https://optionallabs.com/jobmatch/">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/icon-32.png">
+  <link rel="apple-touch-icon" href="../assets/img/icon-180.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://optionallabs.com/jobmatch/">
+  <meta property="og:title" content="JobMatch by Optional Labs">
+  <meta property="og:description" content="JobMatch reads your resume on your own computer, searches Naukri, LinkedIn, Indeed and Glassdoor together, and scores every job from 0 to 100 by how well it fits you.">
+  <meta property="og:image" content="https://optionallabs.com/assets/og/jobmatch.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"JobMatch","description":"JobMatch reads your resume on your own computer, searches Naukri, LinkedIn, Indeed and Glassdoor together, and scores every job from 0 to 100 by how well it fits you.","url":"https://optionallabs.com/jobmatch/","sameAs":"https://jobmatch.optionallabs.com","applicationCategory":"BusinessApplication","operatingSystem":"Windows 10, Windows 11, macOS","image":"https://optionallabs.com/assets/img/jobmatch.png","publisher":{"@type":"Organization","name":"Optional Labs LLP","url":"https://optionallabs.com/"}}</script>
+  <link rel="preload" href="../assets/fonts/inter-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top" id="top">
+    <div class="wrap top-in">
+      <a class="brand" href="../" aria-label="Optional Labs home"><img src="../assets/img/ol-mark.png" alt="" width="36" height="36">Optional Labs</a>
+      <nav class="nav" aria-label="Main">
+        <a href="../#apps">Apps</a>
+        <a href="../#how">How we build</a>
+        <a href="../#contact">Contact</a>
+        <a class="btn btn-lime" href="../#apps">See the apps</a>
+      </nav>
+      <details class="menu">
+        <summary class="menu-btn"><span class="menu-icon" aria-hidden="true"></span>Menu</summary>
+        <div class="menu-panel">
+          <ul class="menu-apps">
+            <li><a href="../zeroauth/"><img src="../assets/img/zeroauth.png" alt="" width="40" height="40">ZeroAuth<small>Authenticator</small></a></li>
+            <li><a href="../saifu/"><img src="../assets/img/saifu.svg" alt="" width="40" height="40">Saifu<small>Credit card advisor</small></a></li>
+            <li><a href="../parchi/"><img src="../assets/img/parchi.png" alt="" width="40" height="40">Parchi<small>Medical papers</small></a></li>
+            <li><a href="../tegami/"><img src="../assets/img/tegami.png" alt="" width="40" height="40">Tegami<small>City-hall letters</small></a></li>
+            <li><a href="../passo/"><img src="../assets/img/passo.png" alt="" width="40" height="40">Passo<small>Travel stamps</small></a></li>
+            <li><a href="../jobmatch/"><img src="../assets/img/jobmatch.png" alt="" width="40" height="40">JobMatch<small>Job search</small></a></li>
+            <li><a href="../helm/"><img src="../assets/img/helm.svg" alt="" width="40" height="40">Helm<small>Mac remote control</small></a></li>
+            <li><a href="../revive/"><img src="../assets/img/revive.png" alt="" width="40" height="40">Revive<small>Sleep and recovery</small></a></li>
+            </ul>
+          <ul class="menu-links">
+            <li><a href="../about/">About</a></li>
+            <li><a href="../#how">How we build</a></li>
+            <li><a href="../#contact">Contact</a></li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="pd-hero pd-lime" aria-labelledby="pd-title">
+      <div class="wrap pd-hero-in">
+        <div class="pd-copy">
+          <a class="pd-back" href="../#apps"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M15 10H5m4-4-4 4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>All apps</a>
+          <div class="pd-id"><img class="app-icon" src="../assets/img/jobmatch.png" alt="" width="72" height="72"><div><p class="pd-name">JobMatch</p><p class="pd-job">Job search for India, on your computer</p></div></div>
+          <h1 class="pd-title" id="pd-title">Upload your resume once. See the jobs that fit.</h1>
+          <p class="pd-lede">JobMatch searches Naukri, LinkedIn, Indeed and Glassdoor together and scores every job from 0 to 100 by how well it fits you, right on your computer.</p>
+          <div class="app-actions">
+            <a class="btn btn-ink btn-lg" href="https://jobmatch.optionallabs.com">Visit jobmatch.optionallabs.com<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+          <p class="pd-status">For Windows 10/11 and macOS. Two free searches, no sign-up. Then a one-time pass with no autopay.</p>
+        </div>
+        <div class="pd-art"><figure class="win win-lg"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="../assets/screens/jobmatch-results.webp" alt="JobMatch showing the top 5 of 61 matching jobs, each with a score, the skills you have and the skills to add" width="800" height="596"></figure></div>
+      </div>
+    </section>
+
+    <section class="pd-section wrap" aria-label="The problem and what we fixed">
+      <dl class="pf pf-big">
+        <div class="pf-row pf-problem"><dt>The problem</dt><dd>Four job sites, four searches, the same job posted three times, and no way to tell which of hundreds of posts actually fit your resume.</dd></div>
+        <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>JobMatch searches the four boards at once, scores every job against your resume, and shows the skills you have and the ones to add.</dd></div>
+      </dl>
+    </section>
+
+    <section class="pd-section wrap" aria-labelledby="screens-title">
+      <div class="section-head">
+        <h2 class="display h2" id="screens-title">Inside JobMatch</h2>
+        <p class="lede">The desktop app, with a sample resume. Each score has its reasons.</p>
+      </div>
+        <div class="gallery gallery-wide" data-gallery>
+          <div class="gallery-nav" data-gallery-nav hidden>
+            <button class="gnav" type="button" data-dir="-1" aria-label="Previous screen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12 5l-5 5 5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="gnav" type="button" data-dir="1" aria-label="Next screen"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+          <ol class="shots" tabindex="0" aria-label="JobMatch screens">
+          <li class="shot">
+            <figure>
+              <div class="win"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="../assets/screens/jobmatch-search.webp" alt="Search four boards at once: Your title, location and skills are filled in from your resume. Fix anything it got wrong, pick the job boards and search." width="800" height="596" loading="lazy"></div>
+              <figcaption><strong>Search four boards at once</strong>Your title, location and skills are filled in from your resume. Fix anything it got wrong, pick the job boards and search.</figcaption>
+            </figure>
+          </li>
+          <li class="shot">
+            <figure>
+              <div class="win"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="../assets/screens/jobmatch-results.webp" alt="Every job scored: Each job gets a score from 0 to 100, the skills you have, and the skills it also asks for." width="800" height="596" loading="lazy"></div>
+              <figcaption><strong>Every job scored</strong>Each job gets a score from 0 to 100, the skills you have, and the skills it also asks for.</figcaption>
+            </figure>
+          </li>
+          <li class="shot">
+            <figure>
+              <div class="win"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="../assets/screens/jobmatch-all-matches.webp" alt="The full list: All matching jobs, filtered by minimum match, and downloadable as an Excel file." width="800" height="596" loading="lazy"></div>
+              <figcaption><strong>The full list</strong>All matching jobs, filtered by minimum match, and downloadable as an Excel file.</figcaption>
+            </figure>
+          </li>
+          </ol>
+        </div>
+    </section>
+
+    <section class="pd-section pd-steps-wrap" aria-labelledby="how-title">
+      <div class="wrap">
+        <h2 class="display h2" id="how-title">How it works</h2>
+        <ol class="pd-steps">
+          <li><span class="step-n" aria-hidden="true">1</span><h3>Drop in your resume</h3><p>PDF, Word or text, about 30 seconds. JobMatch picks out your skills, title and years of experience. Fix anything it got wrong.</p></li>
+          <li><span class="step-n" aria-hidden="true">2</span><h3>Search four boards at once</h3><p>One to three minutes. Naukri, LinkedIn, Indeed and Glassdoor, for one city or all of India, with filters for freshers, entry-level jobs and walk-in interviews.</p></li>
+          <li><span class="step-n" aria-hidden="true">3</span><h3>Apply to the best fits first</h3><p>Open the top cards, mark them saved or applied, and come back tomorrow to see only what is new.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="pd-section wrap" aria-labelledby="features-title">
+      <h2 class="display h2" id="features-title">What you get</h2>
+      <ul class="pd-features">
+          <li><span class="tick" aria-hidden="true"></span><div><h3>Scores with reasons</h3><p>Click Why on any card to see how the score was made. Trust the number or overrule it.</p></div></li>
+          <li><span class="tick" aria-hidden="true"></span><div><h3>Skills to add</h3><p>Skills a job asks for that your resume does not mention are listed separately.</p></div></li>
+          <li><span class="tick" aria-hidden="true"></span><div><h3>Four boards at once</h3><p>Naukri, LinkedIn, Indeed and Glassdoor in one search.</p></div></li>
+          <li><span class="tick" aria-hidden="true"></span><div><h3>It remembers your search</h3><p>Jobs you have not seen before are marked new, and every search is kept.</p></div></li>
+          <li><span class="tick" aria-hidden="true"></span><div><h3>Your own pipeline</h3><p>Saved, applied, interview and offer, with notes.</p></div></li>
+          <li><span class="tick" aria-hidden="true"></span><div><h3>One resume per role</h3><p>Switch between saved resumes in one click.</p></div></li>
+          <li><span class="tick" aria-hidden="true"></span><div><h3>Messages ready to send</h3><p>A cover letter, a note to the recruiter and a follow-up, filled in for each job.</p></div></li>
+          <li><span class="tick" aria-hidden="true"></span><div><h3>A real Excel file</h3><p>Save your matches or your tracker, with clickable links.</p></div></li>
+      </ul>
+    </section>
+
+    <section class="pd-section wrap" aria-labelledby="privacy-title">
+      <div class="pd-privacy pd-lime">
+        <h2 class="display" id="privacy-title">Read on your computer</h2>
+        <div class="pcols">
+          <div class="pcol">
+            <h3>Stays on your computer</h3>
+            <ul><li>Your resume is read on your computer, not uploaded</li><li>Searches, notes and your tracker are saved on your computer, not in our database</li></ul>
+          </div>
+          <div class="pcol">
+            <h3>What goes out</h3>
+            <ul><li>A job title and a city go to the job boards, the same as when you search by hand</li></ul>
+          </div>
+        </div>
+        <p class="pd-privacy-note">Online resume tools upload your resume to their servers. JobMatch reads it on yours. <a href="https://jobmatch.optionallabs.com/privacy">Read JobMatch's privacy policy.</a></p>
+      </div>
+    </section>
+
+    <section class="pd-section wrap" aria-labelledby="get-title">
+      <div class="pd-get">
+        <div>
+          <h2 class="display" id="get-title">Get JobMatch</h2>
+          <p class="pd-status">For Windows 10/11 and macOS. Two free searches, no sign-up. Then a one-time pass with no autopay.</p>
+          <dl class="pd-facts">
+            <div><dt>Platforms</dt><dd>Windows 10/11 and macOS</dd></div>
+            <div><dt>Free trial</dt><dd>Two searches, each showing the top 5 matches</dd></div>
+            <div><dt>Pricing</dt><dd>A one-time pass, no autopay. See the site for current prices.</dd></div>
+          </dl>
+        </div>
+        <div class="pd-get-actions">
+          <a class="btn btn-lime btn-lg" href="https://jobmatch.optionallabs.com">Visit jobmatch.optionallabs.com<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="pd-support" href="mailto:contact@optionallabs.com">Support: contact@optionallabs.com</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="close wrap" aria-labelledby="others-title">
+      <div class="close-in close-sage">
+        <h2 class="display" id="others-title">More from Optional Labs</h2>
+        <ul class="close-apps">
+          <li><a href="../zeroauth/"><img src="../assets/img/zeroauth.png" alt="" width="56" height="56" loading="lazy">ZeroAuth</a></li>
+          <li><a href="../saifu/"><img src="../assets/img/saifu.svg" alt="" width="56" height="56" loading="lazy">Saifu</a></li>
+          <li><a href="../parchi/"><img src="../assets/img/parchi.png" alt="" width="56" height="56" loading="lazy">Parchi</a></li>
+          <li><a href="../tegami/"><img src="../assets/img/tegami.png" alt="" width="56" height="56" loading="lazy">Tegami</a></li>
+          <li><a href="../passo/"><img src="../assets/img/passo.png" alt="" width="56" height="56" loading="lazy">Passo</a></li>
+          <li><a href="../helm/"><img src="../assets/img/helm.svg" alt="" width="56" height="56" loading="lazy">Helm</a></li>
+          <li><a href="../revive/"><img src="../assets/img/revive.png" alt="" width="56" height="56" loading="lazy">Revive</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" id="contact">
+    <div class="wrap foot-in">
+      <div>
+        <a class="brand" href="../"><img src="../assets/img/ol-mark.png" alt="" width="36" height="36">Optional Labs</a>
+        <p>Small apps that keep your data with you.</p>
+      </div>
+      <div>
+        <h2>Apps</h2>
+        <ul>
+          <li><a href="../zeroauth/">ZeroAuth</a></li>
+          <li><a href="../saifu/">Saifu</a></li>
+          <li><a href="../parchi/">Parchi</a></li>
+          <li><a href="../tegami/">Tegami</a></li>
+          <li><a href="../passo/">Passo</a></li>
+          <li><a href="../jobmatch/">JobMatch</a></li>
+          <li><a href="../helm/">Helm</a></li>
+          <li><a href="../revive/">Revive</a></li>
+          </ul>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:contact@optionallabs.com">contact@optionallabs.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Company</h2>
+        <ul>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../#how">How we build</a></li>
+          <li><a href="../privacy-policy.html">Privacy policy</a></li>
+          <li><a href="../manage-account.html">Manage account</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="wrap foot-base">
+      <span>&copy; <span data-year>2026</span> Optional Labs LLP &middot; LLPIN ADD-5789</span>
+      <span>Registered office: Kotpad, Koraput Dist, Odisha, India, 764058</span>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js" defer></script>
+</body>
+</html>

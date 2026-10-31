@@ -26,6 +26,6 @@ jobs:
       - name: HTML is valid
         run: npx --yes html-validate@9 '*.html' '*/index.html'
       - name: Required company facts are on every page
-        run: node tools/check-site.mjs company
+        run: node tools/check-site.mjs company products
       - name: Internal links and anchors resolve
         run: node tools/check-links.mjs

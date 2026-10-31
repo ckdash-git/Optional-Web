@@ -35,7 +35,7 @@
       const seen = new IntersectionObserver((entries) => {
         if (entries.some((e) => e.isIntersecting)) { run(); seen.disconnect(); }
       }, { threshold: 1 });
-      seen.observe(receipt.querySelector('.receipt-total') || receipt);
+      seen.observe(receipt.querySelector('.receipt-foot') || receipt);
     } else {
       run();
     }

@@ -100,3 +100,6 @@ firebase_cloude.js
 
 # Local design-tool state (not for publishing)
 .impeccable/
+
+# Python bytecode from tools/
+__pycache__/
