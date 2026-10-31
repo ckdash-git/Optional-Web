@@ -193,7 +193,7 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 .apps { padding-bottom: clamp(64px, 9vw, 128px); }
 .tiles { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
 .tile {
-  --tile: var(--sage); --ghost: rgb(14 15 12 / 0.07); --soft: var(--body);
+  --tile: var(--sage); --ghost: rgb(14 15 12 / 0.07); --ghost-hover: rgb(14 15 12 / 0.13); --soft: var(--body);
   position: relative; grid-column: span 3; display: flex; flex-direction: column; gap: 22px; min-height: 440px;
   padding: clamp(22px, 2.4vw, 32px); border-radius: var(--radius-lg); background: var(--tile); color: var(--ink); overflow: hidden;
   transition: transform 0.5s var(--ease-out), box-shadow 0.4s ease;
@@ -526,7 +526,7 @@ a.row:active { transform: scale(0.99); }
 .acct-form input, .form input, .form select, .form textarea { font: inherit; padding: 14px 16px; border-radius: var(--radius-sm); border: 2px solid var(--sage-deep); background: var(--canvas); color: var(--ink); min-height: 52px; transition: border-color 0.2s ease; }
 .acct-form input:focus, .form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--ink); }
 .form textarea { min-height: 132px; resize: vertical; line-height: 1.5; }
-.form select { appearance: none; background: var(--canvas) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8l5 5 5-5' fill='none' stroke='%230e0f0c0' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center / 20px; padding-right: 44px; }
+.form select { appearance: none; background: var(--canvas) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 8l5 5 5-5' fill='none' stroke='%230e0f0c' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center / 20px; padding-right: 44px; }
 .acct-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 14px; }
 .acct-link { border: 0; background: none; font: 600 15px/1 "Inter", sans-serif; color: var(--ink); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; padding: 10px 4px; }
 .acct-facts { margin: 16px 0 20px; }
