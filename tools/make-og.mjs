@@ -27,7 +27,7 @@ const CARDS = [
   { file: 'saifu', tone: 'lime', icon: 'saifu.svg', name: 'Saifu', line: 'Which card at checkout. And what you are about to lose.', foot: 'Credit card advisor for India' },
   { file: 'parchi', tone: 'sage', icon: 'parchi.png', name: 'Parchi', line: 'Your family’s medical papers, read and kept on your phone.', foot: 'iPhone and Android' },
   { file: 'tegami', tone: 'pale', icon: 'tegami.png', name: 'Tegami', line: 'Every letter from city hall, explained in plain English.', foot: 'For residents of Japan' },
-  { file: 'about', tone: 'forest', icon: 'ol-mark.png', name: 'Optional Labs', line: 'Everyday apps that keep your data on your phone.', foot: 'Made in Bengaluru, India' },
+  { file: 'about', tone: 'forest', icon: 'ol-mark.png', name: 'Optional Labs', line: 'Everyday apps that keep your data on your phone.', foot: 'Optional Labs LLP' },
 ];
 
 const font = (w) => pathToFileURL(path.join(root, `assets/fonts/inter-latin-${w}-normal.woff2`)).href;

@@ -17,7 +17,7 @@ Static HTML/CSS/JS, deployed to GitHub Pages from `main` (`.github/workflows/sta
 
 ## Product Purpose
 
-optionallabs.com is the hub for Optional Labs, the registered company behind four apps. It introduces the studio, lists each product with what it does and where to get it, and sends visitors to each product's own site. Success: a visitor understands in seconds that every app keeps their data on their phone, and reaches the product they came for.
+optionallabs.com is the hub for Optional Labs, the registered company (Optional Labs LLP) behind its apps. It introduces the studio, lists each product with what it does and where to get it, and sends visitors to each product's own site. Success: a visitor understands in seconds that every app keeps their data on their phone, and reaches the product they came for.
 
 ## Positioning
 
@@ -42,7 +42,8 @@ Store links known: ZeroAuth iOS `https://apps.apple.com/in/app/zeroauth/id676404
 
 ## Brand Commitments
 
-- Name: Optional Labs. Based in Bengaluru, India (stated on Tegami's site).
+- Legal entity: **Optional Labs LLP**, LLPIN **ADD-5789**. Registered office: **Kotpad, Koraput Dist, Odisha, India, 764058** (owner, Oct 2026). Brand name used in headings: Optional Labs. Do not say Bengaluru; the older product sites (for example Tegami) still do and are not edited from here.
+- Contact: contact@optionallabs.com (general), career@optionallabs.com (hiring).
 - Logo: `assets/img/ol-mark.png` (from the original `Assets/light_mode(2).png`; the old `Assets/` folder with the logo video, dark-mode logo and Open Sauce font was removed from the site in Oct 2026 and remains in git history).
 - Voice across products: plain, factual, short sentences, no hype ("No account to make.").
 
