@@ -218,7 +218,7 @@ def ld(p):
         'name': p['name'], 'description': p['desc'], 'url': f"https://optionallabs.com/{p['slug']}/",
         'sameAs': p['site'], 'applicationCategory': CATEGORY[p['slug']], 'operatingSystem': OS[p['slug']],
         'image': f"https://optionallabs.com/assets/img/{p['icon']}",
-        'publisher': {'@type': 'Organization', 'name': 'Optional Labs', 'url': 'https://optionallabs.com/'},
+        'publisher': {'@type': 'Organization', 'name': 'Optional Labs LLP', 'url': 'https://optionallabs.com/'},
     }
     return json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
 

@@ -51,12 +51,12 @@ def page(title, desc, canon, og, prefix, main, wrap, csp=BASE_CSP, scripts='', r
   <meta name="referrer" content="strict-origin-when-cross-origin">{robots}
   <title>{title}</title>
   <meta name="description" content="{desc}">
-  <link rel="canonical" href="https://optionallabs.com/{canon}">
+  {f'<link rel="canonical" href="https://optionallabs.com/{canon}">' if canon is not None else ''}
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" type="image/png" sizes="32x32" href="{prefix}assets/img/icon-32.png">
   <link rel="apple-touch-icon" href="{prefix}assets/img/icon-180.png">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://optionallabs.com/{canon}">
+  {f'<meta property="og:url" content="https://optionallabs.com/{canon}">' if canon is not None else ''}
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:image" content="https://optionallabs.com/assets/og/{og}.png">
@@ -82,7 +82,7 @@ def page(title, desc, canon, og, prefix, main, wrap, csp=BASE_CSP, scripts='', r
 PRIVACY = '''  <main id="main" class="wrap legal">
     <article class="legal-in">
       <h1>Privacy policy</h1>
-      <p>Effective 14 October 2026. Publisher: Optional Labs (Chandan Kumar Dash), Bengaluru, India.</p>
+      <p>Effective 31 October 2026. Publisher: Optional Labs LLP (LLPIN ADD-5789), registered office Kotpad, Koraput Dist, Odisha, India, 764058.</p>
 
       <h2>Summary</h2>
       <p>This website does not use analytics, advertising or tracking. Its only sign-in is the account page for the earlier Optional app. Each Optional Labs app has its own privacy policy, linked below, which says exactly what that app stores and where.</p>
@@ -114,7 +114,7 @@ PRIVACY = '''  <main id="main" class="wrap legal">
       <p>This website is not directed at children under 13 and collects no data from anyone.</p>
 
       <h2>Changes and contact</h2>
-      <p>Changes to this policy will be posted on this page with a new effective date. Questions or complaints about privacy: <a href="mailto:contact@optionallabs.com">contact@optionallabs.com</a>.</p>
+      <p>Changes to this policy will be posted on this page with a new effective date. Questions or complaints about privacy: <a href="mailto:contact@optionallabs.com">contact@optionallabs.com</a>, or write to Optional Labs LLP, Kotpad, Koraput Dist, Odisha, India, 764058.</p>
     </article>
   </main>'''
 
@@ -122,7 +122,7 @@ ABOUT = '''  <main id="main">
     <section class="pd-hero pd-forest" aria-labelledby="about-title">
       <div class="wrap about-hero">
         <h1 class="pd-title" id="about-title">Everyday apps that keep your data on your phone.</h1>
-        <p class="pd-lede">Optional Labs is a small product company in Bengaluru, India. We make apps for the paperwork of everyday life: sign-in codes, credit cards, medical papers and government letters.</p>
+        <p class="pd-lede">Optional Labs LLP is a small company in India. We make apps for the paperwork of everyday life: sign-in codes, credit cards, medical papers and government letters.</p>
       </div>
     </section>
 
@@ -154,9 +154,9 @@ ABOUT = '''  <main id="main">
         <div>
           <h2 class="display" id="company-title">Company</h2>
           <dl class="pd-facts">
-            <div><dt>Name</dt><dd>Optional Labs</dd></div>
-            <div><dt>Publisher</dt><dd>Chandan Kumar Dash</dd></div>
-            <div><dt>Based in</dt><dd>Bengaluru, India</dd></div>
+            <div><dt>Legal name</dt><dd>Optional Labs LLP</dd></div>
+            <div><dt>LLPIN</dt><dd>ADD-5789</dd></div>
+            <div><dt>Registered office</dt><dd>Kotpad, Koraput Dist, Odisha, India, 764058</dd></div>
             <div><dt>Contact</dt><dd><a href="mailto:contact@optionallabs.com">contact@optionallabs.com</a></dd></div>
           </dl>
         </div>
@@ -246,6 +246,21 @@ ACCOUNT = '''  <main id="main" class="wrap account">
   </main>'''
 
 
+def absolute(x):
+    x = re.sub(r'href="#(apps|how|contact)"', r'href="/#\1"', x).replace('href="./"', 'href="/"').replace('src="assets/', 'src="/assets/')
+    x = re.sub(r'href="(zeroauth|saifu|parchi|tegami|passo|jobmatch|helm|revive|about|careers|enquire)/"', r'href="/\1/"', x)
+    return re.sub(r'href="(privacy-policy|manage-account)\.html"', r'href="/\1.html"', x)
+
+
+NOTFOUND = '''  <main id="main" class="wrap legal">
+    <div class="legal-in">
+      <h1>This page is not on our phone, or yours.</h1>
+      <p>The address may be old or mistyped. Every Optional Labs app is one tap away from the homepage.</p>
+      <p><a class="btn btn-lime btn-lg" href="/">Go to the homepage</a></p>
+    </div>
+  </main>'''
+
+
 def redirect(to, title):
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -281,7 +296,7 @@ def main():
     (ROOT / 'about').mkdir(exist_ok=True)
     (ROOT / 'about/index.html').write_text(page(
         'About Optional Labs',
-        'Optional Labs is a small product company in Bengaluru, India, making everyday apps that keep your data on your phone.',
+        'Optional Labs LLP is a small company in India making everyday apps that keep your data on your phone.',
         'about/', 'about', '../', ABOUT, depth1))
     sdk = ''.join(f'\n  <script src="https://www.gstatic.com/firebasejs/{FIREBASE}/firebase-{m}-compat.js" defer></script>' for m in ('app', 'auth', 'firestore'))
     (ROOT / 'manage-account.html').write_text(page(
@@ -290,10 +305,13 @@ def main():
         'manage-account.html', 'home', '', ACCOUNT, root_level,
         csp=ACCOUNT_CSP, scripts=sdk + '\n  <script src="assets/js/account.js" defer></script>',
         robots='\n  <meta name="robots" content="noindex">'))
+    (ROOT / '404.html').write_text(page(
+        'Page not found | Optional Labs', 'This page does not exist. Every Optional Labs app is one tap away from the homepage.',
+        None, 'home', '/', NOTFOUND, absolute, robots='\n  <meta name="robots" content="noindex">'))
     # Old account URLs from the earlier site, including any given to app stores, land on the account page.
     for old in ('login.html', 'registration-html.html', 'welcome.html', 'dashboard.html'):
         (ROOT / old).write_text(redirect('manage-account.html', 'Manage your Optional account'))
-    print('wrote privacy-policy.html, privacy-policy-optional-app.html, about/index.html, manage-account.html and redirects')
+    print('wrote privacy-policy.html, privacy-policy-optional-app.html, about/index.html, manage-account.html, 404.html and redirects')
 
 
 if __name__ == '__main__':
