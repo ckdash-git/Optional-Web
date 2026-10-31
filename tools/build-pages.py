@@ -140,7 +140,7 @@ ABOUT_APPS = '\n'.join(
     for p in PRODUCTS)
 
 ABOUT = '''  <main id="main">
-    <section class="pd-hero pd-forest" aria-labelledby="about-title">
+    <section class="pd-hero pd-ink" aria-labelledby="about-title">
       <div class="wrap about-hero">
         <h1 class="pd-title" id="about-title">Small apps that keep your data with you.</h1>
         <p class="pd-lede">Optional Labs LLP is a small company in India. We make apps for everyday life: sign-in codes, credit cards, medical papers, government letters, travel stamps, job search, remote access to your Mac, and sleep and recovery.</p>
@@ -179,7 +179,7 @@ ABOUT = '''  <main id="main">
           </dl>
         </div>
         <div class="pd-get-actions">
-          <a class="btn btn-lime btn-lg" href="mailto:contact@optionallabs.com">Write to us</a>
+          <a class="btn btn-coral btn-lg" href="mailto:contact@optionallabs.com">Write to us</a>
           <a class="pd-support" href="../privacy-policy.html">Privacy policy</a>
         </div>
       </div>
@@ -216,7 +216,7 @@ ACCOUNT = '''  <main id="main" class="wrap account">
           <label for="password">Password</label>
           <input id="password" name="password" type="password" autocomplete="current-password" required>
           <div class="acct-actions">
-            <button class="btn btn-lime btn-lg" type="submit">Sign in</button>
+            <button class="btn btn-coral btn-lg" type="submit">Sign in</button>
             <button class="acct-link" id="reset" type="button">Reset password</button>
           </div>
         </form>
@@ -252,7 +252,7 @@ ACCOUNT = '''  <main id="main" class="wrap account">
       <section class="acct-card acct-done" data-state="deleted" hidden aria-labelledby="deleted-title">
         <h2 id="deleted-title">Your account is deleted</h2>
         <p>Your Optional account and its profile have been removed. You can close this page.</p>
-        <a class="btn btn-lime" href="./">Back to Optional Labs</a>
+        <a class="btn btn-coral" href="./">Back to Optional Labs</a>
       </section>
 
       <aside class="acct-help" aria-labelledby="help-title">
@@ -274,7 +274,7 @@ NOTFOUND = '''  <main id="main" class="wrap legal">
     <div class="legal-in">
       <h1>This page is not on our phone, or yours.</h1>
       <p>The address may be old or mistyped. Every Optional Labs app is one tap away from the homepage.</p>
-      <p><a class="btn btn-lime btn-lg" href="/">Go to the homepage</a></p>
+      <p><a class="btn btn-coral btn-lg" href="/">Go to the homepage</a></p>
     </div>
   </main>'''
 
@@ -321,11 +321,11 @@ def roles_html():
 def careers_main():
     options = ''.join(f'<option>{a}</option>' for a in AREAS)
     return f'''  <main id="main">
-    <section class="pd-hero pd-forest" aria-labelledby="careers-title">
+    <section class="pd-hero pd-ink" aria-labelledby="careers-title">
       <div class="wrap about-hero">
         <h1 class="pd-title" id="careers-title">Come build small apps with us.</h1>
         <p class="pd-lede">Optional Labs LLP is a small company in India that makes eight apps for phones and computers. If you want to help build them, write to <a class="pd-mail" href="mailto:career@optionallabs.com">career@optionallabs.com</a>.</p>
-        <div class="hero-cta"><a class="btn btn-lime btn-lg" href="#apply">Write to us</a></div>
+        <div class="hero-cta"><a class="btn btn-coral btn-lg" href="#apply">Write to us</a></div>
       </div>
     </section>
 
@@ -367,7 +367,7 @@ def careers_main():
           <div class="field"><label for="a-area">Area you could help with</label><select id="a-area" name="area">{options}</select><p class="form-hint">Engineering covers iOS, Android, web and backend.</p></div>
           <div class="field"><label for="a-link">Link to your work</label><input id="a-link" name="link" type="url" inputmode="url" autocomplete="url" placeholder="GitHub, portfolio, an app, writing"></div>
           <div class="field"><label for="a-note">A few lines about you</label><textarea id="a-note" name="message" rows="5" required></textarea></div>
-          <button class="btn btn-lime btn-lg" type="submit">Open email draft</button>
+          <button class="btn btn-coral btn-lg" type="submit">Open email draft</button>
           <p class="form-hint">This opens your email app with the message filled in, addressed to career@optionallabs.com. Nothing is sent from this page, and a web page cannot attach files, so add your CV in the email.</p>
         </form>
       </div>
@@ -389,11 +389,11 @@ ENQUIRE_CSP = BASE_CSP.replace("connect-src 'self'", "connect-src 'self' https:/
 def enquire_main():
     options = ''.join(f'<option>{a}</option>' for a in INTERESTS)
     return f'''  <main id="main">
-    <section class="pd-hero pd-forest" aria-labelledby="enq-title">
+    <section class="pd-hero pd-ink" aria-labelledby="enq-title">
       <div class="wrap about-hero">
         <h1 class="pd-title" id="enq-title">Tell us what you need built.</h1>
         <p class="pd-lede">Optional Labs LLP also builds websites, CRMs and customer portals for businesses in India. Say what you have in mind and we will reply with a plan and a price.</p>
-        <div class="hero-cta"><a class="btn btn-lime btn-lg" href="#enquire">Send an enquiry</a></div>
+        <div class="hero-cta"><a class="btn btn-coral btn-lg" href="#enquire">Send an enquiry</a></div>
       </div>
     </section>
 
@@ -415,7 +415,7 @@ def enquire_main():
           <div class="field"><label for="e-phone">Phone number</label><input id="e-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="With country code if outside India" required></div>
           <div class="field"><label for="e-interest">What do you need?</label><select id="e-interest" name="interest">{options}</select></div>
           <div class="field"><label for="e-msg">A few lines about it</label><textarea id="e-msg" name="message" rows="5" required></textarea></div>
-          <button class="btn btn-lime btn-lg" type="submit">{'Send on WhatsApp' if WHATSAPP else 'Open email draft'}</button>
+          <button class="btn btn-coral btn-lg" type="submit">{'Send on WhatsApp' if WHATSAPP else 'Open email draft'}</button>
           <p class="form-hint">{'This opens WhatsApp with your message filled in, and WhatsApp\'s own terms apply to what you send there.' if WHATSAPP else 'This opens your email app with the message filled in, addressed to contact@optionallabs.com.'} Your details go only to us.</p>
         </form>
       </div>

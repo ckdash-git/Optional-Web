@@ -54,7 +54,7 @@ Do not print prices on the hub: JobMatch and Helm read theirs from the server an
 
 - Legal entity: **Optional Labs LLP**, LLPIN **ADD-5789**. Registered office: **Kotpad, Koraput Dist, Odisha, India, 764058** (owner, Oct 2026). Brand name used in headings: Optional Labs. Do not say Bengaluru; the older product sites (for example Tegami) still do and are not edited from here.
 - Contact: contact@optionallabs.com (general), career@optionallabs.com (hiring).
-- Logo: `assets/img/ol-mark.png` (from the original `Assets/light_mode(2).png`; the old `Assets/` folder with the logo video, dark-mode logo and Open Sauce font was removed from the site in Oct 2026 and remains in git history).
+- Logo (owner, Oct 2026): a near-black rounded square with a white "o" and a coral dot, `assets/img/ol-mark.png` (also the favicon, touch icon and JSON-LD logo); wordmarks `assets/img/logo-on-dark.png` and `logo-on-light.png`. The coral of that dot (#ff5a4f) is the site's accent colour, so the site is white, near-black and coral. Contact for enquiries by WhatsApp: +91 7090702100 (the enquiry form opens it; email is the fallback).
 - Voice across products: plain, factual, short sentences, no hype ("No account to make.").
 
 ## Evidence on Hand

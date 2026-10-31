@@ -48,39 +48,44 @@ def region_receipt_rows():
     return '\n'.join(f'''          <li><a class="row" href="{p["slug"]}/">
               <img src="{icon_src(p, "")}" alt="" width="48" height="48">
               <span class="row-name">{e(p["name"])}<small>{e(p["leaves"])}</small></span>
-              <span class="row-val"><span class="row-check" aria-hidden="true"></span><span class="sr">Sent off your device: </span>{e(p["verdict"])}</span>
+              <span class="row-val"><span class="row-check" aria-hidden="true" data-lottie="check"></span><span class="sr">Sent off your device: </span>{e(p["verdict"])}</span>
             </a></li>''' for p in PRODUCTS)
 
 
+TILE_ORDER = ['saifu', 'parchi', 'zeroauth', 'tegami', 'passo', 'helm', 'jobmatch', 'revive']
+TILE_BIG = {'saifu', 'parchi', 'jobmatch', 'revive'}   # these carry a screenshot and span half the row
+
+
 def region_app_bands():
+    by = {p['slug']: p for p in PRODUCTS}
     out = []
-    for p in PRODUCTS:
-        primary = 'btn-lime' if p['tone'] == 'forest' else 'btn-ink'
-        chips = '\n'.join(f'                <li>{e(f)}</li>' for f in p['band_facts'])
-        extra = ''.join(f'\n                <a class="btn btn-ghost" href="{href}">{e(label)}</a>' for _, label, href, _ in p['actions'][1:])
-        bad = badges_html(p, '', '                ')
-        status = '' if bad else f'\n                <span class="status">{e(p["status"].split(". ")[0].rstrip("."))}.</span>'
-        out.append(f'''          <li class="app app-{p["tone"]}" id="{p["slug"]}" data-reveal>
-            <div class="app-main">
-              <img class="app-icon" src="{icon_src(p, "")}" alt="" width="96" height="96" loading="lazy">
+    for slug in TILE_ORDER:
+        p = by[slug]
+        big = slug in TILE_BIG and p.get('screens')
+        shot = ''
+        if big:
+            file = p['screens'][0][0]
+            w, h = p.get('screen_dims', (560, 1212))
+            if p.get('screen_kind') == 'desktop':
+                shot = f'\n            <div class="win win-tile"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="assets/screens/{file}" alt="" width="{w}" height="{h}" loading="lazy"></div>'
+            else:
+                shot = f'\n            <div class="phone tile-shot"><img src="assets/screens/{file}" alt="" width="{w}" height="{h}" loading="lazy"></div>'
+        out.append(f'''          <li class="tile t-{slug}{" tile-lg" if big else ""}" id="{slug}" data-reveal>
+            <div class="tile-head">
+              <img class="tile-icon" src="{icon_src(p, "")}" alt="" width="56" height="56" loading="lazy">
               <div>
-                <h3 class="app-name">{e(p["name"])}</h3>
-                <p class="app-job">{e(p["job"])}</p>
+                <h3 class="tile-name"><a class="tile-link" href="{slug}/">{e(p["name"])}</a></h3>
+                <p class="tile-job">{e(p["job"])}</p>
               </div>
             </div>
-            <div class="app-body">
-              <dl class="pf">
-                <div class="pf-row pf-problem"><dt>The problem</dt><dd>{e(p["problem"])}</dd></div>
-                <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>{e(p["fix"])}</dd></div>
-              </dl>
-              <ul class="app-facts">
-{chips}
-              </ul>
-              <div class="app-actions">
-                <a class="btn {primary}" href="{p["slug"]}/">More about {e(p["name"])}{ARROW}</a>
-                <a class="btn btn-ghost" href="{p["site"]}">Visit {e(p["site_label"])}</a>{extra}{chr(10) + bad if bad else ""}{status}
-              </div>
-            </div>
+            <dl class="pf">
+              <div class="pf-row pf-problem"><dt>The problem</dt><dd>{e(p["problem"])}</dd></div>
+              <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>{e(p["fix"])}</dd></div>
+            </dl>
+            <div class="tile-foot">
+              <a class="tile-visit" href="{p["site"]}" aria-label="Visit {e(p["site_label"])}">Visit site</a>
+              <span class="tile-go" aria-hidden="true">{ARROW}</span>
+            </div>{shot}
           </li>''')
     return '\n\n'.join(out)
 
@@ -273,7 +278,7 @@ def page(p):
 
 {HEADER}
   <main id="main">
-    <section class="pd-hero pd-{p["tone"]}" aria-labelledby="pd-title">
+    <section class="pd-hero pd-tint t-{p["slug"]}" aria-labelledby="pd-title">
       <div class="wrap pd-hero-in">
         <div class="pd-copy">
           <a class="pd-back" href="../#apps"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M15 10H5m4-4-4 4 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>All apps</a>
@@ -321,7 +326,8 @@ def page(p):
     </section>
 
     <section class="pd-section wrap" aria-labelledby="privacy-title">
-      <div class="pd-privacy pd-{p["tone"]}">
+      <div class="pd-privacy pd-ink">
+        <div class="shield-lottie" data-lottie="shield" aria-hidden="true"></div>
         <h2 class="display" id="privacy-title">{e(p["privacy_title"])}</h2>
         <div class="pcols">
 {priv}
@@ -340,7 +346,7 @@ def page(p):
           </dl>
         </div>
         <div class="pd-get-actions">
-          <a class="btn btn-lime btn-lg" href="{p["site"]}">Visit {e(p["site_label"])}{ARROW}</a>
+          <a class="btn btn-coral btn-lg" href="{p["site"]}">Visit {e(p["site_label"])}{ARROW}</a>
           <a class="pd-support" href="{sh}">{e(sl)}: {e(st)}</a>
         </div>
       </div>
