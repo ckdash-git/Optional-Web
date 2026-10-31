@@ -6,12 +6,22 @@ Run from anywhere:  python3 tools/build-pages.py
 Change the header or footer in index.html first; this copies them.
 The Optional app policy text is kept verbatim in tools/legacy-optional-app-policy.html.
 """
-import pathlib, re
+import datetime, pathlib, re, sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from products import PRODUCTS
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+SLUGS = '|'.join([p['slug'] for p in PRODUCTS] + ['about', 'careers', 'enquire'])
 idx = (ROOT / 'index.html').read_text()
-HEADER = re.search(r'  <header class="top" id="top">.*?</header>\n', idx, re.S).group(0)
-FOOTER = re.search(r'  <footer class="foot".*?</footer>\n', idx, re.S).group(0)
+
+
+def chrome(tag, cls):
+    m = re.search(r'  <%s class="%s".*?</%s>\n' % (tag, cls, tag), idx, re.S).group(0)
+    return re.sub(r'<!-- /?gen:[a-z-]+ -->\n?\s*', '', m)
+
+
+HEADER, FOOTER = chrome('header', 'top'), chrome('footer', 'foot')
 
 
 def root_level(x):
@@ -21,7 +31,7 @@ def root_level(x):
 def depth1(x):
     x = x.replace('href="./"', 'href="../"').replace('src="assets/', 'src="../assets/')
     x = re.sub(r'href="#(apps|how|contact)"', r'href="../#\1"', x)
-    x = re.sub(r'href="(zeroauth|saifu|parchi|tegami|about)/"', r'href="../\1/"', x)
+    x = re.sub(r'href="(%s)/"' % SLUGS, r'href="../\1/"', x)
     return x.replace('href="privacy-policy.html"', 'href="../privacy-policy.html"').replace('href="manage-account.html"', 'href="../manage-account.html"')
 
 
@@ -79,6 +89,8 @@ def page(title, desc, canon, og, prefix, main, wrap, csp=BASE_CSP, scripts='', r
 '''
 
 
+POLICY_LINKS = '\n'.join(f'        <li><a href="{p["policy"]}">{p["name"]} privacy policy</a></li>' for p in PRODUCTS)
+
 PRIVACY = '''  <main id="main" class="wrap legal">
     <article class="legal-in">
       <h1>Privacy policy</h1>
@@ -88,12 +100,9 @@ PRIVACY = '''  <main id="main" class="wrap legal">
       <p>This website does not use analytics, advertising or tracking. Its only sign-in is the account page for the earlier Optional app. Each Optional Labs app has its own privacy policy, linked below, which says exactly what that app stores and where.</p>
 
       <h2>Our apps</h2>
-      <p>Each app keeps what you put into it on your phone. Read the policy for the app you use:</p>
+      <p>Each Optional Labs app has its own privacy policy, which says exactly what that app stores, where it keeps it and what leaves your device. Read the one for the app you use:</p>
       <ul>
-        <li><a href="https://zeroauth.in/legal/privacy-policy">ZeroAuth privacy policy</a></li>
-        <li><a href="https://saifu.in/privacy/">Saifu privacy policy</a></li>
-        <li><a href="https://getparchi.com/privacy/">Parchi privacy policy</a></li>
-        <li><a href="https://tegami.optionallabs.com/privacy/">Tegami privacy policy</a></li>
+{POLICY_LINKS}
       </ul>
       <p>For the earlier Optional app (job referral requests), see the <a href="privacy-policy-optional-app.html">Optional app privacy policy</a>.</p>
 
@@ -118,21 +127,27 @@ PRIVACY = '''  <main id="main" class="wrap legal">
     </article>
   </main>'''
 
+PRIVACY = PRIVACY.replace('{POLICY_LINKS}', POLICY_LINKS)
+
+ABOUT_APPS = '\n'.join(
+    f'        <li><a href="../{p["slug"]}/"><img src="../assets/img/{p["icon"]}" alt="" width="64" height="64"><span><strong>{p["name"]}</strong>{p["job"]}. {p["status"].split(". ")[0].rstrip(".")}.</span></a></li>'
+    for p in PRODUCTS)
+
 ABOUT = '''  <main id="main">
     <section class="pd-hero pd-forest" aria-labelledby="about-title">
       <div class="wrap about-hero">
-        <h1 class="pd-title" id="about-title">Everyday apps that keep your data on your phone.</h1>
-        <p class="pd-lede">Optional Labs LLP is a small company in India. We make apps for the paperwork of everyday life: sign-in codes, credit cards, medical papers and government letters.</p>
+        <h1 class="pd-title" id="about-title">Small apps that keep your data with you.</h1>
+        <p class="pd-lede">Optional Labs LLP is a small company in India. We make apps for everyday life: sign-in codes, credit cards, medical papers, government letters, travel stamps, job search, remote access to your Mac, and sleep and recovery.</p>
       </div>
     </section>
 
     <section class="pd-section wrap" aria-labelledby="why-title">
       <div class="section-head">
         <h2 class="display h2" id="why-title">Why we build this way</h2>
-        <p class="lede">The things these apps handle are personal. We think they belong on your phone, not on our servers.</p>
+        <p class="lede">The things these apps handle are personal. We think they belong with you, not on our servers.</p>
       </div>
       <ul class="pd-features">
-        <li><span class="tick" aria-hidden="true"></span><div><h3>On the phone first</h3><p>Each app reads, stores and works on your phone. What you put in stays there unless you choose to export or back it up.</p></div></li>
+        <li><span class="tick" aria-hidden="true"></span><div><h3>On your device first</h3><p>Each app reads, stores and works on your own device. What you put in stays there unless you choose to export it, share it or turn on an extra feature.</p></div></li>
         <li><span class="tick" aria-hidden="true"></span><div><h3>One job each</h3><p>Every app does one everyday job well, so it is easy to understand and easy to trust.</p></div></li>
         <li><span class="tick" aria-hidden="true"></span><div><h3>Show our work</h3><p>Where an app reads a paper or a letter, it shows the original next to what it read, so you can check it.</p></div></li>
         <li><span class="tick" aria-hidden="true"></span><div><h3>Plain words</h3><p>Short sentences, real numbers and no fine print you have to decode.</p></div></li>
@@ -142,10 +157,7 @@ ABOUT = '''  <main id="main">
     <section class="pd-section wrap" aria-labelledby="apps-title">
       <h2 class="display h2" id="apps-title">What we make</h2>
       <ul class="about-apps">
-        <li><a href="../zeroauth/"><img src="../assets/img/zeroauth.png" alt="" width="64" height="64"><span><strong>ZeroAuth</strong>Authenticator for iPhone and Android. On the App Store and Google Play.</span></a></li>
-        <li><a href="../saifu/"><img src="../assets/img/saifu.svg" alt="" width="64" height="64"><span><strong>Saifu</strong>Credit card advisor for India. Web tools live now, app coming soon.</span></a></li>
-        <li><a href="../parchi/"><img src="../assets/img/parchi.png" alt="" width="64" height="64"><span><strong>Parchi</strong>Family medical papers. Coming soon to iPhone and Android.</span></a></li>
-        <li><a href="../tegami/"><img src="../assets/img/tegami.png" alt="" width="64" height="64"><span><strong>Tegami</strong>City-hall letters, for residents of Japan. Coming soon to iPhone.</span></a></li>
+{ABOUT_APPS}
       </ul>
     </section>
 
@@ -248,7 +260,7 @@ ACCOUNT = '''  <main id="main" class="wrap account">
 
 def absolute(x):
     x = re.sub(r'href="#(apps|how|contact)"', r'href="/#\1"', x).replace('href="./"', 'href="/"').replace('src="assets/', 'src="/assets/')
-    x = re.sub(r'href="(zeroauth|saifu|parchi|tegami|passo|jobmatch|helm|revive|about|careers|enquire)/"', r'href="/\1/"', x)
+    x = re.sub(r'href="(%s)/"' % SLUGS, r'href="/\1/"', x)
     return re.sub(r'href="(privacy-policy|manage-account)\.html"', r'href="/\1.html"', x)
 
 
@@ -278,6 +290,8 @@ def redirect(to, title):
 </html>
 '''
 
+ABOUT = ABOUT.replace('{ABOUT_APPS}', ABOUT_APPS)
+
 
 def main():
     legacy = (ROOT / 'tools/legacy-optional-app-policy.html').read_text()
@@ -296,7 +310,7 @@ def main():
     (ROOT / 'about').mkdir(exist_ok=True)
     (ROOT / 'about/index.html').write_text(page(
         'About Optional Labs',
-        'Optional Labs LLP is a small company in India making everyday apps that keep your data on your phone.',
+        'Optional Labs LLP is a small company in India making small apps that keep your data with you.',
         'about/', 'about', '../', ABOUT, depth1))
     sdk = ''.join(f'\n  <script src="https://www.gstatic.com/firebasejs/{FIREBASE}/firebase-{m}-compat.js" defer></script>' for m in ('app', 'auth', 'firestore'))
     (ROOT / 'manage-account.html').write_text(page(
@@ -311,7 +325,18 @@ def main():
     # Old account URLs from the earlier site, including any given to app stores, land on the account page.
     for old in ('login.html', 'registration-html.html', 'welcome.html', 'dashboard.html'):
         (ROOT / old).write_text(redirect('manage-account.html', 'Manage your Optional account'))
+    write_sitemap()
     print('wrote privacy-policy.html, privacy-policy-optional-app.html, about/index.html, manage-account.html, 404.html and redirects')
+
+
+def write_sitemap():
+    """List every public page: the homepage, each folder with an index.html, and the privacy policies."""
+    urls = ['']
+    urls += sorted(d.name + '/' for d in ROOT.iterdir() if d.is_dir() and (d / 'index.html').exists() and d.name not in ('assets', 'tools'))
+    urls += ['privacy-policy.html', 'privacy-policy-optional-app.html']
+    today = datetime.date.today().isoformat()
+    body = ''.join(f'  <url><loc>https://optionallabs.com/{u}</loc><lastmod>{today}</lastmod></url>\n' for u in urls)
+    (ROOT / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + '</urlset>\n')
 
 
 if __name__ == '__main__':
