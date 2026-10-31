@@ -25,5 +25,7 @@ jobs:
           git diff --exit-code -- . ':(exclude)sitemap.xml'
       - name: HTML is valid
         run: npx --yes html-validate@9 '*.html' '*/index.html'
+      - name: Required company facts are on every page
+        run: node tools/check-site.mjs company
       - name: Internal links and anchors resolve
         run: node tools/check-links.mjs
