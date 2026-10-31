@@ -33,6 +33,7 @@ const CARDS = [
   { file: 'helm', tone: 'sage', icon: 'helm.svg', name: 'Helm', line: 'Your Mac, in your pocket.', foot: 'Mac remote control from iPhone and Android' },
   { file: 'revive', tone: 'pale', icon: 'revive.png', name: 'Revive', line: 'Answers, not dashboards.', foot: 'Sleep, recovery and HRV from your wearable' },
   { file: 'careers', tone: 'forest', icon: 'ol-mark.png', name: 'Optional Labs', line: 'Come build small apps with us.', foot: 'career@optionallabs.com' },
+  { file: 'enquire', tone: 'lime', icon: 'ol-mark.png', name: 'Optional Labs', line: 'Tell us what you need built.', foot: 'optionallabs.com/enquire' },
 ];
 
 const font = (w) => pathToFileURL(path.join(root, `assets/fonts/inter-latin-${w}-normal.woff2`)).href;
