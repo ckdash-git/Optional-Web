@@ -122,6 +122,9 @@ PRIVACY = '''  <main id="main" class="wrap legal">
       <h2>Job applications</h2>
       <p>If you write to <a href="mailto:career@optionallabs.com">career@optionallabs.com</a>, we use your message and anything you attach only to consider you for a role and to reply. We keep it for as long as that needs, and delete it when you ask us to. The careers page opens your own email app; it sends nothing itself.</p>
 
+      <h2>Enquiries</h2>
+      <p>The enquiry page asks for your name, phone number, what you need and a short message. We use them only to reply and to prepare a quote, and we delete them when you ask. The page opens your own email app (or WhatsApp) with the message filled in. If we connect it to our customer records, the same details are also saved there, and this policy will say so.</p>
+
       <h2>Children</h2>
       <p>This website is not directed at children under 13 and collects no data from anyone.</p>
 
@@ -373,6 +376,52 @@ def careers_main():
 
 
 
+INTERESTS = ['A business website', 'A CRM for my business', 'A customer portal', 'Payments, WhatsApp or other connections', 'Help choosing', 'Something else']
+
+# Set either to switch on that channel: a Google Apps Script web-app URL (see the kit's developer playbook) and a WhatsApp number with country code.
+CRM_ENDPOINT = ''
+WHATSAPP = ''
+
+ENQUIRE_CSP = BASE_CSP.replace("connect-src 'self'", "connect-src 'self' https://script.google.com https://script.googleusercontent.com")
+
+
+def enquire_main():
+    options = ''.join(f'<option>{a}</option>' for a in INTERESTS)
+    return f'''  <main id="main">
+    <section class="pd-hero pd-forest" aria-labelledby="enq-title">
+      <div class="wrap about-hero">
+        <h1 class="pd-title" id="enq-title">Tell us what you need built.</h1>
+        <p class="pd-lede">Optional Labs LLP also builds websites, CRMs and customer portals for businesses in India. Say what you have in mind and we will reply with a plan and a price.</p>
+      </div>
+    </section>
+
+    <section class="pd-section wrap" id="enquire" aria-labelledby="enq-form-title">
+      <div class="apply">
+        <div>
+          <h2 class="display" id="enq-form-title">Send an enquiry</h2>
+          <p class="lede">A name, a phone number and a few lines are enough to start.</p>
+          <ul class="enq-steps">
+            <li><strong>1. You write.</strong> Say what the business does and what you want.</li>
+            <li><strong>2. We reply.</strong> Within two working days, with questions or a plan.</li>
+            <li><strong>3. You decide.</strong> A written scope and price first. No commitment from an enquiry.</li>
+          </ul>
+          <p class="apply-note">Prefer email? Write to <a href="mailto:contact@optionallabs.com">contact@optionallabs.com</a>.</p>
+        </div>
+        <form class="form" id="enquire-form" novalidate data-mailto="contact@optionallabs.com" data-crm="{CRM_ENDPOINT}" data-wa="{WHATSAPP}">
+          <p class="form-status" role="status" aria-live="polite" data-status hidden></p>
+          <div class="field"><label for="e-name">Your name</label><input id="e-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="e-phone">Phone number</label><input id="e-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="With country code if outside India" required></div>
+          <div class="field"><label for="e-interest">What do you need?</label><select id="e-interest" name="interest">{options}</select></div>
+          <div class="field"><label for="e-msg">A few lines about it</label><textarea id="e-msg" name="message" rows="5" required></textarea></div>
+          <button class="btn btn-lime btn-lg" type="submit">{'Send on WhatsApp' if WHATSAPP else 'Open email draft'}</button>
+          <p class="form-hint">{'This opens WhatsApp with your message filled in.' if WHATSAPP else 'This opens your email app with the message filled in, addressed to contact@optionallabs.com.'} Your details go only to us.</p>
+        </form>
+      </div>
+      <p class="pd-note">We use what you send only to reply to your enquiry and to prepare a quote. Ask us to delete it and we will. See the <a href="../privacy-policy.html">privacy policy</a>.</p>
+    </section>
+  </main>'''
+
+
 def main():
     legacy = (ROOT / 'tools/legacy-optional-app-policy.html').read_text()
     (ROOT / 'privacy-policy.html').write_text(page(
@@ -391,6 +440,10 @@ def main():
     (ROOT / 'careers/index.html').write_text(page(
         'Careers | Optional Labs', 'Work with Optional Labs LLP, a small company in India making eight apps for phones and computers. Write to career@optionallabs.com.',
         'careers/', 'careers', '../', careers_main(), depth1, scripts='\n  <script src="../assets/js/careers.js" defer></script>'))
+    (ROOT / 'enquire').mkdir(exist_ok=True)
+    (ROOT / 'enquire/index.html').write_text(page(
+        'Enquire | Optional Labs', 'Ask Optional Labs LLP to build your business website, CRM or customer portal. Send a name, a phone number and a few lines.',
+        'enquire/', 'enquire', '../', enquire_main(), depth1, csp=ENQUIRE_CSP, scripts='\n  <script src="../assets/js/enquire.js" defer></script>'))
     (ROOT / 'about').mkdir(exist_ok=True)
     (ROOT / 'about/index.html').write_text(page(
         'About Optional Labs',
