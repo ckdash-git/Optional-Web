@@ -165,6 +165,10 @@ A light, green-leaning palette: one saturated lime, one deep forest, and a famil
 - **Body Grey** (body): ledes, sublines, legal copy.
 - **Mute Grey** (mute): receipt heading and caption; the quietest text allowed.
 
+### Status colours
+- **Danger** (`--danger` #d03238, hover #a72027): the delete-account button only.
+- **Error note** (#fde8e8 ground, #8a1c21 text): form error messages on the careers and enquire forms. Success notes use Pale Mint with Forest Ink.
+
 ### Named Rules
 **The Lime Means Go Rule.** Lime is the colour of the next action. On white, sage and forest the primary pill is lime with forest text; on a lime, sage or pale band the primary pill flips to forest with lime text so there is still exactly one obvious action.
 
@@ -251,6 +255,9 @@ Confident, chunky pills that grow slightly under the pointer.
 
 ### Receipt (signature)
 A white Float card listing each product as a sage row (48px icon, 600 name with a 14px body-grey subline, a lime check and a 900 tabular figure), closed by a 2px ink rule and a forest total at headline scale. With JS, rows dim, a lime sheen scans across each in turn, values settle, and the total stamps in from blur and 1.35x scale; a small sage "Replay" pill reruns it. Without JS or with reduced motion it is shown complete.
+
+### Forms
+Careers, enquire and the account page share one form: a canvas card (28px radius, Float shadow) holding 600 labels over 52px-tall fields with a 2px Deep Sage border that turns Forest on focus, a lime pill submit, and a status note above the fields. On a phone the field column is `minmax(0, 1fr)` and inputs are full width, so no field can widen the page. Careers and enquire open an email draft (or WhatsApp) and never send from the page; the enquire form also posts payload v1 to a CRM endpoint when one is configured.
 
 ### Product Band (signature)
 A full-width 32px slab that redefines its local palette (background, text, name, soft text, chip, ghost) per variant: sage default, forest, lime, pale. Holds a large icon, a 900 band-scale name, a 600 job line, a lede-size description, fact chips and an action row. Reveals by rising 40px on scroll (JS only); on hover or focus it lifts, the icon tilts -8deg and scales 1.06, and the chips rise in stagger.
