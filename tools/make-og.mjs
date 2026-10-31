@@ -22,12 +22,16 @@ const TONES = {
 };
 
 const CARDS = [
-  { file: 'home', tone: 'white', icon: 'ol-mark.png', name: 'Optional Labs', line: 'Your data. Your phone. Nobody else’s.', foot: 'ZeroAuth · Saifu · Parchi · Tegami' },
+  { file: 'home', tone: 'white', icon: 'ol-mark.png', name: 'Optional Labs', line: 'Your data. Your device. Your call.', foot: 'Eight small apps that keep your data with you' },
   { file: 'zeroauth', tone: 'forest', icon: 'zeroauth.png', name: 'ZeroAuth', line: 'Two-factor codes made on your phone, in an encrypted vault.', foot: 'Authenticator for iPhone and Android' },
   { file: 'saifu', tone: 'lime', icon: 'saifu.svg', name: 'Saifu', line: 'Which card at checkout. And what you are about to lose.', foot: 'Credit card advisor for India' },
   { file: 'parchi', tone: 'sage', icon: 'parchi.png', name: 'Parchi', line: 'Your family’s medical papers, read and kept on your phone.', foot: 'iPhone and Android' },
   { file: 'tegami', tone: 'pale', icon: 'tegami.png', name: 'Tegami', line: 'Every letter from city hall, explained in plain English.', foot: 'For residents of Japan' },
-  { file: 'about', tone: 'forest', icon: 'ol-mark.png', name: 'Optional Labs', line: 'Everyday apps that keep your data on your phone.', foot: 'Optional Labs LLP' },
+  { file: 'about', tone: 'forest', icon: 'ol-mark.png', name: 'Optional Labs', line: 'Small apps that keep your data with you.', foot: 'Optional Labs LLP' },
+  { file: 'passo', tone: 'forest', icon: 'passo.png', name: 'Passo', line: 'A passport you can stamp.', foot: 'Travel stamps journal for iPhone' },
+  { file: 'jobmatch', tone: 'lime', icon: 'jobmatch.png', name: 'JobMatch', line: 'Upload your resume once. See the jobs that fit.', foot: 'Job search for India, on your computer' },
+  { file: 'helm', tone: 'sage', icon: 'helm.svg', name: 'Helm', line: 'Your Mac, in your pocket.', foot: 'Mac remote control from iPhone and Android' },
+  { file: 'revive', tone: 'pale', icon: 'revive.png', name: 'Revive', line: 'Answers, not dashboards.', foot: 'Sleep, recovery and HRV from your wearable' },
 ];
 
 const font = (w) => pathToFileURL(path.join(root, `assets/fonts/inter-latin-${w}-normal.woff2`)).href;
