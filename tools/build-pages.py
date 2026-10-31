@@ -302,7 +302,7 @@ ABOUT = ABOUT.replace('{ABOUT_APPS}', ABOUT_APPS)
 # The page says no roles are listed while this is empty. Do not invent roles.
 ROLES = []
 
-AREAS = ['Engineering (iOS, Android, web or backend)', 'Design', 'Product', 'Writing and support', 'Sales and partnerships', 'Something else']
+AREAS = ['Engineering', 'Design', 'Product', 'Writing and support', 'Sales and partnerships', 'Something else']
 
 
 def roles_html():
@@ -325,6 +325,7 @@ def careers_main():
       <div class="wrap about-hero">
         <h1 class="pd-title" id="careers-title">Come build small apps with us.</h1>
         <p class="pd-lede">Optional Labs LLP is a small company in India that makes eight apps for phones and computers. If you want to help build them, write to <a class="pd-mail" href="mailto:career@optionallabs.com">career@optionallabs.com</a>.</p>
+        <div class="hero-cta"><a class="btn btn-lime btn-lg" href="#apply">Write to us</a></div>
       </div>
     </section>
 
@@ -363,7 +364,7 @@ def careers_main():
         <form class="form" id="apply-form" novalidate data-mailto="career@optionallabs.com">
           <p class="form-status" role="status" aria-live="polite" data-status hidden></p>
           <div class="field"><label for="a-name">Your name</label><input id="a-name" name="name" type="text" autocomplete="name" required></div>
-          <div class="field"><label for="a-area">Area you could help with</label><select id="a-area" name="area">{options}</select></div>
+          <div class="field"><label for="a-area">Area you could help with</label><select id="a-area" name="area">{options}</select><p class="form-hint">Engineering covers iOS, Android, web and backend.</p></div>
           <div class="field"><label for="a-link">Link to your work</label><input id="a-link" name="link" type="url" inputmode="url" autocomplete="url" placeholder="GitHub, portfolio, an app, writing"></div>
           <div class="field"><label for="a-note">A few lines about you</label><textarea id="a-note" name="message" rows="5" required></textarea></div>
           <button class="btn btn-lime btn-lg" type="submit">Open email draft</button>
@@ -392,6 +393,7 @@ def enquire_main():
       <div class="wrap about-hero">
         <h1 class="pd-title" id="enq-title">Tell us what you need built.</h1>
         <p class="pd-lede">Optional Labs LLP also builds websites, CRMs and customer portals for businesses in India. Say what you have in mind and we will reply with a plan and a price.</p>
+        <div class="hero-cta"><a class="btn btn-lime btn-lg" href="#enquire">Send an enquiry</a></div>
       </div>
     </section>
 

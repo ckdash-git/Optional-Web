@@ -36,7 +36,7 @@ PRODUCTS = [
     facts=[('Platforms', 'iPhone and Android'), ('Encryption', 'AES-256-GCM, PBKDF2 key stretching'), ('Unlock', 'PIN, Face ID, Touch ID or fingerprint')],
     problem='Many authenticator apps sync your secret keys to the cloud, where one breach can expose every code.',
     fix='ZeroAuth makes your codes on the phone, with no internet needed, and keeps the keys in an encrypted vault that never leaves it.',
-    short='Authenticator', verdict='Nothing', leaves='Codes, passwords and 2FA seeds stay on the phone.',
+    short='Authenticator', verdict='No codes or passwords', leaves='Codes, passwords and 2FA seeds stay on the phone.',
     band_facts=['Codes work offline', 'AES-256-GCM vault', 'Face ID and fingerprint lock'],
     how=dict(stays="Vault encrypted with AES-256-GCM, with keys held in the phone's secure hardware.",
              control='Backups are encrypted with a passphrase you choose.'),
