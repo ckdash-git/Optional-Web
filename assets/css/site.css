@@ -90,7 +90,7 @@ html { scrollbar-color: var(--sage-deep) var(--canvas); }
 .top.scrolled { box-shadow: 0 1px 0 var(--line), 0 12px 24px -20px rgb(14 15 12 / 0.4); }
 .top-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 76px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 900; font-size: 21px; letter-spacing: -0.03em; color: var(--heading); text-decoration: none; }
-.brand img { width: 36px; height: 36px; transition: transform 0.4s var(--ease-out); }
+.brand img { width: 36px; height: 36px; border-radius: 10px; transition: transform 0.4s var(--ease-out); }
 .brand:hover img { transform: rotate(-12deg); }
 .nav { display: flex; align-items: center; gap: 4px; }
 .nav a:not(.btn) { padding: 10px 16px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; color: var(--ink); transition: background-color 0.2s ease; }

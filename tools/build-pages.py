@@ -123,7 +123,7 @@ PRIVACY = '''  <main id="main" class="wrap legal">
       <p>If you write to <a href="mailto:career@optionallabs.com">career@optionallabs.com</a>, we use your message and anything you attach only to consider you for a role and to reply. We keep it for as long as that needs, and delete it when you ask us to. The careers page opens your own email app; it sends nothing itself.</p>
 
       <h2>Enquiries</h2>
-      <p>The enquiry page asks for your name, phone number, what you need and a short message. We use them only to reply and to prepare a quote, and we delete them when you ask. The page opens your own email app (or WhatsApp) with the message filled in. If we connect it to our customer records, the same details are also saved there, and this policy will say so.</p>
+      <p>The enquiry page asks for your name, phone number, what you need and a short message. We use them only to reply and to prepare a quote, and we delete them when you ask. The page opens WhatsApp (or your own email app) with the message filled in; what you send through WhatsApp is also covered by WhatsApp\'s own terms. If we connect it to our customer records, the same details are also saved there, and this policy will say so.</p>
 
       <h2>Children</h2>
       <p>This website is not directed at children under 13 and collects no data from anyone.</p>
@@ -381,7 +381,7 @@ INTERESTS = ['A business website', 'A CRM for my business', 'A customer portal',
 
 # Set either to switch on that channel: a Google Apps Script web-app URL (see the kit's developer playbook) and a WhatsApp number with country code.
 CRM_ENDPOINT = ''
-WHATSAPP = ''
+WHATSAPP = '917090702100'
 
 ENQUIRE_CSP = BASE_CSP.replace("connect-src 'self'", "connect-src 'self' https://script.google.com https://script.googleusercontent.com")
 
@@ -416,7 +416,7 @@ def enquire_main():
           <div class="field"><label for="e-interest">What do you need?</label><select id="e-interest" name="interest">{options}</select></div>
           <div class="field"><label for="e-msg">A few lines about it</label><textarea id="e-msg" name="message" rows="5" required></textarea></div>
           <button class="btn btn-lime btn-lg" type="submit">{'Send on WhatsApp' if WHATSAPP else 'Open email draft'}</button>
-          <p class="form-hint">{'This opens WhatsApp with your message filled in.' if WHATSAPP else 'This opens your email app with the message filled in, addressed to contact@optionallabs.com.'} Your details go only to us.</p>
+          <p class="form-hint">{'This opens WhatsApp with your message filled in, and WhatsApp\'s own terms apply to what you send there.' if WHATSAPP else 'This opens your email app with the message filled in, addressed to contact@optionallabs.com.'} Your details go only to us.</p>
         </form>
       </div>
       <p class="pd-note">We use what you send only to reply to your enquiry and to prepare a quote. Ask us to delete it and we will. See the <a href="../privacy-policy.html">privacy policy</a>.</p>
