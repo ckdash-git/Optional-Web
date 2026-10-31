@@ -1,24 +1,33 @@
 ---
 name: Optional Labs
-description: Everyday apps that keep your data on your phone; privacy shown as an accounting fact.
+description: Everyday apps that keep your data on your phone; privacy shown as proof on a black panel.
 colors:
-  lime: "#9fe870"
-  lime-hover: "#b4f08d"
-  lime-press: "#8ad65a"
-  forest: "#163300"
-  canvas: "#ffffff"
-  sage: "#e8ebe6"
-  sage-deep: "#d9ded5"
-  pale: "#e2f6d5"
+  coral: "#ff5a4f"
+  coral-hover: "#ff7468"
+  coral-press: "#f2473c"
   ink: "#0e0f0c"
-  body: "#454745"
-  mute: "#6a6c6a"
+  ink-hover: "#2b2c29"
+  canvas: "#ffffff"
+  warm-neutral: "#f4f3f1"
+  warm-neutral-deep: "#e7e5e1"
+  blush: "#ffe9e6"
+  body: "#4a4a48"
+  mute: "#666664"
+  tint-zeroauth: "#ffe9e6"
+  tint-saifu: "#e7efff"
+  tint-parchi: "#e5f7ea"
+  tint-tegami: "#fff1d6"
+  tint-passo: "#efe8ff"
+  tint-jobmatch: "#ffe6f1"
+  tint-helm: "#e1f5f6"
+  tint-revive: "#f0ece6"
+  danger: "#d03238"
 typography:
   display:
     fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "clamp(48px, 6.6vw, 96px)"
+    fontSize: "clamp(50px, 6.4vw, 92px)"
     fontWeight: 900
-    lineHeight: 0.92
+    lineHeight: 0.94
     letterSpacing: "-0.04em"
   headline:
     fontFamily: "Inter, system-ui, -apple-system, sans-serif"
@@ -32,12 +41,12 @@ typography:
     fontWeight: 900
     lineHeight: 0.98
     letterSpacing: "-0.035em"
-  figure:
+  tile-name:
     fontFamily: "Inter, system-ui, -apple-system, sans-serif"
-    fontSize: "22px"
+    fontSize: "clamp(30px, 3vw, 40px)"
     fontWeight: 900
-    letterSpacing: "-0.02em"
-    fontFeature: "tnum"
+    lineHeight: 1
+    letterSpacing: "-0.035em"
   lede:
     fontFamily: "Inter, system-ui, -apple-system, sans-serif"
     fontSize: "clamp(18px, 1.6vw, 21px)"
@@ -60,6 +69,7 @@ rounded:
   sm: "16px"
   md: "24px"
   lg: "32px"
+  xl: "44px"
   pill: "999px"
 spacing:
   chip: "8px"
@@ -69,58 +79,96 @@ spacing:
   section: "clamp(64px, 9vw, 128px)"
   wrap: "1280px"
 components:
-  button-lime:
-    backgroundColor: "{colors.lime}"
-    textColor: "{colors.forest}"
+  button-coral:
+    backgroundColor: "{colors.coral}"
+    textColor: "{colors.ink}"
     typography: "{typography.label}"
     rounded: "{rounded.pill}"
     padding: "12px 24px"
     height: "48px"
-  button-lime-hover:
-    backgroundColor: "{colors.lime-hover}"
-  button-lime-active:
-    backgroundColor: "{colors.lime-press}"
-  button-sage:
-    backgroundColor: "{colors.sage}"
+  button-coral-hover:
+    backgroundColor: "{colors.coral-hover}"
+  button-coral-active:
+    backgroundColor: "{colors.coral-press}"
+  button-neutral:
+    backgroundColor: "{colors.warm-neutral}"
     textColor: "{colors.ink}"
     rounded: "{rounded.pill}"
     padding: "12px 24px"
     height: "48px"
-  button-sage-hover:
-    backgroundColor: "{colors.sage-deep}"
+  button-neutral-hover:
+    backgroundColor: "{colors.warm-neutral-deep}"
   button-ink:
-    backgroundColor: "{colors.forest}"
-    textColor: "{colors.lime}"
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.coral}"
     rounded: "{rounded.pill}"
     padding: "12px 24px"
     height: "48px"
+  button-ink-hover:
+    backgroundColor: "{colors.ink-hover}"
   button-lg:
     padding: "16px 32px"
     height: "60px"
-  chip-fact:
-    typography: "{typography.label}"
+  button-danger:
+    backgroundColor: "{colors.danger}"
+    textColor: "{colors.canvas}"
     rounded: "{rounded.pill}"
-    padding: "8px 14px"
-  card-white:
+  tile:
+    backgroundColor: "{colors.warm-neutral}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.lg}"
+    padding: "clamp(22px, 2.4vw, 32px)"
+    height: "440px"
+  tile-lg:
+    height: "600px"
+  tile-zeroauth:
+    backgroundColor: "{colors.tint-zeroauth}"
+  tile-saifu:
+    backgroundColor: "{colors.tint-saifu}"
+  tile-parchi:
+    backgroundColor: "{colors.tint-parchi}"
+  tile-tegami:
+    backgroundColor: "{colors.tint-tegami}"
+  tile-passo:
+    backgroundColor: "{colors.tint-passo}"
+  tile-jobmatch:
+    backgroundColor: "{colors.tint-jobmatch}"
+  tile-helm:
+    backgroundColor: "{colors.tint-helm}"
+  tile-revive:
+    backgroundColor: "{colors.tint-revive}"
+  proof-panel:
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.canvas}"
+    rounded: "{rounded.xl}"
+    padding: "clamp(28px, 5vw, 72px)"
+  receipt-row:
+    textColor: "{colors.canvas}"
+    rounded: "18px"
+    padding: "10px 16px 10px 10px"
+  hero-stage:
+    backgroundColor: "{colors.blush}"
+    rounded: "{rounded.xl}"
+  hero-chip:
+    backgroundColor: "{colors.canvas}"
+    typography: "{typography.caption}"
+    rounded: "{rounded.pill}"
+    padding: "10px 16px 10px 10px"
+  rule-card:
     backgroundColor: "{colors.canvas}"
     rounded: "{rounded.lg}"
     padding: "clamp(24px, 3.4vw, 44px)"
-  receipt-row:
-    backgroundColor: "{colors.sage}"
-    rounded: "20px"
-    padding: "14px 18px 14px 14px"
-  app-band:
-    backgroundColor: "{colors.sage}"
+  closing-panel:
+    backgroundColor: "{colors.coral}"
     textColor: "{colors.ink}"
     rounded: "{rounded.lg}"
-    padding: "clamp(24px, 4vw, 56px)"
-  app-band-forest:
-    backgroundColor: "{colors.forest}"
-    textColor: "{colors.pale}"
-  app-band-lime:
-    backgroundColor: "{colors.lime}"
-  app-band-pale:
-    backgroundColor: "{colors.pale}"
+    padding: "clamp(32px, 6vw, 80px)"
+  field:
+    backgroundColor: "{colors.canvas}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.sm}"
+    padding: "14px 16px"
+    height: "52px"
   nav-link:
     textColor: "{colors.ink}"
     typography: "{typography.label}"
@@ -132,150 +180,156 @@ components:
 
 ## Overview
 
-**Creative North Star: "The Zero Receipt"**
+**Creative North Star: "The Proof Panel"**
 
-The system is the Wise theme (VoltAgent/awesome-design-md, design-md/wise) applied to a privacy studio, with Inter self-hosted (400, 600, 900; OFL) in place of Wise Sans. It reads like a friendly fintech statement: a white canvas, sage fills, lime for anything you can press, and very heavy forest-green display type set tight. The signature object is a receipt: rows on sage, a figure in heavy tabular numerals, a bold total line, and the total is zero.
+Canvas is a white page with near-black ink, one hot coral (the dot of the Optional logo) for whatever you can press, warm neutrals, and a pastel tint per app. Inter is self-hosted (400, 600, 900; OFL) and set very heavy and tight. The signature object is the proof panel: a single black slab holding a receipt of what each app sends off your device, each row ticked by an animated check, ending on the claim that nothing leaves.
 
-Density is generous and confident. Surfaces are big rounded slabs (24-32px corners) laid on white or sage, and they separate from each other by fill colour, not by outlines. Depth is quiet: one soft two-layer shadow for the floating receipt, a lift on hover for app bands, and otherwise tonal layering. Motion uses a single long-tail ease-out and always has a reduced-motion path; content is complete without JavaScript.
+Density is generous and confident. Surfaces are big rounded slabs (24-44px corners) laid on white, and they separate from each other by fill colour, not by outlines. The one authored moment is the home hero: a blush stage where two tilted phone screenshots rise and then drift, two claim chips pop in, and a coral ripple animation sits behind them, eased away by scroll. Everywhere else motion is small and tactile (tile lift, icon tilt, a phone peeking up, press scale on pills). Pages cross-fade through view transitions. Every animation has a reduced-motion path and the content is complete without JavaScript.
+
+The site is light only (`color-scheme: light`).
 
 **Key Characteristics:**
-- White canvas, sage neutrals, lime as the action colour, forest as display ink.
-- Inter 900 display, tight tracking (-0.035em to -0.045em), line height 0.9-0.98.
-- Pills for every control; 16 / 24 / 32px radii for surfaces.
+- White canvas, ink type and ink panels, coral as the single action colour, warm neutral and per-app pastel fills.
+- Inter 900 display, tight tracking (-0.035em to -0.04em), line height 0.9-0.98, in ink rather than a brand colour.
+- Pills for every control; 16 / 24 / 32 / 44px radii for surfaces.
 - Fill-based separation; one soft shadow vocabulary.
-- Colour-banded product slabs (forest, lime, sage, pale) that swap their own local palette.
+- App tiles carry the problem and the fix as a pair, on the app's own tint.
 
 ## Colors
 
-A light, green-leaning palette: one saturated lime, one deep forest, and a family of warm-grey sage neutrals.
+A restrained light palette: ink and white do the work, coral marks the next step, and pastels are reserved for identifying apps.
 
 ### Primary
-- **Wise Lime** (lime): the fill of every primary action on light or forest grounds (header CTA, hero CTA, ZeroAuth's visit button), the receipt checkmarks, text selection, the skip link, and two full surfaces (the Saifu band and the closing panel). Text on lime is always forest.
-- **Lime Lift** (lime-hover) and **Lime Press** (lime-press): hover and pressed states of lime pills only.
+- **Logo Coral** (coral): the fill of every primary action (header CTA, hero CTA), the closing panel, the step numbers, feature ticks, the "What we fixed" tag on a coral or ink ground, receipt check discs, text selection, the skip link, and the full-stop in the hero headline. Text on coral is always ink.
+- **Coral Lift** (coral-hover) and **Coral Press** (coral-press): hover and pressed states of coral pills only.
 
 ### Secondary
-- **Forest Ink** (forest): all display and headline type, receipt figures, the footer ground, the forest product band, the inverse pill (forest fill, lime text) used as the primary action on lime, sage and pale bands, and the focus ring.
+- **Ink** (ink): all display and body text, the proof panel, the footer, the privacy band on product pages, the inverse pill (ink fill, coral text) used where the ground is coral, tinted or neutral, the arrow disc on tiles, and the focus ring. Ink Lift (ink-hover) is its hover.
 
 ### Neutral
-- **Canvas White** (canvas): page ground, receipt card, rule cards on sage.
-- **Sage** (sage): secondary pills, receipt rows, proof rows, the "How we build" section ground, default band fill, nav hover.
-- **Deep Sage** (sage-deep): hover for sage controls; scrollbar thumb.
-- **Pale Mint** (pale): the pale product band and all text on the forest footer and forest band (at 70-82% opacity for secondary copy).
-- **Near-Black Ink** (ink): default text, the receipt total rule.
-- **Body Grey** (body): ledes, sublines, legal copy.
-- **Mute Grey** (mute): receipt heading and caption; the quietest text allowed.
+- **Canvas White** (canvas): page ground, rule cards, fields, hero chips, floating cards.
+- **Warm Neutral** (warm-neutral): secondary pills, the "How we build" ground, default tile fill, proof rows, steps ground, fact rows, nav hover. Its deeper step (warm-neutral-deep) is the hover for those controls, the field border and the scrollbar thumb.
+- **Blush** (blush): the hero stage, the kind pills, success notes, legal notes.
+- **Body Grey** (body): ledes, sublines, legal copy. **Mute Grey** (mute): hints and captions; the quietest text allowed.
+
+### Tile tints
+One pastel per app, used as the tile fill on the home page and as the hero ground of that app's page: zeroauth (tint-zeroauth), saifu (tint-saifu), parchi (tint-parchi), tegami (tint-tegami), passo (tint-passo), jobmatch (tint-jobmatch), helm (tint-helm), revive (tint-revive). They identify an app and nothing else.
 
 ### Status colours
 - **Danger** (`--danger` #d03238, hover #a72027): the delete-account button only.
-- **Error note** (#fde8e8 ground, #8a1c21 text): form error messages on the careers and enquire forms. Success notes use Pale Mint with Forest Ink.
+- **Error note** (#fde8e8 ground, #8a1c21 text): form and account error messages. Success notes use Blush with ink.
 
 ### Named Rules
-**The Lime Means Go Rule.** Lime is the colour of the next action. On white, sage and forest the primary pill is lime with forest text; on a lime, sage or pale band the primary pill flips to forest with lime text so there is still exactly one obvious action.
+**The Coral Means Go Rule.** Coral is the colour of the next action. On white, neutral, tinted and ink grounds the primary pill is coral with ink text; where the ground is itself coral, the primary pill flips to ink with coral text so there is still exactly one obvious action. On the tinted product heroes the primary is the ink pill with coral text, so the call to action keeps its contrast on every tint (coral on blush is too faint); the coral pill returns in the get-it block below. The About, Careers and Enquire heroes are full-width ink slabs: display type there is coral and white, the same inverse the product privacy band uses.
 
-**The Forest Ink Rule.** Display and headline type is forest, never black. Near-black ink is for reading text; forest is for shouting.
+**The Ink Voice Rule.** Display type is ink on light grounds, white on the proof panel, and coral on the product-page privacy band; never a pastel and never a grey.
 
 ### Role tokens
-Components read role tokens rather than raw colours, so a theme only overrides tokens:
-- `--heading`: display and heading text on canvas, sage and pale (forest in light, lime in dark).
-- `--on-deep`: text on forest surfaces (pale mint in both modes).
-- `--bezel`: the phone frame around screenshots (near-black in both modes).
-- `--chip-soft`, `--card-soft`, `--ghost-soft`, `--ghost-soft-hover`: translucent fills for chips, cards and ghost buttons on neutral bands.
-
-### Light only
-The site is always light, whatever the visitor's system setting (owner decision, Oct 2026). The role tokens above stay, so a future theme toggle only needs to override them.
+Components read role tokens, so a theme only overrides tokens: `--heading` (display text), `--on-deep` (text on ink), `--bezel` (phone frame), `--chip-soft`, `--card-soft`, `--ghost-soft`, `--ghost-soft-hover` (translucent fills on tinted grounds). Product-page heroes and tiles set local `--bg`, `--fg`, `--name`, `--soft`, `--ghost` per variant (tint, ink, coral, neutral, blush).
 
 ## Typography
 
 **Display Font:** Inter 900 (with system-ui, -apple-system, sans-serif)
 **Body Font:** Inter 400 and 600 (same stack)
 
-**Character:** One family at its extremes: a dense, near-black-weight display that sits like printed totals, against a calm 17px body. Weight 600 carries every label, button and name; there is no third family and no mono.
+**Character:** One family at its extremes: a dense, near-black-weight display set like a shop sign against a calm 17px body. Weight 600 carries every label, button and name; there is no third family and no mono.
 
 ### Hierarchy
-- **Display** (900, clamp(48px, 6.6vw, 96px), 0.92, -0.04em): the page headline only, balanced, one line per phrase. Product band names use the same treatment at band scale.
-- **Headline** (900, clamp(40px, 6vw, 80px), 0.9, -0.04em): section heads; the closing panel and legal h1 sit in this range.
-- **Title** (900, clamp(30px, 3.4vw, 46px), 0.98, -0.035em): rule cards; legal h2 at 24-30px.
-- **Figure** (900, 22px, tabular numerals, -0.02em): receipt values; the receipt total scales to clamp(40px, 4.4vw, 56px) at line height 1.
-- **Lede** (400, clamp(18px, 1.6vw, 21px), 1.5): intro paragraphs in body grey, capped at 34-40ch.
+- **Display** (900, clamp(50px, 6.4vw, 92px), 0.94, -0.04em): the home headline, three short phrases each on its own line, with a coral full stop. Product-page titles use clamp(42px, 5.6vw, 84px).
+- **Headline** (900, clamp(40px, 6vw, 80px), 0.9, -0.04em): section heads; the proof panel head is clamp(38px, 4.8vw, 64px), the closing panel up to 96px.
+- **Title** (900, clamp(30px, 3.4vw, 46px), 0.98, -0.035em): rule cards; tile names are clamp(30px, 3vw, 40px) at line height 1; legal h2 at 24-30px.
+- **Lede** (400, clamp(18px, 1.6vw, 21px), 1.5): intro paragraphs in body grey, capped at 34-44ch.
 - **Body** (400, 17px, 1.55): running text; legal text capped at 72ch.
-- **Label** (600, 15px): nav, chips, status lines, footer links; buttons are 600 at 16px (18px large).
-- **Caption** (400, 14px): figcaptions, footer base, row sublines.
+- **Label** (600, 15px): nav, chips, tile jobs, problem/fix tags (14px), footer links; buttons are 600 at 16px (18px large).
+- **Figure** (900, 15px, -0.01em): the receipt value beside each tick.
+- **Caption** (400, 13-14px): receipt sublines and footnote, footer base.
 
 ### Named Rules
-**The Heavy and Tight Rule.** Anything at title size or above is Inter 900 with negative tracking (-0.02em at figure size down to -0.045em at band-name size) and line height under 1. Never set large type at 400 or 600.
+**The Heavy and Tight Rule.** Anything at title size or above is Inter 900 with negative tracking and line height under 1 (tile names sit at exactly 1). Never set large type at 400 or 600.
 
-**The No-Caps Rule.** Nothing is uppercased or letter-spaced open; labels are sentence case at 600.
+**The Sentence Case Rule.** Labels, tags and buttons are sentence case at 600; nothing is uppercased or open-tracked.
 
 ## Layout
 
-Content sits in a 1280px wrap with a fluid gutter (clamp(16px, 4vw, 32px)). The hero is a two-column grid (about 1.15fr text to 1fr receipt) that stacks at 960px. Section heads pair a headline with a right-aligned lede and stack at 860px. Product bands are full-wrap slabs stacked with 16px gaps, each a two-column grid (identity left, copy and actions right) that collapses to one column at 860px, where the icon and name sit side by side. "How we build" uses a sticky left head beside a stack of white cards (unstuck below 960px). Vertical rhythm between sections is clamp(64px, 9vw, 128px); inner gaps use 8px for chips, 10-16px for rows and stacks, 24px between blocks. The header is a sticky 76px bar (64px under 860px, where text nav links hide and only the lime pill remains).
+Content sits in a 1280px wrap with a fluid gutter (clamp(16px, 4vw, 32px)). The hero is a two-column grid (1.05fr headline, 1fr stage) that stacks at 960px. Section heads pair a headline with a right-aligned lede and stack at 860px. Apps form a 12-column bento with 16px gaps: tiles span 3 columns (440px minimum height) and large tiles span 6 (600px, 720px when holding a desktop window), going to 6 columns at 960px and a single column at 640px. The proof panel is a two-column grid (sticky head left, receipt right) that stacks at 960px. "How we build" is a neutral ground with a sticky left head beside a stack of white rule cards. Product pages run: tinted hero (1.15fr copy to 0.85fr art), screenshot gallery with scroll-snap, a 3-up steps strip, a 2-up feature list, the ink privacy band with two columns, then a get-it block. Section rhythm is clamp(64px, 9vw, 128px); inner gaps are 8px for chips and rows, 16px for slabs, 24px between blocks. The header is a sticky 76px white bar (64px under 860px, where the text links are replaced by a details-based menu).
 
 ## Elevation & Depth
 
-Mostly flat, built from tonal layers: white on sage, sage on white, coloured bands on white. Shadows are soft, diffuse, and reserved for things that float or respond.
+Mostly flat, built from tonal layers: tinted tiles and an ink panel on white, white cards on neutral. Shadows are soft, diffuse, and reserved for things that float or respond. Tilt is a second depth cue: phones and tiles' screenshots sit rotated a few degrees.
 
 ### Shadow Vocabulary
-- **Float** (`box-shadow: 0 2px 6px rgb(14 15 12 / 0.05), 0 28px 56px -24px rgb(14 15 12 / 0.3)`): the receipt card, the one resting elevated object.
-- **Band lift** (`box-shadow: 0 32px 56px -32px rgb(14 15 12 / 0.45)` with translateY(-6px)): product bands on hover or focus-within.
-- **Icon drop** (`box-shadow: 0 12px 24px -12px rgb(14 15 12 / 0.45)`): large app icons inside bands.
-- **Header scrolled** (`box-shadow: 0 1px 0 rgb(14 15 12 / 0.1), 0 12px 24px -20px rgb(14 15 12 / 0.4)`): appears only after scrolling.
+- **Float** (`box-shadow: 0 2px 6px rgb(14 15 12 / 0.05), 0 28px 56px -24px rgb(14 15 12 / 0.3)`): form cards, desktop-window screenshots, the mobile menu (with a stronger variant).
+- **Tile lift** (`box-shadow: 0 32px 56px -32px rgb(14 15 12 / 0.4)` with translateY(-6px)): tiles on hover or focus-within.
+- **Phone** (`box-shadow: 0 2px 6px rgb(14 15 12 / 0.12), 0 40px 72px -36px rgb(14 15 12 / 0.55)`): the phone bezel frame.
+- **Chip float** (`box-shadow: 0 2px 6px rgb(14 15 12 / 0.06), 0 18px 32px -14px rgb(14 15 12 / 0.35)`): the two hero claim chips.
+- **Icon drop** (`box-shadow: 0 12px 24px -12px rgb(14 15 12 / 0.45)`): app icons on tiles and pages.
 
 ### Named Rules
-**The Fill Not Line Rule.** Surfaces separate by fill colour and radius, never by 1px outlines or rings. The only rules in the system are native ones: the receipt's 2px ink total line, the faint divider above the footer base, the scrolled-header edge, the 1px "or" rules and 2px delete-zone rule on the account page, and the 4px ring on an app band opened by a `#app` link (it shows where the visitor landed).
+**The Fill Not Line Rule.** Surfaces separate by fill colour and radius, never by outlines or rings. The only rules that exist are native ones: the scrolled-header edge (1px), the footer base divider (1px), the "or" rules (1px) and the delete-zone rule (2px) on the account page, the 2px field border that turns ink on focus, and the 4px ring on a tile opened by a `#app` link (it shows where the visitor landed).
 
 ## Shapes
 
-Large, soft rectangles and full pills. Section-scale surfaces (receipt, bands, rule cards, closing panel) use 32px, dropping bands to 24px under 860px; inner rows use 16-22px; every button, chip, nav link and replay control is a 999px pill. App icons are rounded squares (about 24% radius at band scale, 8-15px when small). Checkmarks are lime circles with a drawn forest tick. Focus is a 3px forest outline offset 3px with an 8px radius.
+Large, soft rectangles and full pills. The stage and proof panel use 44px; tiles, rule cards, the closing panel, privacy band and form cards use 32px; steps, role cards and menu panel use 24px; inner rows, fields and notes use 16-18px; every button, chip, nav link and replay control is a 999px pill. App icons are rounded squares (24% at large scale, 9-17px when small). Checks are coral discs with an ink tick (a drawn Lottie check when JavaScript runs, a CSS tick otherwise). Focus is a 3px ink outline offset 3px with an 8px radius.
 
 ## Components
 
 ### Buttons
 Confident, chunky pills that grow slightly under the pointer.
 - **Shape:** full pill (999px), minimum height 48px (60px large, 44px in the header).
-- **Primary (lime):** lime fill, forest text, 600 weight, 12px 24px padding; inline SVG arrows at 18px.
-- **Hover / Active:** lime lifts to lime-hover and scales to 1.03; pressed goes to lime-press at 0.97. Transitions 0.2s on the long-tail ease-out.
-- **Secondary (sage):** sage fill, ink text, deep-sage hover; pairs with lime in the hero.
-- **Inverse (forest):** forest fill, lime text; the primary action on lime, sage or pale bands.
-- **Ghost:** a translucent tint of the band's own text colour (8-14% on light, 12-20% on forest), inheriting text colour; store links and secondary band actions.
+- **Primary (coral):** coral fill, ink text, 600 weight, 12px 24px padding; inline SVG arrows at 18px.
+- **Hover / Active:** coral lifts to coral-hover and scales to 1.03; pressed goes to coral-press at 0.97. Transitions 0.2s on the long-tail ease-out.
+- **Secondary (neutral):** warm neutral fill, ink text, deeper hover; pairs with coral in the hero.
+- **Inverse (ink):** ink fill, coral text; the primary action on a coral ground.
+- **Ghost:** a translucent tint of the band's own text colour, inheriting text colour; store links and secondary actions.
+
+### Hero stage (signature)
+A 44px blush-gradient stage holding two tilted phone frames (-6deg and 5deg), two white claim chips with app icons, and a coral ripple Lottie centred behind. On load the phones rise 56px while straightening, then drift 10px on a 7s alternate loop; the chips pop in after 0.9s and 1.1s. Where scroll-driven animation is supported, the ripple eases down and grows over the first 640px of scroll. The Lottie loads only when near the screen and never under reduced motion.
+
+### App tiles (signature)
+Tinted 32px slabs that name the app, then a problem and a fix as a labelled pair: the problem tag is a translucent pill, the fix tag is ink with coral text. A footer holds a white "Visit site" pill and an ink arrow disc. Big tiles carry a rotated phone (or desktop window) screenshot clipped at the bottom edge. On hover or focus the tile lifts 6px, the icon tilts -8deg and scales 1.06, the screenshot peeks up 18-22px, and the arrow nudges right. Tiles rise 36px on scroll in a short stagger (JS only). The whole tile is one link via a stretched pseudo-element on the name.
+
+### Problem / fix pair (large)
+On product pages, two 32px cards side by side: the problem on warm neutral, the fix on coral, both with 900 copy at clamp(22px, 2.2vw, 31px).
+
+### Proof panel and receipt (signature)
+A 44px ink slab with a white 900 headline and a translucent lede on the left, and the receipt on the right: a small 600 heading with a "Replay" pill, then one row per app (44px icon, 600 name with a 13px subline, a coral check and a 900 value) on a 7% white fill, then a footnote. With JS, rows dim, a coral sheen scans each in turn, the Lottie check draws in sync with its row and the value settles; Replay reruns it. Without JS or with reduced motion it is shown complete. Rows link to each product page.
 
 ### Chips
-- **Style:** pill, 600 at 15px, 8px 14px; fill is white at 70% on sage/pale, forest at 10% on lime, lime at 14% with lime text on forest.
-- **State:** static facts; they rise 4px in a 60ms stagger when their band is hovered or focused.
+- **Hero claims:** white pill, 600 at 14px, with a 30px app icon, floating on the stage.
+- **Kinds:** blush pill, 900 at clamp(20px, 2.4vw, 32px).
 
 ### Cards / Containers
-- **Corner Style:** 32px (lg).
-- **Background:** white on sage grounds; sage, forest, lime or pale for product bands; lime for the closing panel.
-- **Shadow Strategy:** flat, except the receipt (Float) and hovered bands (Band lift).
+- **Corner Style:** 32px for slabs, 24px for secondary cards, 16px for rows.
+- **Background:** white on neutral grounds; neutral on white; pastel tint for tiles; ink for the panel and privacy band.
+- **Shadow Strategy:** flat, except form cards and windows (Float) and lifted tiles.
 - **Border:** none.
-- **Internal Padding:** fluid, roughly 24px to 56px.
+
+### Inputs / Fields
+White fill, 16px radius, 52px minimum height, 2px warm-neutral-deep border that turns ink on focus (outline removed in favour of the border). Labels are 600 at 15px. Careers, enquire and account share one single-column form in a white 32px Float card with a coral pill submit and a status note above the fields; error notes are #fde8e8 with #8a1c21 text, success notes blush.
 
 ### Navigation
-- **Style:** brand lockup (36px mark, Inter 900 at 21px, forest) left; 600 15px ink text links as pills with sage hover; a lime pill CTA last. Below 860px only the lime pill stays. Header is 94% white and gains the scrolled shadow after 8px of scroll.
-- **Footer:** forest ground, pale text, lime brand and column heads, four columns collapsing to two.
+Brand lockup (36px mark that tilts -12deg on hover, Inter 900 at 21px) left; 600 15px ink text links as pills with warm-neutral hover; a coral pill CTA last. Under 860px a details-based menu pill opens a white 24px panel listing apps and links. The header is white and gains a 1px edge plus soft shadow after scrolling. Footer: ink ground, off-white text, coral brand and column heads, four columns collapsing to two.
 
-### Receipt (signature)
-A white Float card listing each product as a sage row (48px icon, 600 name with a 14px body-grey subline, a lime check and a 900 tabular figure), closed by a 2px ink rule and a forest total at headline scale. With JS, rows dim, a lime sheen scans across each in turn, values settle, and the total stamps in from blur and 1.35x scale; a small sage "Replay" pill reruns it. Without JS or with reduced motion it is shown complete.
+### Privacy band (product pages)
+Ink 32px band with a drawn shield Lottie (72px, plays once on entering view), a coral 900 headline, and two translucent columns of dotted lists.
 
-### Forms
-Careers, enquire and the account page share one form: a canvas card (28px radius, Float shadow) holding 600 labels over 52px-tall fields with a 2px Deep Sage border that turns Forest on focus, a lime pill submit, and a status note above the fields. On a phone the field column is `minmax(0, 1fr)` and inputs are full width, so no field can widen the page. Careers and enquire open an email draft (or WhatsApp) and never send from the page; the enquire form also posts payload v1 to a CRM endpoint when one is configured.
-
-### Product Band (signature)
-A full-width 32px slab that redefines its local palette (background, text, name, soft text, chip, ghost) per variant: sage default, forest, lime, pale. Holds a large icon, a 900 band-scale name, a 600 job line, a lede-size description, fact chips and an action row. Reveals by rising 40px on scroll (JS only); on hover or focus it lifts, the icon tilts -8deg and scales 1.06, and the chips rise in stagger.
+### Motion
+One long-tail ease, `cubic-bezier(0.16, 1, 0.3, 1)`, for movement; 0.2s ease for colour. Cross-document view transitions fade the old page out in 0.18s and the new in 0.32s (`@view-transition { navigation: auto }`). `prefers-reduced-motion: reduce` collapses all CSS animation and transition durations to 0.01ms, disables smooth scroll, and stops the Lottie loader and the receipt sequence in JavaScript.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** make the next action a lime pill with forest text, or a forest pill with lime text when the ground is lime, sage or pale.
-- **Do** set every title-size-and-up line in Inter 900, forest, with negative tracking and line height under 1.
-- **Do** separate surfaces with fill colour (white on sage, sage on white, coloured bands) and 16 / 24 / 32px radii.
-- **Do** use the single long-tail ease (cubic-bezier(0.16, 1, 0.3, 1)) for movement and give every animation a prefers-reduced-motion path and a complete no-JS state.
-- **Do** use tabular numerals for figures and totals.
+- **Do** make the next action a coral pill with ink text, or an ink pill with coral text when the ground is coral.
+- **Do** set every title-size-and-up line in Inter 900, ink (white on the panel), with negative tracking and line height under 1.
+- **Do** separate surfaces with fill colour (pastel tile, ink panel, white card on neutral) and 16 / 24 / 32 / 44px radii.
+- **Do** give each app its tint, on its tile and on its page hero, and nowhere else.
+- **Do** use the single long-tail ease for movement and give every animation a prefers-reduced-motion path and a complete no-JS state.
 - **Do** inline icons as stroked SVG in currentColor.
 
 ### Don't:
-- **Don't** outline cards, rows or bands with 1px borders or rings; the receipt total rule and footer divider are the only rules.
-- **Don't** set display type in black or at weights below 900.
+- **Don't** outline cards, rows or tiles with 1px borders or rings; the listed native rules are the only lines.
+- **Don't** set display type below weight 900 or in a pastel or grey.
 - **Don't** use square or small-radius buttons; every control is a pill.
 - **Don't** introduce a second display family, a mono, or uppercase tracked labels.
-- **Don't** put more than one lime-filled primary action in the same group.
-- **Don't** stack heavy shadows; one Float object per view, lifts only on interaction.
+- **Don't** put more than one coral-filled primary action in the same group.
+- **Don't** stack heavy shadows or add a dark mode; the world is light only.

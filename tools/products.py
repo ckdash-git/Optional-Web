@@ -6,12 +6,12 @@ Facts come from each product's own site or repo. Do not add claims those sources
 
 PRODUCTS = [
   dict(
-    slug='zeroauth', name='ZeroAuth', icon='zeroauth.png', tone='forest', job='Authenticator for iPhone and Android',
+    slug='zeroauth', name='ZeroAuth', icon='zeroauth.png', job='Authenticator for iPhone and Android',
     title='ZeroAuth: offline authenticator for iPhone and Android',
     desc='ZeroAuth makes two-factor codes on your phone, with no internet needed, and keeps them in an AES-256-GCM encrypted vault.',
     headline='Secure your digital life with ZeroAuth.',
     lede='A privacy-first authenticator. Your two-factor codes are made on the phone, with no internet needed, and kept in an encrypted vault that never leaves it.',
-    actions=[('btn-lime', 'Visit zeroauth.in', 'https://zeroauth.in', True)],
+    actions=[('btn-ink', 'Visit zeroauth.in', 'https://zeroauth.in', True)],
     badges=[('app-store', 'https://apps.apple.com/in/app/zeroauth/id6764048764'), ('google-play', 'https://play.google.com/store/apps/details?id=com.OptionalLabs.zeroauth')],
     status='On the App Store and Google Play',
     hero=dict(kind='wide', src='zeroauth-hero.webp', w=1200, h=900, alt='Two iPhones showing the ZeroAuth code list with live six-digit codes'),
@@ -44,7 +44,7 @@ PRODUCTS = [
     site='https://zeroauth.in', site_label='zeroauth.in', support=('Support', 'mailto:support@zeroauth.in', 'support@zeroauth.in'),
   ),
   dict(
-    slug='saifu', name='Saifu', icon='saifu.svg', tone='lime', job='Credit card advisor for India',
+    slug='saifu', name='Saifu', icon='saifu.svg', job='Credit card advisor for India',
     title='Saifu: which credit card to use at checkout',
     desc='Saifu tells you which of your credit cards pays most for each purchase, and tracks fee waivers, caps, expiring points and lounge visits, on your phone.',
     headline='Which card at checkout. And what you are about to lose.',
@@ -87,7 +87,7 @@ PRODUCTS = [
     site='https://saifu.in', site_label='saifu.in', support=('Privacy questions', 'mailto:privacy@saifu.in', 'privacy@saifu.in'),
   ),
   dict(
-    slug='parchi', name='Parchi', icon='parchi.png', tone='sage', job='Family medical papers',
+    slug='parchi', name='Parchi', icon='parchi.png', job='Family medical papers',
     title='Parchi: family medical papers on iPhone and Android',
     desc='Parchi reads and keeps your family\'s prescriptions, lab reports and hospital bills on your phone, with no account and no servers.',
     headline='Your family\'s medical papers, read and kept on your phone.',
@@ -132,7 +132,7 @@ PRODUCTS = [
     site='https://getparchi.com', site_label='getparchi.com', support=('Support', 'mailto:support@getparchi.com', 'support@getparchi.com'),
   ),
   dict(
-    slug='tegami', name='Tegami', icon='tegami.png', tone='pale', job='City-hall letters, for residents of Japan',
+    slug='tegami', name='Tegami', icon='tegami.png', job='City-hall letters, for residents of Japan',
     title='Tegami: letters from city hall in Japan, explained in plain English',
     desc='Tegami tells you what a letter from a Japanese government office is, what you need to do, and by when, without the letter leaving your iPhone.',
     headline='Every letter from city hall, explained in plain English.',
@@ -169,14 +169,14 @@ PRODUCTS = [
 
   # ---- Passo: facts from passo.optionallabs.com and its repo's site ----
   dict(
-    slug='passo', name='Passo', icon='passo.png', tone='forest', job='Travel stamps journal for iPhone',
+    slug='passo', name='Passo', icon='passo.png', job='Travel stamps journal for iPhone',
     title='Passo: a passport you can stamp, on your iPhone',
     desc='Passo is a private travel journal for iPhone that feels like the real book. Your passport details stay on the phone, and a stamp lands only when you say yes.',
     headline='A passport you can stamp.',
     lede='A private travel journal for your iPhone, made to feel like the real book. Your details stay on the phone. A stamp lands only when you say yes.',
     problem='Trips blur together in a photo roll, and keeping a record of them should not mean handing your passport to an app.',
     fix='Passo keeps your passport details in an encrypted vault on the iPhone, adds a stamp only after you confirm an arrival, and shares trips with personal fields hidden.',
-    actions=[('btn-lime', 'Visit passo.optionallabs.com', 'https://passo.optionallabs.com', True)],
+    actions=[('btn-ink', 'Visit passo.optionallabs.com', 'https://passo.optionallabs.com', True)],
     badges=[('app-store', 'https://apps.apple.com/us/app/passo-travel-stamps/id6827809454')],
     status='Free on the App Store for iPhone with iOS 18 or later. A travel journal, not a travel document.',
     hero=dict(kind='wide', src='passo-spread.webp', w=1100, h=723, alt='The open Passo passport spread with ink stamps, shown with sample data'),
@@ -219,7 +219,7 @@ PRODUCTS = [
 
   # ---- JobMatch: facts from jobmatch.optionallabs.com and its repo ----
   dict(
-    slug='jobmatch', name='JobMatch', icon='jobmatch.png', tone='lime', job='Job search for India, on your computer',
+    slug='jobmatch', name='JobMatch', icon='jobmatch.png', job='Job search for India, on your computer',
     title='JobMatch: rank Naukri, LinkedIn, Indeed and Glassdoor jobs by your resume',
     desc='JobMatch reads your resume on your own computer, searches Naukri, LinkedIn, Indeed and Glassdoor together, and scores every job from 0 to 100 by how well it fits you.',
     headline='Upload your resume once. See the jobs that fit.',
@@ -263,7 +263,7 @@ PRODUCTS = [
 
   # ---- Helm: facts from helm.optionallabs.com and its repo ----
   dict(
-    slug='helm', name='Helm', icon='helm.svg', tone='sage', job='Your Mac, from iPhone or Android',
+    slug='helm', name='Helm', icon='helm.svg', job='Your Mac, from iPhone or Android',
     title='Helm: open a terminal on your Mac from your iPhone or Android',
     desc='Helm opens a terminal on your Mac from your iPhone or Android for free. Pro adds screen control, file transfer, chat and audio.',
     headline='Your Mac, in your pocket.',
@@ -308,7 +308,7 @@ PRODUCTS = [
 
   # ---- Revive: facts from revive.optionallabs.com and the heliostrap repo README ----
   dict(
-    slug='revive', name='Revive', icon='revive.png', tone='pale', job='Sleep, recovery and HRV from your wearable',
+    slug='revive', name='Revive', icon='revive.png', job='Sleep, recovery and HRV from your wearable',
     title='Revive: sleep, recovery and HRV from your wearable',
     desc='Revive tells you how you slept, how recovered you are and what today can take, in plain words, from the wearable you already own. Your health data stays on your phone.',
     headline='Answers, not dashboards.',

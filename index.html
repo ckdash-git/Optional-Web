@@ -23,6 +23,8 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Optional Labs","legalName":"Optional Labs LLP","identifier":{"@type":"PropertyValue","propertyID":"LLPIN","value":"ADD-5789"},"url":"https://optionallabs.com/","logo":"https://optionallabs.com/assets/img/icon-512.png","email":"contact@optionallabs.com","address":{"@type":"PostalAddress","streetAddress":"Kotpad, Koraput Dist","addressLocality":"Kotpad","addressRegion":"Odisha","postalCode":"764058","addressCountry":"IN"},"brand":[{"@type":"Brand","name":"ZeroAuth","url":"https://zeroauth.in"},{"@type":"Brand","name":"Saifu","url":"https://saifu.in"},{"@type":"Brand","name":"Parchi","url":"https://getparchi.com"},{"@type":"Brand","name":"Tegami","url":"https://tegami.optionallabs.com"},{"@type":"Brand","name":"Passo","url":"https://passo.optionallabs.com"},{"@type":"Brand","name":"JobMatch","url":"https://jobmatch.optionallabs.com"},{"@type":"Brand","name":"Helm","url":"https://helm.optionallabs.com"},{"@type":"Brand","name":"Revive","url":"https://revive.optionallabs.com"}]}</script>
   <!-- /gen:org-ld -->
   <link rel="preload" href="assets/fonts/inter-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/screens/saifu-home-320.webp" imagesrcset="assets/screens/saifu-home-320.webp 320w, assets/screens/saifu-home.webp 560w" imagesizes="(max-width: 960px) 46vw, 260px" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/screens/revive-recovery-320.webp" imagesrcset="assets/screens/revive-recovery-320.webp 320w, assets/screens/revive-recovery.webp 560w" imagesizes="(max-width: 960px) 46vw, 260px" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/site.css">
   <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -37,12 +39,18 @@
         <a href="#how">How we build</a>
         <a href="careers/">Careers</a>
         <a href="#contact">Contact</a>
-        <a class="btn btn-lime" href="enquire/">Enquire</a>
+        <a class="btn btn-coral" href="enquire/">Enquire</a>
       </nav>
       <details class="menu">
         <summary class="menu-btn"><span class="menu-icon" aria-hidden="true"></span>Menu</summary>
         <div class="menu-panel">
-          <a class="btn btn-lime menu-cta" href="enquire/">Enquire</a>
+          <a class="btn btn-coral menu-cta" href="enquire/">Enquire</a>
+          <ul class="menu-links">
+            <li><a href="about/">About</a></li>
+            <li><a href="#how">How we build</a></li>
+            <li><a href="careers/">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
           <ul class="menu-apps">
             <!-- gen:menu-apps -->
             <li><a href="zeroauth/"><img src="assets/img/zeroauth.png" alt="" width="40" height="40">ZeroAuth<small>Authenticator</small></a></li>
@@ -55,13 +63,6 @@
             <li><a href="revive/"><img src="assets/img/revive.png" alt="" width="40" height="40">Revive<small>Sleep and recovery</small></a></li>
             <!-- /gen:menu-apps -->
           </ul>
-          <ul class="menu-links">
-            <li><a href="about/">About</a></li>
-            <li><a href="#how">How we build</a></li>
-            <li><a href="careers/">Careers</a></li>
-            <li><a href="enquire/">Enquire</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
         </div>
       </details>
     </div>
@@ -70,68 +71,21 @@
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 class="display hero-title" id="hero-title"><span>Your data.</span> <span>Your device.</span> <span>Your call.</span></h1>
+        <h1 class="display hero-title" id="hero-title"><span>Your data.</span> <span>Your device.</span> <span>Your call<i class="dot">.</i></span></h1>
         <p class="lede">Optional Labs makes eight small apps for phones and computers. Each one shows you what stays on your device and what leaves it.</p>
         <div class="hero-cta">
-          <a class="btn btn-lime btn-lg" href="#apps">Explore the apps</a>
+          <a class="btn btn-coral btn-lg" href="#apps">Explore the apps</a>
           <a class="btn btn-sage btn-lg" href="#how">How we build</a>
         </div>
       </div>
 
-      <figure class="receipt" data-receipt aria-labelledby="receipt-title">
-        <div class="receipt-head">
-          <h2 id="receipt-title">What each app sends off your device</h2>
-          <button class="replay" type="button" data-replay hidden>
-            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10a6 6 0 1 0 1.76-4.24M4 4v3.5h3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Replay
-          </button>
-        </div>
-        <ul class="receipt-rows">
-          <!-- gen:receipt-rows -->
-          <li><a class="row" href="zeroauth/">
-              <img src="assets/img/zeroauth.png" alt="" width="48" height="48">
-              <span class="row-name">ZeroAuth<small>Codes, passwords and 2FA seeds stay on the phone.</small></span>
-              <span class="row-val"><span class="row-check" aria-hidden="true"></span><span class="sr">Sent off your device: </span>No codes or passwords</span>
-            </a></li>
-          <li><a class="row" href="saifu/">
-              <img src="assets/img/saifu.svg" alt="" width="48" height="48">
-              <span class="row-name">Saifu<small>Your cards and spends stay on the phone.</small></span>
-              <span class="row-val"><span class="row-check" aria-hidden="true"></span><span class="sr">Sent off your device: </span>Nothing</span>
-            </a></li>
-          <li><a class="row" href="parchi/">
-              <img src="assets/img/parchi.png" alt="" width="48" height="48">
-              <span class="row-name">Parchi<small>Your family&#x27;s medical papers stay on the phone.</small></span>
-              <span class="row-val"><span class="row-check" aria-hidden="true"></span><span class="sr">Sent off your device: </span>Nothing</span>
-            </a></li>
-          <li><a class="row" href="tegami/">
-              <img src="assets/img/tegami.png" alt="" width="48" height="48">
-              <span class="row-name">Tegami<small>Letters from city hall stay on the phone.</small></span>
-              <span class="row-val"><span class="row-check" aria-hidden="true"></span><span class="sr">Sent off your device: </span>Nothing</span>
-            </a></li>
-          <li><a class="row" href="passo/">
-              <img src="assets/img/passo.png" alt="" width="48" height="48">
-              <span class="row-name">Passo<small>Passport details stay on the phone.</small></span>
-              <span class="row-val"><span class="row-check" aria-hidden="true"></span><span class="sr">Sent off your device: </span>Nothing</span>
-            </a></li>
-          <li><a class="row" href="jobmatch/">
-              <img src="assets/img/jobmatch.png" alt="" width="48" height="48">
-              <span class="row-name">JobMatch<small>Resume and history stay on your computer. Job boards see a title and a city.</small></span>
-              <span class="row-val"><span class="row-check" aria-hidden="true"></span><span class="sr">Sent off your device: </span>Search words only</span>
-            </a></li>
-          <li><a class="row" href="helm/">
-              <img src="assets/img/helm.svg" alt="" width="48" height="48">
-              <span class="row-name">Helm<small>Our server only introduces your devices. It holds your account and device names.</small></span>
-              <span class="row-val"><span class="row-check" aria-hidden="true"></span><span class="sr">Sent off your device: </span>Encrypted, device to device</span>
-            </a></li>
-          <li><a class="row" href="revive/">
-              <img src="assets/img/revive.png" alt="" width="48" height="48">
-              <span class="row-name">Revive<small>A short summary leaves only if you turn on AI explanations.</small></span>
-              <span class="row-val"><span class="row-check" aria-hidden="true"></span><span class="sr">Sent off your device: </span>Nothing by default</span>
-            </a></li>
-          <!-- /gen:receipt-rows -->
-        </ul>
-        <figcaption class="receipt-foot">Every app's own privacy policy lists all of it. Tap an app to read how it works.</figcaption>
-      </figure>
+      <div class="hero-stage">
+        <div class="stage-lottie" aria-hidden="true"><div data-lottie="ripple"></div></div>
+        <div class="phone stage-a"><img src="assets/screens/revive-recovery-320.webp" srcset="assets/screens/revive-recovery-320.webp 320w, assets/screens/revive-recovery.webp 560w" sizes="(max-width: 960px) 46vw, 260px" alt="Revive's recovery screen" width="560" height="1218" fetchpriority="high"></div>
+        <div class="phone stage-b"><img src="assets/screens/saifu-home-320.webp" srcset="assets/screens/saifu-home-320.webp 320w, assets/screens/saifu-home.webp 560w" sizes="(max-width: 960px) 46vw, 260px" alt="Saifu's home screen" width="560" height="1212" fetchpriority="high"></div>
+        <p class="hero-chip chip-a"><img src="assets/img/parchi.png" alt="" width="30" height="30">Parchi: papers stay on the phone</p>
+        <p class="hero-chip chip-b"><img src="assets/img/zeroauth.png" alt="" width="30" height="30">ZeroAuth: no codes or passwords leave</p>
+      </div>
     </section>
 
     <section class="apps" id="apps" aria-labelledby="apps-title">
@@ -141,223 +95,221 @@
           <p class="lede">Each app fixes one everyday problem, and keeps what you give it with you.</p>
         </div>
 
-        <ol class="app-list">
+        <ol class="tiles">
           <!-- gen:app-bands -->
-          <li class="app app-forest" id="zeroauth" data-reveal>
-            <div class="app-main">
-              <img class="app-icon" src="assets/img/zeroauth.png" alt="" width="96" height="96" loading="lazy">
+          <li class="tile t-saifu tile-lg" id="saifu" data-reveal>
+            <div class="tile-head">
+              <img class="tile-icon" src="assets/img/saifu.svg" alt="" width="56" height="56" loading="lazy">
               <div>
-                <h3 class="app-name">ZeroAuth</h3>
-                <p class="app-job">Authenticator for iPhone and Android</p>
+                <h3 class="tile-name"><a class="tile-link" href="saifu/">Saifu</a></h3>
+                <p class="tile-job">Credit card advisor for India</p>
               </div>
             </div>
-            <div class="app-body">
-              <dl class="pf">
-                <div class="pf-row pf-problem"><dt>The problem</dt><dd>Many authenticator apps sync your secret keys to the cloud, where one breach can expose every code.</dd></div>
-                <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>ZeroAuth makes your codes on the phone, with no internet needed, and keeps the keys in an encrypted vault that never leaves it.</dd></div>
-              </dl>
-              <ul class="app-facts">
-                <li>Codes work offline</li>
-                <li>AES-256-GCM vault</li>
-                <li>Face ID and fingerprint lock</li>
-              </ul>
-              <div class="app-actions">
-                <a class="btn btn-lime" href="zeroauth/">More about ZeroAuth<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                <a class="btn btn-ghost" href="https://zeroauth.in">Visit zeroauth.in</a>
-                <span class="badges">
-                  <a class="store-badge" href="https://apps.apple.com/in/app/zeroauth/id6764048764"><img src="assets/img/badge-app-store.svg" alt="Download ZeroAuth on App Store" width="135" height="45"></a>
-                  <a class="store-badge gp" href="https://play.google.com/store/apps/details?id=com.OptionalLabs.zeroauth"><img src="assets/img/badge-google-play.png" alt="Get ZeroAuth on Google Play" width="168" height="65"></a>
-                </span>
+            <dl class="pf">
+              <div class="pf-row pf-problem"><dt>The problem</dt><dd>With a few credit cards, it is hard to know which one pays most at checkout, and fee waivers, monthly caps and expiring points slip by.</dd></div>
+              <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Saifu ranks your cards for each spend and warns you before a fee waiver, a cap or your points run out.</dd></div>
+            </dl>
+            <div class="tile-foot">
+              <a class="tile-visit" href="https://saifu.in" aria-label="Visit saifu.in">Visit site</a>
+              <span class="tile-go" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <div class="phone tile-shot"><img src="assets/screens/saifu-home.webp" alt="" width="560" height="1212" loading="lazy"></div>
+          </li>
+
+          <li class="tile t-parchi tile-lg" id="parchi" data-reveal>
+            <div class="tile-head">
+              <img class="tile-icon" src="assets/img/parchi.png" alt="" width="56" height="56" loading="lazy">
+              <div>
+                <h3 class="tile-name"><a class="tile-link" href="parchi/">Parchi</a></h3>
+                <p class="tile-job">Family medical papers</p>
               </div>
+            </div>
+            <dl class="pf">
+              <div class="pf-row pf-problem"><dt>The problem</dt><dd>Prescriptions, lab reports and hospital bills pile up in drawers and photo galleries, and the one you need is never at hand at the doctor&#x27;s.</dd></div>
+              <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Parchi reads each paper on your phone, files it under the right family member and makes a one-page summary for the next visit.</dd></div>
+            </dl>
+            <div class="tile-foot">
+              <a class="tile-visit" href="https://getparchi.com" aria-label="Visit getparchi.com">Visit site</a>
+              <span class="tile-go" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+            <div class="phone tile-shot"><img src="assets/screens/parchi-add.webp" alt="" width="560" height="1212" loading="lazy"></div>
+          </li>
+
+          <li class="tile t-zeroauth" id="zeroauth" data-reveal>
+            <div class="tile-head">
+              <img class="tile-icon" src="assets/img/zeroauth.png" alt="" width="56" height="56" loading="lazy">
+              <div>
+                <h3 class="tile-name"><a class="tile-link" href="zeroauth/">ZeroAuth</a></h3>
+                <p class="tile-job">Authenticator for iPhone and Android</p>
+              </div>
+            </div>
+            <dl class="pf">
+              <div class="pf-row pf-problem"><dt>The problem</dt><dd>Many authenticator apps sync your secret keys to the cloud, where one breach can expose every code.</dd></div>
+              <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>ZeroAuth makes your codes on the phone, with no internet needed, and keeps the keys in an encrypted vault that never leaves it.</dd></div>
+            </dl>
+            <div class="tile-foot">
+              <a class="tile-visit" href="https://zeroauth.in" aria-label="Visit zeroauth.in">Visit site</a>
+              <span class="tile-go" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </li>
 
-          <li class="app app-lime" id="saifu" data-reveal>
-            <div class="app-main">
-              <img class="app-icon" src="assets/img/saifu.svg" alt="" width="96" height="96" loading="lazy">
+          <li class="tile t-tegami" id="tegami" data-reveal>
+            <div class="tile-head">
+              <img class="tile-icon" src="assets/img/tegami.png" alt="" width="56" height="56" loading="lazy">
               <div>
-                <h3 class="app-name">Saifu</h3>
-                <p class="app-job">Credit card advisor for India</p>
+                <h3 class="tile-name"><a class="tile-link" href="tegami/">Tegami</a></h3>
+                <p class="tile-job">City-hall letters, for residents of Japan</p>
               </div>
             </div>
-            <div class="app-body">
-              <dl class="pf">
-                <div class="pf-row pf-problem"><dt>The problem</dt><dd>With a few credit cards, it is hard to know which one pays most at checkout, and fee waivers, monthly caps and expiring points slip by.</dd></div>
-                <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Saifu ranks your cards for each spend and warns you before a fee waiver, a cap or your points run out.</dd></div>
-              </dl>
-              <ul class="app-facts">
-                <li>336 Indian cards listed</li>
-                <li>Spends stay on your phone</li>
-                <li>No card numbers or bank login</li>
-              </ul>
-              <div class="app-actions">
-                <a class="btn btn-ink" href="saifu/">More about Saifu<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                <a class="btn btn-ghost" href="https://saifu.in">Visit saifu.in</a>
-                <a class="btn btn-ghost" href="https://saifu.in/card-finder/">Find my best card</a>
-                <span class="status">Web tools live now.</span>
-              </div>
+            <dl class="pf">
+              <div class="pf-row pf-problem"><dt>The problem</dt><dd>Letters from Japanese government offices come in formal Japanese, with deadlines, amounts and era dates that are easy to miss.</dd></div>
+              <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Tegami tells you what the letter is, what to do and by when, in plain English, without the letter leaving your phone.</dd></div>
+            </dl>
+            <div class="tile-foot">
+              <a class="tile-visit" href="https://tegami.optionallabs.com" aria-label="Visit tegami.optionallabs.com">Visit site</a>
+              <span class="tile-go" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </li>
 
-          <li class="app app-sage" id="parchi" data-reveal>
-            <div class="app-main">
-              <img class="app-icon" src="assets/img/parchi.png" alt="" width="96" height="96" loading="lazy">
+          <li class="tile t-passo" id="passo" data-reveal>
+            <div class="tile-head">
+              <img class="tile-icon" src="assets/img/passo.png" alt="" width="56" height="56" loading="lazy">
               <div>
-                <h3 class="app-name">Parchi</h3>
-                <p class="app-job">Family medical papers</p>
+                <h3 class="tile-name"><a class="tile-link" href="passo/">Passo</a></h3>
+                <p class="tile-job">Travel stamps journal for iPhone</p>
               </div>
             </div>
-            <div class="app-body">
-              <dl class="pf">
-                <div class="pf-row pf-problem"><dt>The problem</dt><dd>Prescriptions, lab reports and hospital bills pile up in drawers and photo galleries, and the one you need is never at hand at the doctor&#x27;s.</dd></div>
-                <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Parchi reads each paper on your phone, files it under the right family member and makes a one-page summary for the next visit.</dd></div>
-              </dl>
-              <ul class="app-facts">
-                <li>Read on the phone</li>
-                <li>Medicine reminders</li>
-                <li>Health card per person</li>
-              </ul>
-              <div class="app-actions">
-                <a class="btn btn-ink" href="parchi/">More about Parchi<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                <a class="btn btn-ghost" href="https://getparchi.com">Visit getparchi.com</a>
-                <span class="status">Coming soon to the App Store and Google Play.</span>
-              </div>
+            <dl class="pf">
+              <div class="pf-row pf-problem"><dt>The problem</dt><dd>Trips blur together in a photo roll, and keeping a record of them should not mean handing your passport to an app.</dd></div>
+              <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Passo keeps your passport details in an encrypted vault on the iPhone, adds a stamp only after you confirm an arrival, and shares trips with personal fields hidden.</dd></div>
+            </dl>
+            <div class="tile-foot">
+              <a class="tile-visit" href="https://passo.optionallabs.com" aria-label="Visit passo.optionallabs.com">Visit site</a>
+              <span class="tile-go" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </li>
 
-          <li class="app app-pale" id="tegami" data-reveal>
-            <div class="app-main">
-              <img class="app-icon" src="assets/img/tegami.png" alt="" width="96" height="96" loading="lazy">
+          <li class="tile t-helm" id="helm" data-reveal>
+            <div class="tile-head">
+              <img class="tile-icon" src="assets/img/helm.svg" alt="" width="56" height="56" loading="lazy">
               <div>
-                <h3 class="app-name">Tegami</h3>
-                <p class="app-job">City-hall letters, for residents of Japan</p>
+                <h3 class="tile-name"><a class="tile-link" href="helm/">Helm</a></h3>
+                <p class="tile-job">Your Mac, from iPhone or Android</p>
               </div>
             </div>
-            <div class="app-body">
-              <dl class="pf">
-                <div class="pf-row pf-problem"><dt>The problem</dt><dd>Letters from Japanese government offices come in formal Japanese, with deadlines, amounts and era dates that are easy to miss.</dd></div>
-                <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Tegami tells you what the letter is, what to do and by when, in plain English, without the letter leaving your phone.</dd></div>
-              </dl>
-              <ul class="app-facts">
-                <li>Deadlines pulled out</li>
-                <li>Era dates converted</li>
-                <li>Letters encrypted on the phone</li>
-              </ul>
-              <div class="app-actions">
-                <a class="btn btn-ink" href="tegami/">More about Tegami<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                <a class="btn btn-ghost" href="https://tegami.optionallabs.com">Visit tegami.optionallabs.com</a>
-                <span class="status">Coming soon to the App Store.</span>
-              </div>
+            <dl class="pf">
+              <div class="pf-row pf-problem"><dt>The problem</dt><dd>You are away from your desk and your Mac needs you: a build to restart, a service to check, a long job to watch.</dd></div>
+              <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Helm opens a terminal on your Mac from your iPhone or Android, with screen, files, chat and audio on Pro. There is no SSH, VPN or port forwarding to set up.</dd></div>
+            </dl>
+            <div class="tile-foot">
+              <a class="tile-visit" href="https://helm.optionallabs.com" aria-label="Visit helm.optionallabs.com">Visit site</a>
+              <span class="tile-go" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </li>
 
-          <li class="app app-forest" id="passo" data-reveal>
-            <div class="app-main">
-              <img class="app-icon" src="assets/img/passo.png" alt="" width="96" height="96" loading="lazy">
+          <li class="tile t-jobmatch tile-lg" id="jobmatch" data-reveal>
+            <div class="tile-head">
+              <img class="tile-icon" src="assets/img/jobmatch.png" alt="" width="56" height="56" loading="lazy">
               <div>
-                <h3 class="app-name">Passo</h3>
-                <p class="app-job">Travel stamps journal for iPhone</p>
+                <h3 class="tile-name"><a class="tile-link" href="jobmatch/">JobMatch</a></h3>
+                <p class="tile-job">Job search for India, on your computer</p>
               </div>
             </div>
-            <div class="app-body">
-              <dl class="pf">
-                <div class="pf-row pf-problem"><dt>The problem</dt><dd>Trips blur together in a photo roll, and keeping a record of them should not mean handing your passport to an app.</dd></div>
-                <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Passo keeps your passport details in an encrypted vault on the iPhone, adds a stamp only after you confirm an arrival, and shares trips with personal fields hidden.</dd></div>
-              </dl>
-              <ul class="app-facts">
-                <li>Private vault</li>
-                <li>Confirm-first stamps</li>
-                <li>Visa scan</li>
-              </ul>
-              <div class="app-actions">
-                <a class="btn btn-lime" href="passo/">More about Passo<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                <a class="btn btn-ghost" href="https://passo.optionallabs.com">Visit passo.optionallabs.com</a>
-                <span class="badges">
-                  <a class="store-badge" href="https://apps.apple.com/us/app/passo-travel-stamps/id6827809454"><img src="assets/img/badge-app-store.svg" alt="Download Passo on App Store" width="135" height="45"></a>
-                </span>
-              </div>
+            <dl class="pf">
+              <div class="pf-row pf-problem"><dt>The problem</dt><dd>Four job sites, four searches, the same job posted three times, and no way to tell which of hundreds of posts actually fit your resume.</dd></div>
+              <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>JobMatch searches the four boards at once, scores every job against your resume, and shows the skills you have and the ones to add.</dd></div>
+            </dl>
+            <div class="tile-foot">
+              <a class="tile-visit" href="https://jobmatch.optionallabs.com" aria-label="Visit jobmatch.optionallabs.com">Visit site</a>
+              <span class="tile-go" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
+            <div class="win win-tile"><div class="win-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="assets/screens/jobmatch-search.webp" alt="" width="800" height="596" loading="lazy"></div>
           </li>
 
-          <li class="app app-lime" id="jobmatch" data-reveal>
-            <div class="app-main">
-              <img class="app-icon" src="assets/img/jobmatch.png" alt="" width="96" height="96" loading="lazy">
+          <li class="tile t-revive tile-lg" id="revive" data-reveal>
+            <div class="tile-head">
+              <img class="tile-icon" src="assets/img/revive.png" alt="" width="56" height="56" loading="lazy">
               <div>
-                <h3 class="app-name">JobMatch</h3>
-                <p class="app-job">Job search for India, on your computer</p>
+                <h3 class="tile-name"><a class="tile-link" href="revive/">Revive</a></h3>
+                <p class="tile-job">Sleep, recovery and HRV from your wearable</p>
               </div>
             </div>
-            <div class="app-body">
-              <dl class="pf">
-                <div class="pf-row pf-problem"><dt>The problem</dt><dd>Four job sites, four searches, the same job posted three times, and no way to tell which of hundreds of posts actually fit your resume.</dd></div>
-                <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>JobMatch searches the four boards at once, scores every job against your resume, and shows the skills you have and the ones to add.</dd></div>
-              </dl>
-              <ul class="app-facts">
-                <li>Scores every job 0 to 100</li>
-                <li>Four job boards at once</li>
-                <li>Resume stays on your computer</li>
-              </ul>
-              <div class="app-actions">
-                <a class="btn btn-ink" href="jobmatch/">More about JobMatch<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                <a class="btn btn-ghost" href="https://jobmatch.optionallabs.com">Visit jobmatch.optionallabs.com</a>
-                <span class="status">For Windows 10/11 and macOS.</span>
-              </div>
+            <dl class="pf">
+              <div class="pf-row pf-problem"><dt>The problem</dt><dd>Most health apps hand you a wall of figures, and compare you with a stranger instead of with your own normal.</dd></div>
+              <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Revive says how you slept and how ready you are in plain words, then shows the number behind it, always against your own normal.</dd></div>
+            </dl>
+            <div class="tile-foot">
+              <a class="tile-visit" href="https://revive.optionallabs.com" aria-label="Visit revive.optionallabs.com">Visit site</a>
+              <span class="tile-go" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
-          </li>
-
-          <li class="app app-sage" id="helm" data-reveal>
-            <div class="app-main">
-              <img class="app-icon" src="assets/img/helm.svg" alt="" width="96" height="96" loading="lazy">
-              <div>
-                <h3 class="app-name">Helm</h3>
-                <p class="app-job">Your Mac, from iPhone or Android</p>
-              </div>
-            </div>
-            <div class="app-body">
-              <dl class="pf">
-                <div class="pf-row pf-problem"><dt>The problem</dt><dd>You are away from your desk and your Mac needs you: a build to restart, a service to check, a long job to watch.</dd></div>
-                <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Helm opens a terminal on your Mac from your iPhone or Android, with screen, files, chat and audio on Pro. There is no SSH, VPN or port forwarding to set up.</dd></div>
-              </dl>
-              <ul class="app-facts">
-                <li>Free terminal</li>
-                <li>Screen, files, chat and audio on Pro</li>
-                <li>Approve each device on your Mac</li>
-              </ul>
-              <div class="app-actions">
-                <a class="btn btn-ink" href="helm/">More about Helm<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                <a class="btn btn-ghost" href="https://helm.optionallabs.com">Visit helm.optionallabs.com</a>
-                <span class="status">Free to start: the terminal costs nothing and has no time limit.</span>
-              </div>
-            </div>
-          </li>
-
-          <li class="app app-pale" id="revive" data-reveal>
-            <div class="app-main">
-              <img class="app-icon" src="assets/img/revive.png" alt="" width="96" height="96" loading="lazy">
-              <div>
-                <h3 class="app-name">Revive</h3>
-                <p class="app-job">Sleep, recovery and HRV from your wearable</p>
-              </div>
-            </div>
-            <div class="app-body">
-              <dl class="pf">
-                <div class="pf-row pf-problem"><dt>The problem</dt><dd>Most health apps hand you a wall of figures, and compare you with a stranger instead of with your own normal.</dd></div>
-                <div class="pf-row pf-fix"><dt>What we fixed</dt><dd>Revive says how you slept and how ready you are in plain words, then shows the number behind it, always against your own normal.</dd></div>
-              </dl>
-              <ul class="app-facts">
-                <li>Recovery, sleep and HRV</li>
-                <li>Your own normal, not a stranger&#x27;s</li>
-                <li>AI explanations off by default</li>
-              </ul>
-              <div class="app-actions">
-                <a class="btn btn-ink" href="revive/">More about Revive<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h10m-4-4 4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-                <a class="btn btn-ghost" href="https://revive.optionallabs.com">Visit revive.optionallabs.com</a>
-                <span class="status">Coming soon to the App Store and Google Play.</span>
-              </div>
-            </div>
+            <div class="phone tile-shot"><img src="assets/screens/revive-recovery.webp" alt="" width="560" height="1218" loading="lazy"></div>
           </li>
           <!-- /gen:app-bands -->
         </ol>
+      </div>
+    </section>
+
+    <section class="proof-panel wrap" id="proof" aria-labelledby="proof-title">
+      <div class="panel-in">
+        <div class="panel-head">
+          <h2 class="display" id="proof-title">We say what leaves your device.</h2>
+          <p class="lede">Every app lists it in plain words, and this website claims only what the apps do.</p>
+          <a class="btn btn-coral btn-lg" href="#how">Read how we build</a>
+        </div>
+        <figure class="receipt" data-receipt aria-labelledby="receipt-title">
+          <div class="receipt-head">
+            <h3 id="receipt-title">What each app sends off your device</h3>
+            <button class="replay" type="button" data-replay hidden>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10a6 6 0 1 0 1.76-4.24M4 4v3.5h3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Replay
+            </button>
+          </div>
+          <ul class="receipt-rows">
+            <!-- gen:receipt-rows -->
+          <li><a class="row" href="zeroauth/">
+              <img src="assets/img/zeroauth.png" alt="" width="48" height="48">
+              <span class="row-name">ZeroAuth<small>Codes, passwords and 2FA seeds stay on the phone.</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true" data-lottie="check"></span><span class="sr">Sent off your device: </span>No codes or passwords</span>
+            </a></li>
+          <li><a class="row" href="saifu/">
+              <img src="assets/img/saifu.svg" alt="" width="48" height="48">
+              <span class="row-name">Saifu<small>Your cards and spends stay on the phone.</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true" data-lottie="check"></span><span class="sr">Sent off your device: </span>Nothing</span>
+            </a></li>
+          <li><a class="row" href="parchi/">
+              <img src="assets/img/parchi.png" alt="" width="48" height="48">
+              <span class="row-name">Parchi<small>Your family&#x27;s medical papers stay on the phone.</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true" data-lottie="check"></span><span class="sr">Sent off your device: </span>Nothing</span>
+            </a></li>
+          <li><a class="row" href="tegami/">
+              <img src="assets/img/tegami.png" alt="" width="48" height="48">
+              <span class="row-name">Tegami<small>Letters from city hall stay on the phone.</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true" data-lottie="check"></span><span class="sr">Sent off your device: </span>Nothing</span>
+            </a></li>
+          <li><a class="row" href="passo/">
+              <img src="assets/img/passo.png" alt="" width="48" height="48">
+              <span class="row-name">Passo<small>Passport details stay on the phone.</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true" data-lottie="check"></span><span class="sr">Sent off your device: </span>Nothing</span>
+            </a></li>
+          <li><a class="row" href="jobmatch/">
+              <img src="assets/img/jobmatch.png" alt="" width="48" height="48">
+              <span class="row-name">JobMatch<small>Resume and history stay on your computer. Job boards see a title and a city.</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true" data-lottie="check"></span><span class="sr">Sent off your device: </span>Search words only</span>
+            </a></li>
+          <li><a class="row" href="helm/">
+              <img src="assets/img/helm.svg" alt="" width="48" height="48">
+              <span class="row-name">Helm<small>Our server only introduces your devices. It holds your account and device names.</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true" data-lottie="check"></span><span class="sr">Sent off your device: </span>Encrypted, device to device</span>
+            </a></li>
+          <li><a class="row" href="revive/">
+              <img src="assets/img/revive.png" alt="" width="48" height="48">
+              <span class="row-name">Revive<small>A short summary leaves only if you turn on AI explanations.</small></span>
+              <span class="row-val"><span class="row-check" aria-hidden="true" data-lottie="check"></span><span class="sr">Sent off your device: </span>Nothing by default</span>
+            </a></li>
+            <!-- /gen:receipt-rows -->
+          </ul>
+          <figcaption class="receipt-foot">Every app's own privacy policy lists all of it. Tap an app to read how it works.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -427,6 +379,10 @@
           <li><a href="revive/"><img src="assets/img/revive.png" alt="" width="56" height="56" loading="lazy">Revive</a></li>
           <!-- /gen:close-apps -->
         </ul>
+        <div class="close-build">
+          <p>Need something built for your business?</p>
+          <a class="btn btn-ink btn-lg" href="enquire/">Send an enquiry</a>
+        </div>
       </div>
     </section>
   </main>
